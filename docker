@@ -1,0 +1,32 @@
+
+  116  docker ps -a
+  117  docker stop --help
+  118  docker stop web dblink
+  119  docker ps
+  120  docker ps --all
+  121  docker run -it centos bash
+  122  docker ps -a
+  138  docker ps -l
+  139  docker start 87752d85eca5
+  140  docker attach 87752d85eca5
+  142  docker ps -a
+  143  docker run -it --name container-data -h CONTAINER -v /data debian /bin/bash
+  146  docker run -it --name container-dataa -h ACONTAINER -v /data debian /bin/bash
+  147  docker run -it -h NEWCONTAINER --volumes-from container-data debian bash
+  148  docker run -it -h NEWCONTAINER2 --volumes-from container-data debian bash
+  149  history
+[root@vmhyd1 ~]# docker images
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+docker.io/ubuntu              latest              113a43faa138        2 weeks ago         81.2 MB
+docker.io/centos              latest              49f7960eb7e4        2 weeks ago         200 MB
+docker.io/debian              latest              8626492fecd3        7 weeks ago         101 MB
+docker.io/training/webapp     latest              6fae60ef3446        3 years ago         349 MB
+docker.io/training/postgres   latest              6fa973bb3c26        4 years ago         365 MB
+[root@vmhyd1 ~]# docker create -v /testdb2 --name testdb2 training/postgres /bin/true
+6cf2ce579738f10124aeeef919fbbd4a2eedf99a9f0a2f69c26ad1c4c2ddba55
+[root@vmhyd1 ~]# docker run --volums-from testdb2 -v$(pwd):/backup ubuntu tar cvf /backup/testdb2.tar /testdb2
+unknown flag: --volums-from
+See 'docker run --help'.
+[root@vmhyd1 ~]# docker run --volumes-from testdb2 -v$(pwd):/backup ubuntu tar cvf /backup/testdb2.tar /testdb2
+tar: Removing leading `/' from member names
+/testdb2/
