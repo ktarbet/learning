@@ -1,0 +1,20 @@
+/usr/openwin/bin/xterm &
+
+/opt/developerstudio12.6/bin/dbxtool
+
+
+## Debugging with dBX..
+
+stop at  Main.java:20
+
+next   (step over line)
+stepi  (step into method)
+step up  (step ou)
+
+whereami
+list
+
+jon    (swtich from native to java)
+joff  (switch back to native)
+jpkgs
+
