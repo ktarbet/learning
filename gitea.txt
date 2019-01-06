@@ -1,0 +1,21 @@
+
+ 
+$ git init
+Initialized empty Git repository in C:/Temp/test/.git/
+
+$ touch readme.txt
+$ git add *
+$ git commit -m "go"
+[master (root-commit) 6762fd6] go
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 readme.txt
+$ git remote add origin karl@192.168.152.132:gitea-repositories/ktarbet/test.git
+4 /c/Temp/test (master)
+$ git push -u origin master
+karl@192.168.152.132's password:
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 214 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To 192.168.152.132:gitea-repositories/ktarbet/test.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
