@@ -19,6 +19,10 @@ dbx Main.class
 ## Debugging with dBX..
 
 stop at  Main.java:20
+stop at  "full path.../Hec_zread.c:23"
+stop at /...../heclib/javaHeclib/source/Hec_ztsStore.c:64 
+stop at /...../heclib/heclib/Dss7/System/zswap.c:73 
+
 
 next   (step over line)
 stepi  (step into method)
