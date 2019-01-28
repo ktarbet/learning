@@ -1,6 +1,11 @@
 
 test driving gitea [https://gitea.io/en-us/](https://gitea.io/en-us/)
 
+
+## remember password
+
+git config credential.helper store
+
 ## switch git host
 
 ```bash
