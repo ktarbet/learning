@@ -1,5 +1,16 @@
 
-test driving gitea [https://gitea.io/en-us/](https://gitea.io/en-us/)
+## Remote Branches
+
+### show remote branches
+
+git branch -r
+
+### checkout a remote branch
+
+git checkout --track  origin/simplify/simplify_startup_scripts
+
+
+
 
 
 ## remember password
