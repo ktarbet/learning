@@ -9,6 +9,9 @@ git branch -r
 
 git checkout --track  origin/simplify/simplify_startup_scripts
 
+### update list of branches
+
+git remote update origin --prune
 
 
 ## grab file from another branch
