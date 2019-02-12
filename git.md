@@ -11,8 +11,11 @@ git checkout --track  origin/simplify/simplify_startup_scripts
 
 
 
+## grab file from another branch
 
+git checkout master ./heclib/heclib_c_v6v7/heclib_c_v6v7.vcxproj 
 
+ 
 ## remember password
 
 git config credential.helper store
