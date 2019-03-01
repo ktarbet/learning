@@ -54,6 +54,13 @@ git push -u origin bug/ts_readv6
 # get back to original version of a file.
 git reset headers/myheader.h
 
+# get a file from another branch 
+https://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308
+git checkout master  (working from master)
+ git checkout --patch develop .vscode/launch.json   # launch.json exists in master
+ git checkout  develop .vscode/launch.json          # launch.json does not exist in master.
+
+
 ## diff two branches
 
 git diff master...bug/segfault
