@@ -1,19 +1,5 @@
-/usr/openwin/bin/xterm &
-
-/opt/developerstudio12.6/bin/dbxtool
 
 
-javac -g -cp ${JARS}:. Main.java hec/heclib/dss/*.java
-# startup java for Debugging
-# -Djava.compiler=NONE    disables JIT (disable optimization)
-export LD_LIBRARY_PATH=${HECLIB7}/javaHeclib/Output
-export CLASSPATH=.:${JARS}
-#export PATH=${HECLIB7}/javaHeclib/Output:${PATH}
-#java  -Djava.library.path=${HECLIB7}/javaHeclib/Output -Djava.compiler=NONE -Xdebug -Xnoagent -Xrundbx_agent -cp .:${JARS} Main
-#export jvm_invocation="./go -J-Xdebug -J-d64"
-#https://docs.oracle.com/cd/E18659_01/html/821-1380/bland.html#scrolltoc
-jvm_invocation="java -Xdebug -J-Djava.library.path=${HECLIB7}/javaHeclib/Output  -d64 "
-dbx Main.class
 
 
 ## Debugging with dBX..
@@ -35,3 +21,27 @@ jon    (swtich from native to java)
 joff  (switch back to native)
 jpkgs
 
+
+print variable   # print variable/evaluate
+ 
+where    # show stack
+
+
+\
+
+/usr/openwin/bin/xterm &
+
+/opt/developerstudio12.6/bin/dbxtool
+
+
+javac -g -cp ${JARS}:. Main.java hec/heclib/dss/*.java
+# startup java for Debugging
+# -Djava.compiler=NONE    disables JIT (disable optimization)
+export LD_LIBRARY_PATH=${HECLIB7}/javaHeclib/Output
+export CLASSPATH=.:${JARS}
+#export PATH=${HECLIB7}/javaHeclib/Output:${PATH}
+#java  -Djava.library.path=${HECLIB7}/javaHeclib/Output -Djava.compiler=NONE -Xdebug -Xnoagent -Xrundbx_agent -cp .:${JARS} Main
+#export jvm_invocation="./go -J-Xdebug -J-d64"
+#https://docs.oracle.com/cd/E18659_01/html/821-1380/bland.html#scrolltoc
+jvm_invocation="java -Xdebug -J-Djava.library.path=${HECLIB7}/javaHeclib/Output  -d64 "
+dbx Main.class
