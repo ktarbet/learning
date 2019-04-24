@@ -1,7 +1,15 @@
 
 
-http://fortranwiki.org/fortran/show/Modernizing+Old+Fortran
+## mixing C and Fortran
 
+http://www.ibiblio.org/pub/languages/fortran/ch1-11.html
+
+https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING
+
+
+## fortran 
+http://fortranwiki.org/fortran/show/Modernizing+Old+Fortran
+http://www.ibiblio.org/pub/languages/fortran/unfp.html#section-1
 
 ## Updating Old Fortran
 http://people.ds.cam.ac.uk/nmm1/oldfortran/
