@@ -13,7 +13,7 @@ vi .bash_pofile
 
 source /opt/rh/devtoolset-8/enable 
 
-## uprgrading GIt
+## uprgrading git
 yum install rh-git218
 
 
