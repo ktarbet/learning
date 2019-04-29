@@ -1,4 +1,4 @@
-## for centos 7
+## installing lastest GCC for centos 7
 modified from:
 https://unix.stackexchange.com/questions/477360/centos-7-gcc-8-installation
 
@@ -13,3 +13,8 @@ vi .bash_pofile
 
 source /opt/rh/devtoolset-8/enable 
 
+## uprgrading GIt
+yum install rh-git218
+
+
+source /opt/rh/rh-git218/enable 
