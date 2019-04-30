@@ -1,5 +1,11 @@
 http://johnmathews.eu/rys-git-tutorial.html
 
+
+https://www.youtube.com/watch?v=FyAAIHHClqI
+
+#alias graph="git log --all --decorate --oneline --graph"
+
+
 ## Remote Branches
 
 ### show remote branches
