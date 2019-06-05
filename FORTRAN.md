@@ -6,6 +6,11 @@ http://www.ibiblio.org/pub/languages/fortran/ch1-11.html
 
 https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fC_005fBINDING.html#ISO_005fC_005fBINDING
 
+## standards
+
+https://gcc.gnu.org/wiki/GFortranStandards
+https://wg5-fortran.org/N001-N1100/N692.pdf
+http://www.j3-fortran.org/doc/year/10/10-007.pdf
 
 ## fortran 
 http://fortranwiki.org/fortran/show/Modernizing+Old+Fortran
