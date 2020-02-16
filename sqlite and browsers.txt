@@ -1,0 +1,12 @@
+:: firefox
+
+c:
+cd C:\Users\user--\AppData\Roaming\Mozilla\Firefox\Profiles\7zr08s0s.default-release
+sqlite3 places.sqlite
+sqlite> select * from moz_places;
+
+:: Chrome
+
+C:\Users\user--\AppData\Local\Google\Chrome\User Data\Default
+sqlite3 History
+sqlite> select * from urls;
