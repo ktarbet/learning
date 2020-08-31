@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-08-31T17:33:49.525Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36" etag="Iu-2bFFhsPVzzDZEfHLx" version="13.6.6" type="github">
+<mxfile host="app.diagrams.net" modified="2020-08-31T18:23:35.003Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36" etag="co2u0zQaDHwp33QgxiFS" version="13.6.6" type="github" pages="2">
   <diagram id="cr0koPRzsPeDM41Vawg9" name="Page-1">
-    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -30,7 +30,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="P356NVhjHGYX4Vpgescm-13" value="MathFrame2" style="html=1;fontSize=23;" vertex="1" parent="1">
+        <mxCell id="P356NVhjHGYX4Vpgescm-13" value="MathFrame2" style="html=1;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="30" y="467" width="160" height="50" as="geometry" />
         </mxCell>
         <mxCell id="P356NVhjHGYX4Vpgescm-27" value="JPanel" style="html=1;fontSize=23;" vertex="1" parent="1">
@@ -91,7 +91,7 @@
         <mxCell id="P356NVhjHGYX4Vpgescm-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=20;" edge="1" parent="1" source="P356NVhjHGYX4Vpgescm-49" target="P356NVhjHGYX4Vpgescm-30">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="P356NVhjHGYX4Vpgescm-49" value="&lt;span style=&quot;text-align: left&quot;&gt;hec.gfx2d.G2dDialog&lt;/span&gt;" style="html=1;fontSize=15;" vertex="1" parent="1">
+        <mxCell id="P356NVhjHGYX4Vpgescm-49" value="&lt;span style=&quot;text-align: left&quot;&gt;hec.gfx2d.G2dDialog&lt;br&gt;(hardcoded for DssVue help)&lt;br&gt;&lt;/span&gt;" style="html=1;fontSize=15;" vertex="1" parent="1">
           <mxGeometry x="410" y="350" width="190" height="50" as="geometry" />
         </mxCell>
         <mxCell id="P356NVhjHGYX4Vpgescm-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="P356NVhjHGYX4Vpgescm-52" target="P356NVhjHGYX4Vpgescm-12">
@@ -109,6 +109,50 @@
         </mxCell>
         <mxCell id="P356NVhjHGYX4Vpgescm-62" value="Overview of how Context Sensitive Help works in DssVue" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=20;fontStyle=4" vertex="1" parent="1">
           <mxGeometry x="110" y="15" width="520" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lJu5W1FpK7aMhpk5YCK_-2" value="Help content is stored in the jar: dssvueHelp.jar and&amp;nbsp;&lt;br&gt;both the shared code and DssVue code depend on dssvueHelp.jar&lt;br&gt;&lt;br&gt;DssVuehelp.xml contains key/values to find specific help inside dssVueHelp.jar" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="85" y="530" width="580" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Awhz3AwOzJ5vdEeiAIzl" name="Page-2">
+    <mxGraphModel dx="1422" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="ahuFuqaRojw544_co45T-0" />
+        <mxCell id="ahuFuqaRojw544_co45T-1" parent="ahuFuqaRojw544_co45T-0" />
+        <mxCell id="kKTpV6IqhvEOng22fQbf-0" value="potential solution that uses web based documentation" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=20;fontStyle=4" vertex="1" parent="ahuFuqaRojw544_co45T-1">
+          <mxGeometry x="145" y="50" width="490" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-0" value="ContextSpecificHelp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=15;html=0;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
+          <mxGeometry x="210" y="140" width="280" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-1" value="static methods: (70 lines of code)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-0">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-0">
+          <mxGeometry y="52" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-3" value="+ SetHelp(RmaJDialog,url)&#xa;+ SetHelp(JMenuBar,url,createSubMenu):" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-0">
+          <mxGeometry y="60" width="280" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-4" value="DssHelpActionListener implements MenuListener, ActionListener&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=15;html=0;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
+          <mxGeometry x="210" y="290" width="480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-7" value="+ DssHelpActionListener(String url)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-4">
+          <mxGeometry y="26" width="480" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-4">
+          <mxGeometry y="52" width="480" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-9" value="+ item: attribute" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=15;html=0;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
+          <mxGeometry x="500" y="250" width="100" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-10" value="Not yet Implemented" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=15;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
+          <mxGeometry x="215" y="400" width="150" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="UZpAGbO_XrHByG3TB381-11" value="&lt;ul&gt;&lt;li&gt;Links to local Pdf&lt;/li&gt;&lt;li&gt;handler for no internet access&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;fontSize=15;align=left;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
+          <mxGeometry x="210" y="410" width="340" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
