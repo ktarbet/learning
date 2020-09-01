@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-08-31T18:23:35.003Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36" etag="co2u0zQaDHwp33QgxiFS" version="13.6.6" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2020-09-01T15:32:42.508Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36" etag="pQx-TTSvn2SC6LxveRED" version="13.6.6" type="github" pages="2">
   <diagram id="cr0koPRzsPeDM41Vawg9" name="Page-1">
-    <mxGraphModel dx="1422" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -117,7 +117,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Awhz3AwOzJ5vdEeiAIzl" name="Page-2">
-    <mxGraphModel dx="1422" dy="713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
         <mxCell id="ahuFuqaRojw544_co45T-0" />
         <mxCell id="ahuFuqaRojw544_co45T-1" parent="ahuFuqaRojw544_co45T-0" />
@@ -133,7 +133,7 @@
         <mxCell id="UZpAGbO_XrHByG3TB381-2" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-0">
           <mxGeometry y="52" width="280" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="UZpAGbO_XrHByG3TB381-3" value="+ SetHelp(RmaJDialog,url)&#xa;+ SetHelp(JMenuBar,url,createSubMenu):" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-0">
+        <mxCell id="UZpAGbO_XrHByG3TB381-3" value="+ SetHelp(RmaJDialog,url,language)&#xa;+ SetHelp(JMenuBar,url,createSubMenu):" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-0">
           <mxGeometry y="60" width="280" height="50" as="geometry" />
         </mxCell>
         <mxCell id="UZpAGbO_XrHByG3TB381-4" value="DssHelpActionListener implements MenuListener, ActionListener&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=15;html=0;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
@@ -145,14 +145,11 @@
         <mxCell id="UZpAGbO_XrHByG3TB381-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="UZpAGbO_XrHByG3TB381-4">
           <mxGeometry y="52" width="480" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="UZpAGbO_XrHByG3TB381-9" value="+ item: attribute" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=15;html=0;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
-          <mxGeometry x="500" y="250" width="100" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="UZpAGbO_XrHByG3TB381-10" value="Not yet Implemented" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=15;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
           <mxGeometry x="215" y="400" width="150" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="UZpAGbO_XrHByG3TB381-11" value="&lt;ul&gt;&lt;li&gt;Links to local Pdf&lt;/li&gt;&lt;li&gt;handler for no internet access&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;fontSize=15;align=left;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
-          <mxGeometry x="210" y="410" width="340" height="80" as="geometry" />
+        <mxCell id="UZpAGbO_XrHByG3TB381-11" value="&lt;ul&gt;&lt;li&gt;Links to local Pdf&lt;/li&gt;&lt;li&gt;multi language&lt;/li&gt;&lt;li&gt;link forwarding&lt;/li&gt;&lt;li&gt;compile time checking?&amp;nbsp;&lt;/li&gt;&lt;li&gt;reflection to check all strings, does url work?&lt;/li&gt;&lt;li&gt;handler for no internet access&lt;/li&gt;&lt;li&gt;F1 keystrokes&lt;/li&gt;&lt;li&gt;version numbers in url?&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;fontSize=15;align=left;" vertex="1" parent="ahuFuqaRojw544_co45T-1">
+          <mxGeometry x="210" y="410" width="340" height="200" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
