@@ -1,3 +1,12 @@
+
+## pushing just HEAD
+
+git clone --depth 1 https://bitbucket.hecdev.net/scm/dss/heclib.git   hec-heclib
+git remote set-url origin  https://github.com/HydrologicEngineeringCenter/hec-heclib.git
+
+
+-------
+
 http://johnmathews.eu/rys-git-tutorial.html
 
 
