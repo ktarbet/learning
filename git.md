@@ -1,3 +1,15 @@
+## create orphan branch for archival 
+
+git checkout --orphan archive-v3.0
+rm -fr ./src/ ./test/ pom.xml build.gradle  build-DSSVue.xml 
+ rm -fr .git/index 
+ git remote add v30 ../hec-dssvue-v30/
+ git remote update
+ git merge --allow-unrelated-histories v30/master
+git branch -l
+git push -u origin archive-v3.0
+
+
 
 ## pushing just HEAD
 
