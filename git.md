@@ -1,4 +1,4 @@
-## create orphan branch for archival 
+## create orphan branch to save some history 
 
 git checkout --orphan archive-v3.0
 rm -fr ./src/ ./test/ pom.xml build.gradle  build-DSSVue.xml 
