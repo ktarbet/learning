@@ -8,4 +8,5 @@ make_bucket: nice-bucket-2021-03-26
 C:\>aws s3 rb s3://delete-me
 remove_bucket: delete-me
 
-aws s3 cp “C:\users\my first backup.bak” s3://my-first-backup-bucket/
+C:\>aws s3 cp SeriesExplorer.doc s3://this-bucket-backup-2021-03-26
+upload: .\SeriesExplorer.doc to s3://this-bucket-backup-2021-03-26/SeriesExplorer.doc
