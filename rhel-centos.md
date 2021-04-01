@@ -1,3 +1,10 @@
+
+
+# subscription-manager register --username <username> --password <password> --auto-attach
+In Redhat web page add subscription
+  then 
+  #subscription-manager attach
+  
 ## installing lastest GCC for centos 7
 modified from:
 https://unix.stackexchange.com/questions/477360/centos-7-gcc-8-installation
