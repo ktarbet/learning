@@ -1,6 +1,10 @@
 
+## run RHEL7 basic image
+docker run -v /home/karl/project:/project -it --name test2 registry.access.redhat.com/ubi7
 
-# subscription-manager register --username <username> --password <password> --auto-attach
+yum install "@X Window System"
+
+subscription-manager register --username <username> --password <password> --auto-attach
 In Redhat web page add subscription
   then 
   #subscription-manager attach
