@@ -93,3 +93,7 @@ git checkout master  (working from master)
 
 git diff master...bug/segfault
 
+
+# rewrite history  deleting big files
+#https://stackoverflow.com/questions/8083282/how-do-i-remove-a-big-file-wrongly-committed-in-git
+
