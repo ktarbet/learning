@@ -97,3 +97,8 @@ git diff master...bug/segfault
 # rewrite history  deleting big files
 #https://stackoverflow.com/questions/8083282/how-do-i-remove-a-big-file-wrongly-committed-in-git
 
+java -jar /home/karl/Downloads/bfg-1.14.0.jar  --delete-files '*.{db,sdf,dll}' /home/karl/project/heclib-archive
+
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+
+
