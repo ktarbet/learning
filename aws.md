@@ -1,3 +1,7 @@
+
+backup -- sync..
+aws s3 sync karl  s3://backup-bucket-2021-04-06/karl  --storage-class GLACIER
+
 https://aws.amazon.com/getting-started/hands-on/backup-to-s3-cli/
 
 usage: aws [options] <command> <subcommand> [<subcommand> ...] [parameters]
