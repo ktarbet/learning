@@ -1,3 +1,4 @@
+```bash
 !/bin/bash
 
 #!/bin/bash
@@ -14,8 +15,9 @@ export IGNORE30="${P}/apps/ ${P}/dist/ ${P}/lib/ ${P}/obfuscate/ ${P}/install/"
 git p4 clone -v --destination=.  //DSSVue/DSSVue/v3.0@all ${IGNORE30} | tee ../create-dssvue-v30.log 
 
 
-=================================================================
-=================================================================
+#=================================================================
+#=================================================================
+
 P=-//heclib
 export IGNORE="${P}/archive/ ${P}/develop/ ${P}/lib/ ${P}/Intel/ ${P}heclib7/headers/Java/"
 
