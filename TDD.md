@@ -1,12 +1,38 @@
 Advanced Test Driven Development (TDD) -- Robert Martin
 
-The Tree Laws of Test Driven Development (disipline) 
+2021-10-11 - Uncle Bob gave a presentation on Test Driven Development. He started with motivational examples showing that if we don't have more disipline as developers-- we will get regulated and constrained.
+
+
+The Three Laws of Test Driven Development (disipline) 
 
 1) Your are not allowed to write any production code until you have first writtne a unit test that fails due to its absense.
 2) You are not allowed to write more of a unit test than is sufficent to fail.  Failing to compile is failing.
 3) You are not allowed to write more production code than is sufficient to cause the currently failing test to pass.
 
 
+RESULTS
+---------------------
+"Reduce Debug time by N "
+"Tests are the low level documentation for the programmers to read"
+"Tests tell you how something works in the system"
+"You can make decisions on your test suite"
+"Your design will be better -- (decoupled more)"
+
+WHY DO TDD?
+----------------
+A:  To make improvements easy.
+
+You can make code get better with time instead of degrading.
+If your afraid of code -- it controls you, you can't clean.  It will rot.
+Everyone afraid to do what is needed ( clean the code).
+
+Like accounting -- "double entry bookkeeping is TDD"
+
+
 Definitions:
 Unit-test :   Tests written by programmers for programmers;
+
+"We write comments when the code does not explain itself.  Tests can sometimes be better than comments. We will still write comments."  
+
+
 
