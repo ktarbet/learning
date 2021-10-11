@@ -29,10 +29,25 @@ Everyone afraid to do what is needed ( clean the code).
 Like accounting -- "double entry bookkeeping is TDD"
 
 
-Definitions:
+pattern for a test.
+Arrange
+Action  -- should only have single action.
+Assert
+
+
 Unit-test :   Tests written by programmers for programmers;
 
+Tests need to be maintained the same level of quality as production code.
+
+QA may hit only 50% of the code,only programmers can reach the other 50% .
+
 "We write comments when the code does not explain itself.  Tests can sometimes be better than comments. We will still write comments."  
+
+composed test result..
+
+
+
+
 
 
 
