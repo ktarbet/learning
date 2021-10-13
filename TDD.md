@@ -30,6 +30,7 @@ Like accounting -- "double entry bookkeeping is TDD"
 
 
 pattern for a test.
+------------------
 Arrange
 Action  -- should only have single action.
 Assert
@@ -44,6 +45,17 @@ QA may hit only 50% of the code,only programmers can reach the other 50% .
 "We write comments when the code does not explain itself.  Tests can sometimes be better than comments. We will still write comments."  
 
 composed test result..
+
+
+F.I.R.S.T
+Fast                 - (may only run tests for component as you are working on it to make test cycle faster)
+Isolated&Independent -  tests don't depend on eachother. careful with static variables
+Repeatable           -  should be able to run on laptop, production, test (minimize enviromental dependencies)
+Self Verifying       -  binary (Pass, or Fail)
+Timely               -  Treat as more important than production code:  write tests before code, refactored first, 
+
+
+
 
 
 
