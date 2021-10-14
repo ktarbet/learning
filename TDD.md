@@ -56,6 +56,12 @@ Timely               -  Treat as more important than production code:  write tes
 
 
 
+As the tests get more specific, the code gets more generic.
+
+
+
+
+
 
 
 
