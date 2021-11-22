@@ -9,3 +9,8 @@ warning, you can get used to code-smells -- need to fix soon.
 refactoring databases. 
 
 
+Tools:
+
+PMD
+ESLINT
+
