@@ -14,3 +14,6 @@ Tools:
 PMD
 ESLINT
 
+
+
+"it is very hard to be agile if our code is of poor quality" 
