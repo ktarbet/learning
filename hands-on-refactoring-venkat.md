@@ -17,3 +17,5 @@ ESLINT
 
 
 "it is very hard to be agile if our code is of poor quality" 
+
+low quality code takes longer, so slow down and improve quality so we can go faster.
