@@ -1,3 +1,7 @@
+https://bi-sdal.github.io/training/help-faq.html
+
+
+
 ## create orphan branch to save some history 
 
 ```bash
