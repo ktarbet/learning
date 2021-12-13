@@ -1,3 +1,8 @@
+# switch java versions
+sudo alternatives --config java
+
+
+
 
 ## run RHEL7 basic image
 docker run -v /home/karl/project:/project -it --name test2 registry.access.redhat.com/ubi7
