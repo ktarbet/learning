@@ -18,6 +18,7 @@ https://github.com/gyanz/pydsstools
 Open command prompt:
 
 C:\project\pydss\pydsstools>python setup.py build
+
 C:\project\pydss\pydsstools>python setup.py install
 
 cd pydsstools\examples
