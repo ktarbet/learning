@@ -87,7 +87,7 @@ git push -u origin bug/ts_readv6
 # get back to original version of a file.
 git reset headers/myheader.h
 
-# get a file from another branch  saving history
+# get a file from another branch
 
 ```bash
 https://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308
