@@ -6,6 +6,7 @@ CLASSPATH=$(find ~/.m2/repository -name '*.jar' | xargs echo | tr ' ' ':')
 CLASSPATH=${CLASSPATH}:.:../hec-monolith-0.0.4-SNAPSHOT.jar
 
 ======================
+```bash
 #!/bin/bash
 #KARL=$(find ~/.m2/repository -name '*.jar' | xargs echo | tr ' ' ':')
 
