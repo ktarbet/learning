@@ -6,7 +6,7 @@
 | docker run -it -v -v$(pwd):/karl pydsstools /bin/bash|start up container with pwd mounted under /karl|
 
 
-  
+```bash  
   116  docker ps -a
   117  docker stop --help
   118  docker stop web dblink
