@@ -1,4 +1,12 @@
 
+## 
+
+|Command | what is that ?|
+| --- | --- |
+| docker run -it -v -v$(pwd):/karl pydsstools /bin/bash|start up container with pwd mounted under /karl|
+
+
+  
   116  docker ps -a
   117  docker stop --help
   118  docker stop web dblink
@@ -24,9 +32,7 @@ docker.io/training/webapp     latest              6fae60ef3446        3 years ag
 docker.io/training/postgres   latest              6fa973bb3c26        4 years ago         365 MB
 [root@vmhyd1 ~]# docker create -v /testdb2 --name testdb2 training/postgres /bin/true
 6cf2ce579738f10124aeeef919fbbd4a2eedf99a9f0a2f69c26ad1c4c2ddba55
-[root@vmhyd1 ~]# docker run --volums-from testdb2 -v$(pwd):/backup ubuntu tar cvf /backup/testdb2.tar /testdb2
-unknown flag: --volums-from
-See 'docker run --help'.
+
 [root@vmhyd1 ~]# docker run --volumes-from testdb2 -v$(pwd):/backup ubuntu tar cvf /backup/testdb2.tar /testdb2
 tar: Removing leading `/' from member names
 /testdb2/
