@@ -8,6 +8,9 @@ pip3 install --user affine
 pip3 install --user Cython
 
 sudo yum install gdal
+pip3 install --user  GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') --global-option=build_ext --global-option="-I/usr/include/gdal"
+
+
 
 
 # WINDOWS 
