@@ -2,6 +2,7 @@ How to get pydss tools installed and working/development setup
 
 # LINUX
 
+```bash
 pip3 install --user pandas
 pip3 install --user NumPy
 pip3 install --user affine
@@ -10,7 +11,7 @@ pip3 install --user config
 
 sudo yum install gdal
 pip3 install --user  GDAL==$(gdal-config --version | awk -F'[.]' '{print $1"."$2}') --global-option=build_ext --global-option="-I/usr/include/gdal"
-
+```
 
 
 
