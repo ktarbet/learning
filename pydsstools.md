@@ -1,5 +1,16 @@
+How to get pydss tools installed and working/development setup
 
-#How to get pydss tools installed and working
+# LINUX
+
+pip3 install --user pandas
+pip3 install --user NumPy
+pip3 install --user affine
+pip3 install --user Cython
+
+sudo yum install gdal
+
+
+# WINDOWS 
 
 
 http://winpython.github.io/
