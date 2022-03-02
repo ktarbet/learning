@@ -1,3 +1,14 @@
+# Rocky Linux 8 developer tools
+
+```bash
+sudo dnf group list
+sudo dnf groupinstall "Development Tools"
+
+# vscode
+https://code.visualstudio.com/docs/setup/linux
+
+```
+
 # switch java versions
 sudo alternatives --config java
 
