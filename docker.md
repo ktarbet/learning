@@ -4,6 +4,10 @@
 |Command | what is that ?|
 | --- | --- |
 | docker run -it -v -v$(pwd):/karl pydsstools /bin/bash|start up container with pwd mounted under /karl|
+| docker run -it -v -v$(pwd):/karl:z pydsstools /bin/bash|same as above but with :z to work wtih SELinux permission|
+
+
+
 
 
 ```bash  
