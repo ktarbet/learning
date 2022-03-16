@@ -2,8 +2,17 @@
 
 ## build class path
 
+from existing code (junit test for example) find these details:
+```java
+System.out.println(System.getProperty("java.class.path"));
+System.out.println(System.getProperty("java.library.path"));
+```
+
+
 CLASSPATH=$(find ~/.m2/repository -name '*.jar' | xargs echo | tr ' ' ':')
 CLASSPATH=${CLASSPATH}:.:../hec-monolith-0.0.4-SNAPSHOT.jar
+
+
 
 ======================
 ```bash
