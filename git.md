@@ -1,6 +1,15 @@
 https://bi-sdal.github.io/training/help-faq.html
 
 
+## copy file from another repo with history
+https://stackoverflow.com/questions/1365541/how-to-move-some-files-from-one-git-repo-to-another-not-a-clone-preserving-hi
+```bash
+cd repository
+git log --pretty=email --patch-with-stat --reverse --full-index --binary -- path/to/file_or_folder > patch
+cd ../another_repository
+git am --committer-date-is-author-date < ../repository/patch 
+```
+
 
 ## create orphan branch to save some history 
 
