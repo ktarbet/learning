@@ -15,7 +15,7 @@ vairochana  -- cross legs posture
 homework #1 -- practice posture
 see what the effect on the mind being in the posture.
 
----- class #2  ----
+## class #2 
 M: eyes open helps calm mind more than totally closed
 
 Vipashyana exercise -- where does thought process come from?  where is it's origin? is it volentary(motor muscles,breathing)  or in-volentary (breathing, digestive, circulatory/heart, nervouse system)?  what about thought process is that volentary/in-vol -- homework what is going on in our minds.
@@ -34,12 +34,34 @@ do we want object of personal value? can capture attention. Example a picture of
 
 homework:
 a) practice shamatha . ask question involentary/in-volentary
-b) focus on object (or breathing)- beginning examin attributes, shape,size, texture, to stablies mind in present moment (mindfullness).  If breathing focus on the sublities of breathing: strength, depth, blockages, temperature, soft/hard. can count breaths.
+b) focus on object (or breathing)- begining examin attributes, shape,size, texture, to stablies mind in present moment (mindfullness).  If breathing focus on the sublities of breathing: strength, depth, blockages, temperature, soft/hard. can count breaths.
 
 [don't over do it-- if distractins increase]
-multiple short meditaions may be better than a long one.
+multiple short meditations may be better than a long one.
 different times of day may be better for you.
 
+
+## class #3
+
+diagram discussion
+
+Start at temple.  Human/monk/meditator wearing robes represents aspiration.
+carrying two items:
+running rapidly at first (chasing wild elephant)
+elephant symbolizes mind (un-ruled)
+monkey represent agitated mind.
+Tools in hands of meditator: hook and lasso.   Lasso is mindfulness – ability to remember our intentions.  Hook is introspection – evaluates how are we doing.
+Flames represent effort required – lots of flames at the beginning and decrease over time as skill increases.  Must cross bridge at the beginning over turbulent water. Water eventually becomes calmer over time.    [need to develop inspiration/aspirations to progress]
+
+Stage 1:  meditate every day for a few minutes (perhaps more than once in a day)
+
+
+
+
+student: the word for meditation translated -- becoming familiar with mind
+mala - beads for counting mantra recitations (more advanced-complex visualizations...)
+
+homework – correlate with elephant diagram, and continue looking at origin of thoughts that arise.
 
 
 
