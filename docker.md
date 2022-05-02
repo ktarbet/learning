@@ -27,6 +27,7 @@
   147  docker run -it -h NEWCONTAINER --volumes-from container-data debian bash
   148  docker run -it -h NEWCONTAINER2 --volumes-from container-data debian bash
   149  history
+  ```
 [root@vmhyd1 ~]# docker images
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
 docker.io/ubuntu              latest              113a43faa138        2 weeks ago         81.2 MB
@@ -38,8 +39,6 @@ docker.io/training/postgres   latest              6fa973bb3c26        4 years ag
 6cf2ce579738f10124aeeef919fbbd4a2eedf99a9f0a2f69c26ad1c4c2ddba55
 
 [root@vmhyd1 ~]# docker run --volumes-from testdb2 -v$(pwd):/backup ubuntu tar cvf /backup/testdb2.tar /testdb2
-tar: Removing leading `/' from member names
-/testdb2/
 
 # add a file a.txt the commit to new image
 [root@vmhyd1 ~]# docker run -it ubuntu bash
@@ -57,3 +56,12 @@ root@9b30a93b16d4:/# cat a.txt
 hello
 root@9b30a93b16d4:/# exit
 exit
+
+## install docker-compose  Rocky Linux 8
+ref: https://www.linuxtechi.com/install-docker-and-docker-compose-rocky-linux/
+
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+file /usr/local/bin/docker-compose 
+```
