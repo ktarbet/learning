@@ -10,6 +10,12 @@ cd ../another_repository
 git am --committer-date-is-author-date < ../repository/patch 
 ```
 
+## Cleanup
+```bash
+git reset --hard
+git clean -fd
+```
+
 
 ## create orphan branch to save some history 
 
