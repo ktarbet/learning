@@ -17,3 +17,4 @@ ss64.com # command line reference
 https://12ft.io/  # view search engine cached results
 https://automatetheboringstuff.com/
 https://www.eff.org/
+https://packetpushers.net/network-documentation-series-logical-diagram/
