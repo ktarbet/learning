@@ -11,10 +11,11 @@ Books/vendors
 Lammle
 Meyers "All in One"
 Sybex
-youtube: prof. Messer, NetworkChuck, CBT Nuggets, Technuggets
+youtube: prof. Messer, NetworkChuck (https://www.youtube.com/watch?v=5WfiTHiU4x8) , CBT Nuggets, Technuggets
 
 ss64.com # command line reference
 https://12ft.io/  # view search engine cached results
 https://automatetheboringstuff.com/
 https://www.eff.org/
 https://packetpushers.net/network-documentation-series-logical-diagram/
+
