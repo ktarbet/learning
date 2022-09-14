@@ -24,6 +24,20 @@ most common mask /64
 
 
 
+|Port | Service|
+|---|---|
+|TCP 21| ftp|
+|TCP 23| telnet|
+|TCP 25| SMTP Simple Mail Transfer Protocol|
+|UDP 53|DNS|
+|TCP 80| http|
+|TCP 110| POP3 Post office Protocol v3 (messages on server) |
+|TCP 443| https|
+|TCP 445| Windows Network/interprocess communication|
+|TCP 3389| Windows Remote Desktop|
+|TCP 3389| Windows Remote Desktop|
+
+
 Private IP Addresses
 
 |Class|Range |
@@ -33,6 +47,12 @@ Private IP Addresses
 |Class C| 192.168.0.0 to 192.168.255.255|
 
 
+
+### Tools
+|Name| what is it?| example|
+|--|--|
+|ping|check if host up|ping 192.168.0.122|
+|Nmap| what hosts are servers are running on your network| nmap --top ports 20 localhost|
 
 
 ping 8.8.8.8  # dns.google
