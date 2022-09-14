@@ -21,7 +21,8 @@ most common mask /64
 |---|---|---|
 |UDP|User Datagram Protocol| quick and efficient, not-connection based, not as reliable as TCP|
 |TCP|Transmission Control Protocol| handles errors, connection based |
-
+|PPP| Point to Point Protocol|older|
+|EAP|Extensible Authentication Protocol|newer more common |
 
 
 |Port | Service|
