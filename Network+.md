@@ -1,4 +1,29 @@
 
+MAC address 48 bits Hex
+
+### IP Version 4
+32 bits = 4,294,967,296  ~4.2 billion addresses  2^32
+example: 192.168.1.51  
+network: 192.168.1
+host: .51
+most common mask /24
+
+### IP Version 6
+128 bits
+2^128
+example: 2607:f8b0:4023:1002::64
+most common mask /64
+
+
+### protocols
+
+|Protocol | Name | description |
+|---|---|---|
+|UDP|User Datagram Protocol| quick and efficient, not-connection based, not as reliable as TCP|
+|TCP|Transmission Control Protocol| handles errors, connection based |
+
+
+
 Private IP Addresses
 
 |Class|Range |
