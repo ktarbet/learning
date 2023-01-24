@@ -25,9 +25,11 @@
 
 
 ## Attacks
-|                Name                | what?| Prevention |
-|-----------------------------------|--------------|--------|
+|         Name                | what?| Prevention |
+|------------------------|--------------|--------|
 |ARP cache poisoning|directs local network machines to MAC of in/line MIM |keep attacker out of LAN, static ARP cache only |
+|MAC address flood|overloaded switch acts like hub||
+|Broadcast storm|| Spanning Tree Protocol STP - BPDU, static MAC address in switch|
 
 
 
