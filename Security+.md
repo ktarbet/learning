@@ -20,6 +20,15 @@
 |-----------------------------------|--------------|--------------|
 |hydra| password checker | https://github.com/vanhauser-thc/thc-hydra |
 |nmap | network scanner | https://nmap.org/ |
+|arp -a| view arp entries ||
+
+
+
+## Attacks
+|                Name                | what?| Prevention |
+|-----------------------------------|--------------|--------|
+|ARP cache poisoning|directs local network machines to MAC of in/line MIM |keep attacker out of LAN, static ARP cache only |
+
 
 
 

@@ -1,4 +1,18 @@
 
+### OSI 7 Layer model
+
+|Layer | Name | description |
+|---|---|---|
+|1 |Physical|wires, radio waves |
+|2 |Data link| Frames (MAC addresses) |
+|3 |Networking | Logical (IP addresses) |
+|4 |Transport | Ports join/assemble data|
+|5 |Session | connection to service (ports needed)|
+|6 |Presentation|encoding/encryption of data|
+|7 |Application | wget|
+
+
+
 MAC address 48 bits Hex
 
 ### IP Version 4
@@ -19,6 +33,7 @@ most common mask /64
 
 |Protocol | Name | description |
 |---|---|---|
+|ARP|Address resolution | IP<-->MAC  LAN only traffic|
 |UDP|User Datagram Protocol| quick and efficient, not-connection based, not as reliable as TCP|
 |TCP|Transmission Control Protocol| handles errors, connection based |
 |PPP| Point to Point Protocol|older|
