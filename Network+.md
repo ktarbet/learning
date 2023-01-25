@@ -43,6 +43,7 @@ most common mask /64
 |Port | Service|
 |---|---|
 |TCP 21| ftp|
+|TCP 22| ssh|
 |TCP 23| telnet|
 |TCP 25| SMTP Simple Mail Transfer Protocol|
 |UDP 53|DNS|
