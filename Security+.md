@@ -21,6 +21,7 @@
 |hydra| password checker | https://github.com/vanhauser-thc/thc-hydra |
 |nmap | network scanner | https://nmap.org/ |
 |arp -a| view arp entries ||
+|snort| intrusion detection (ITS) |/etc/snort/snort.conf, /etc/snort/rules/local.rules|
 
 
 
