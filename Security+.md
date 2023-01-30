@@ -22,7 +22,9 @@
 |nmap | network scanner | https://nmap.org/ |
 |arp -a| view arp entries ||
 |snort| intrusion detection (ITS) |/etc/snort/snort.conf, /etc/snort/rules/local.rules|
-
+|iwconfig| view wireless (linux?) ||
+|airodump-ng| see live MAC addresses and other wireless info||
+|ipconfig| view network config ||
 
 
 ## Attacks
@@ -54,5 +56,6 @@ VPN often  IPsec Tunnel
 | 5 | striping with parity (can rebuild with failure)  |
 | 6 | 4+disks striping with dual parity -two disks can fail  |
 | 10 |4+disks raid 1 + 0 (mirror + striping)  |
+
 
 
