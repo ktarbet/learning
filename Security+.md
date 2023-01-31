@@ -7,6 +7,8 @@
 | DES (Digital Encryption Standard) | AES          |
 | SSL                               | TLS          |
 | TLS 1.0/1.2                       | TLS 1.2, 1.3  [microsoft](https://learn.microsoft.com/en-us/microsoft-365/compliance/technical-reference-details-about-encryption?view=o365-worldwide) |
+| SHA-1,MD5                           | SHA-2       |
+
 
 
 
