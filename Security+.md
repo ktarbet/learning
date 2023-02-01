@@ -54,8 +54,10 @@ VPN often  IPsec Tunnel
 
 ## services/Sites
 
+|link | description|
+|--|--|
 |virustotal.com  | check logs |
-
+|https://hackmageddon.com/| stats on cyber events, etc.|
 
 
 ## RAID Redudant array of inexpensive Disks
