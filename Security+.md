@@ -1,10 +1,14 @@
 
 |acronym|Name|
 |--|--|
-|SOAR|?|
+|SOAR|Security Orchestration Automation and Response |
+|SIEM|Security Information and Event Management|
 |CVE| Common Vulnerabilities and Exposures mitre.org |
 |CVSS| Common Vulnerability Scoring System(CVSS)|
 |||
+
+
+
 
 |                Old                |     New      |
 |-----------------------------------|--------------|
@@ -48,7 +52,7 @@ VPN often  IPsec Tunnel
 
 
 
-## services
+## services/Sites
 
 |virustotal.com  | check logs |
 
