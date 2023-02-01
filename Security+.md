@@ -1,5 +1,10 @@
 
-
+|acronym|Name|
+|--|--|
+|SOAR|?|
+|CVE| Common Vulnerabilities and Exposures mitre.org |
+|CVSS| Common Vulnerability Scoring System(CVSS)|
+|||
 
 |                Old                |     New      |
 |-----------------------------------|--------------|
