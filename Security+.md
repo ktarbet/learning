@@ -8,6 +8,7 @@
 |Syslog|logging protocol |
 |OSINT| Open Source Intelligence|
 |SUID| Set owner user ID|
+|CSIRT| Computer Security Inciden Response Teams|
 
 
 
