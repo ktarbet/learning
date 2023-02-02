@@ -2,11 +2,15 @@
 |acronym|Name|
 |--|--|
 |SOAR|Security Orchestration Automation and Response |
-|SIEM|Security Information and Event Management|
+|SIEM|SEM+SIM Security Information and Event Management|
 |CVE| Common Vulnerabilities and Exposures mitre.org |
 |CVSS| Common Vulnerability Scoring System(CVSS)|
 |Syslog|logging protocol |
-|||
+|OSINT| Open Source Intelligence|
+|SUID| Set owner user ID|
+
+
+
 
 |SysLog Codes| What |
 |--|--|
