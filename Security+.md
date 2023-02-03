@@ -11,6 +11,7 @@
 |CSIRT| Computer Security Inciden Response Teams|
 |MSSP| Managed Security Service Provider|
 |CASB|Cloud Access Security Broker|
+|MSSP|Managed Security Service Provider|
 
 
 
