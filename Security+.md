@@ -12,6 +12,7 @@
 |MSSP| Managed Security Service Provider|
 |CASB|Cloud Access Security Broker|
 |MSSP|Managed Security Service Provider|
+|SAML|Security Assertion Markup Language|
 
 
 
