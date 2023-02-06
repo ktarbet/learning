@@ -1,4 +1,13 @@
 
+|Access acronym|Full Name | details|
+|--|--|--|
+|DAC| Discretionary Access Control | Discretion of the data owner |
+|RBAC| Role based Access Control | orginization/roles/job title  Controled by Admins|
+|RBAC (RB-RBAC)| Rule Based|  firewalls/ routers/|
+|MAC|mandatory Acess Control|Strict permissions for a specific user, (not owner like DAC) used in extra secure situations (multi level)  |
+
+
+
 |acronym|Name|
 |--|--|
 |SOAR|Security Orchestration Automation and Response |
