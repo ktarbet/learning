@@ -53,6 +53,7 @@ most common mask /64
 |TCP 445| Windows Network/interprocess communication|
 |TCP 3389| Windows Remote Desktop|
 |TCP 3389| Windows Remote Desktop|
+|TCP 5060,5061| SIP - VOIP/pbx|
 
 
 Private IP Addresses
