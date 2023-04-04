@@ -33,6 +33,7 @@ https://github.com/gyanz/pydsstools
 
 Open command prompt:
 
+```
 C:\project\pydss\pydsstools>python setup.py build
 
 C:\project\pydss\pydsstools>python setup.py install
@@ -62,3 +63,4 @@ C:\project\pydss\pydsstools\pydsstools\examples>python example1.py
 11:17:01.765                         Number physical writes: 12
 11:17:01.768                         Number denied locks:    0
 
+```
