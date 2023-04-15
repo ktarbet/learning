@@ -28,6 +28,8 @@
   148  docker run -it -h NEWCONTAINER2 --volumes-from container-data debian bash
   149  history
   ```
+  
+ ```bash
 [root@vmhyd1 ~]# docker images
 REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
 docker.io/ubuntu              latest              113a43faa138        2 weeks ago         81.2 MB
@@ -56,6 +58,8 @@ root@9b30a93b16d4:/# cat a.txt
 hello
 root@9b30a93b16d4:/# exit
 exit
+```
+
 
 ## install docker-compose  Rocky Linux 8
 ref: https://www.linuxtechi.com/install-docker-and-docker-compose-rocky-linux/
