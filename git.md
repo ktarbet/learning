@@ -119,6 +119,8 @@ git diff master...bug/segfault
 # rewrite history  deleting big files
 #https://stackoverflow.com/questions/8083282/how-do-i-remove-a-big-file-wrongly-committed-in-git
 
+https://stubbisms.wordpress.com/2009/07/10/git-script-to-show-largest-pack-objects-and-trim-your-waist-line/
+
 https://rtyley.github.io/bfg-repo-cleaner/
 
 java -jar /home/karl/Downloads/bfg-1.14.0.jar --no-blob-protection --delete-files '*.{db,sdf,dll}' /home/karl/project/heclib-archive
