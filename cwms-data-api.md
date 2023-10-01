@@ -34,7 +34,8 @@ sudo apt-get update
  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 
 ```
-
+handy commands
+```bash
 sudo usermod -aG docker karl
 docker-compose --env-file ../cda.env  up -d
 
@@ -42,7 +43,10 @@ https://localhost:8444/cwms-data/swagger-ui.html
 
 docker-compose logs  data-api
 
+docker exec -it cwms-data-api_data-api_1 /bin/bash
 
+
+```
 
 
 
