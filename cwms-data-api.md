@@ -39,7 +39,9 @@ sudo usermod -aG docker karl
 docker-compose --env-file ../cda.env  up -d
 
 https://localhost:8444/cwms-data/swagger-ui.html
+
 docker-compose logs  data-api
+
 
 
 
