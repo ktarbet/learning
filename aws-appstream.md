@@ -1,7 +1,15 @@
 Contents
+ - Batch file to create virtual disk (VHDX)
+ - powershell setup script that runs as appstream starts
+     -  mounts virtual disk in appstream
+     -  copy OpenDCS shortcuts to desktop
+     -  copy shim for finding Java
 
 
-** Batch file to create virtual disk (VHDX)
+
+
+## Batch file to create virtual disk (VHDX) 
+
 
 ```bat
 :: Create Windows virtual disk with OpenDCS and Java installed
@@ -36,6 +44,7 @@ copy decodes.properties w:\opendcs /Y
 copy  %USERPROFILE%\Desktop\OpenDCS-Toolkit.lnk w:\
 copy  "%USERPROFILE%\Desktop\LRGS Status.lnk" w:\
 copy  "%USERPROFILE%\Desktop\RefList Edit.lnk" w:\
+copy java.bat w:\
 
 :: Un-mount VHDX
 
@@ -43,5 +52,9 @@ echo select vdisk file=%VDISK% >tmp{010}.txt
 echo detach vdisk >>tmp{010}.txt
 diskpart /s tmp{010}.txt
 
-::set PATH=w:\jre\bin;%PATH%
 ```
+
+##powershell setup script that runs as appstream starts
+
+
+
