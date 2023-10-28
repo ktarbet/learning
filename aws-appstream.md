@@ -115,3 +115,14 @@ replace 'bucket-name' with name of bucket that has permisions granted to appStre
 |execution duration seconds|60|
 
 
+## Fleet Settings
+|Name | Value |
+|---|---|
+|Instance type|stream.standard.medium|
+|Platform type|Microsoft Windows Server 2019 Base|
+|Fleet type|Elastic|
+|Disconnect timeout|15 Minutes|
+|Idle Disconnect Timeout|15 Minutes|
+|Stream view|Desktop|
+|Maximum session duration|60 Minutes|
+
