@@ -1,10 +1,8 @@
 Contents
  - Batch file to create virtual disk (VHDX)
  - powershell setup script that runs as appstream starts
-     -  mounts virtual disk in appstream
-     -  copy OpenDCS shortcuts to desktop
-     -  copy shim for finding Java
-
+   
+AppBlock Definition
 
 
 
@@ -54,7 +52,66 @@ diskpart /s tmp{010}.txt
 
 ```
 
-##powershell setup script that runs as appstream starts
+## powershell setup script that runs as appstream starts
 
+  -  mounts virtual disk in appstream
+  -  copy OpenDCS shortcuts to desktop
+  -  copy shim for finding Java
+
+```ps1
+# This is a AppStream startup script for a custom AppBlock for OpenDCS 
+# 
+# This script mounts a virtual disk called cwms.vhdx to windows Drive W:
+# 
+# ref:  https://docs.aws.amazon.com/appstream2/latest/developerguide/create-setup-script.html
+
+$MountDriveLetter = "W:"
+$appBlock = "CWMSClient2"
+$vhdx = "cwms.vhdx"
+$desktop = "C:\Users\PhotonUser\Desktop"
+$PathToVHD = "C:\AppStream\AppBlocks\"+$appBlock+"\"+$vhdx
+
+Write-Host "PathToVHD: $PathToVHD"
+Write-Host $desktop
+
+$ScriptFolder = $($PSScriptRoot+"\")
+
+@"
+select vdisk file='$($PathToVHD)'
+attach vdisk
+rescan
+select partition 1
+remove all noerr
+assign mount='$($MountDriveLetter)'
+exit
+"@  | Set-Content -Path "$($ScriptFolder)tmp.txt" -Encoding UTF8
+
+Get-Content -Path "$($ScriptFolder)tmp.txt"
+
+Write-Host "Execute: diskpart /s '$($ScriptFolder)tmp.txt'"
+diskpart /s "$($ScriptFolder)tmp.txt"
+
+Write-Host "setup shortcuts"
+
+Copy-Item -Path "w:\OpenDCS-Toolkit.lnk" -Destination $desktop
+Copy-Item -Path "w:\LRGS Status.lnk"     -Destination $desktop
+Copy-Item -Path "w:\RefList Edit.lnk"    -Destination $desktop
+
+# shim to launch java, using a directory already in the path 
+Copy-Item -Path "W:\java.bat"  -Destination C:\Users\PhotonUser\AppData\Local\Microsoft\WindowsApps
+```
+
+## AppBlock Definition
+replace 'bucket-name' with name of bucket that has permisions granted to appStream
+
+
+|Name | Value |
+|---|---|
+|Block Name | CwmsClient2 |
+|Virtal Disk | arn:aws:s3:::bucket-name/cwms.vhdx |
+|Setup Script |arn:aws:s3:::bucket-name/setup.ps1|
+|set script executable| C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe|
+|Setup executable arguments|-ExecutionPolicy Bypass -NonInteractive -File setup.ps1|
+|execution duration seconds|60|
 
 
