@@ -1,9 +1,8 @@
 Contents
  - Batch file to create virtual disk (VHDX)
  - powershell setup script that runs as appstream starts
-   
-AppBlock Definition
-
+ - AppBlock Definition
+ - Fleet Settings
 
 
 ## Batch file to create virtual disk (VHDX) 
@@ -100,6 +99,12 @@ Copy-Item -Path "w:\RefList Edit.lnk"    -Destination $desktop
 # shim to launch java, using a directory already in the path 
 Copy-Item -Path "W:\java.bat"  -Destination C:\Users\PhotonUser\AppData\Local\Microsoft\WindowsApps
 ```
+
+java.bat - contents
+```
+w:\jre\bin\java %*%
+```
+
 
 ## AppBlock Definition
 replace 'bucket-name' with name of bucket that has permisions granted to appStream
