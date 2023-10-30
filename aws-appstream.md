@@ -132,6 +132,7 @@ replace 'bucket-name' with name of bucket that has permisions granted to appStre
 |Display Name | OpenDCS |
 |Associated app block | CwmsClient2 |
 |Application icon Object | s3://bucket-name/tools.png  (copy below)|
+|Application executable launch path | w:\opendcs\bin\launcher_start.bat|
 
 ![tools](https://github.com/ktarbet/learning/assets/4818531/71af8245-9108-43ff-8aeb-4edb73bf13bc)
 
