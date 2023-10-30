@@ -120,6 +120,18 @@ replace 'bucket-name' with name of bucket that has permisions granted to appStre
 |execution duration seconds|60|
 
 
+## Applications
+
+|Name | Value |
+|---|---|
+|Application Name | OpenDCS-Windows |
+|Display Name | OpenDCS |
+|Associated app block | CwmsClient2 |
+|Application icon Object | s3://bucket-name/tools.png  (copy below)|
+
+![tools](https://github.com/ktarbet/learning/assets/4818531/71af8245-9108-43ff-8aeb-4edb73bf13bc)
+
+
 ## Fleet Settings
 |Name | Value |
 |---|---|
