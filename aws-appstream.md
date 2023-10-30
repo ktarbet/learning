@@ -9,6 +9,8 @@ Contents
 
 
 ```bat
+:: create-vhdx.bat
+::
 :: Create Windows virtual disk with OpenDCS and Java installed
 ::
 :: Requirements:
@@ -58,6 +60,8 @@ diskpart /s tmp{010}.txt
   -  copy shim for finding Java
 
 ```ps1
+# setup.ps1
+#
 # This is a AppStream startup script for a custom AppBlock for OpenDCS 
 # 
 # This script mounts a virtual disk called cwms.vhdx to windows Drive W:
