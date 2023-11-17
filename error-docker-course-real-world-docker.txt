@@ -1,0 +1,1023 @@
+realworld-docker-api | 
+realworld-docker-api | /usr/src/app/node_modules/axios/dist/node/axios.cjs:1967
+realworld-docker-api |     reject(new AxiosError(
+realworld-docker-api |            ^
+realworld-docker-api | AxiosError: Request failed with status code 404
+realworld-docker-api |     at settle (/usr/src/app/node_modules/axios/dist/node/axios.cjs:1967:12)
+realworld-docker-api |     at IncomingMessage.handleStreamEnd (/usr/src/app/node_modules/axios/dist/node/axios.cjs:3062:11)
+realworld-docker-api |     at IncomingMessage.emit (node:events:526:35)
+realworld-docker-api |     at endReadableNT (node:internal/streams/readable:1408:12)
+realworld-docker-api |     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+realworld-docker-api |   code: 'ERR_BAD_REQUEST',
+realworld-docker-api |   config: {
+realworld-docker-api |     transitional: {
+realworld-docker-api |       silentJSONParsing: true,
+realworld-docker-api |       forcedJSONParsing: true,
+realworld-docker-api |       clarifyTimeoutError: false
+realworld-docker-api |     },
+realworld-docker-api |     adapter: [ 'xhr', 'http' ],
+realworld-docker-api |     transformRequest: [ [Function: transformRequest] ],
+realworld-docker-api |     transformResponse: [ [Function: transformResponse] ],
+realworld-docker-api |     timeout: 0,
+realworld-docker-api |     xsrfCookieName: 'XSRF-TOKEN',
+realworld-docker-api |     xsrfHeaderName: 'X-XSRF-TOKEN',
+realworld-docker-api |     maxContentLength: -1,
+realworld-docker-api |     maxBodyLength: -1,
+realworld-docker-api |     env: {
+realworld-docker-api |       FormData: [Function: FormData] {
+realworld-docker-api |         LINE_BREAK: '\r\n',
+realworld-docker-api |         DEFAULT_CONTENT_TYPE: 'application/octet-stream'
+realworld-docker-api |       },
+realworld-docker-api |       Blob: [class Blob]
+realworld-docker-api |     },
+realworld-docker-api |     validateStatus: [Function: validateStatus],
+realworld-docker-api |     headers: Object [AxiosHeaders] {
+realworld-docker-api |       Accept: 'application/json, text/plain, */*',
+realworld-docker-api |       'Content-Type': undefined,
+realworld-docker-api |       'User-Agent': 'axios/1.6.2',
+realworld-docker-api |       'Accept-Encoding': 'gzip, compress, deflate, br'
+realworld-docker-api |     },
+realworld-docker-api |     method: 'get',
+realworld-docker-api |     url: 'http://auth:3002/api/currentUser',
+realworld-docker-api |     data: undefined
+realworld-docker-api |   },
+realworld-docker-api |   request: <ref *3> ClientRequest {
+realworld-docker-api |     _events: [Object: null prototype] {
+realworld-docker-api |       abort: [Function (anonymous)],
+realworld-docker-api |       aborted: [Function (anonymous)],
+realworld-docker-api |       connect: [Function (anonymous)],
+realworld-docker-api |       error: [Function (anonymous)],
+realworld-docker-api |       socket: [Function (anonymous)],
+realworld-docker-api |       timeout: [Function (anonymous)],
+realworld-docker-api |       finish: [Function: requestOnFinish]
+realworld-docker-api |     },
+realworld-docker-api |     _eventsCount: 7,
+realworld-docker-api |     _maxListeners: undefined,
+realworld-docker-api |     outputData: [],
+realworld-docker-api |     outputSize: 0,
+realworld-docker-api |     writable: true,
+realworld-docker-api |     destroyed: true,
+realworld-docker-api |     _last: true,
+realworld-docker-api |     chunkedEncoding: false,
+realworld-docker-api |     shouldKeepAlive: true,
+realworld-docker-api |     maxRequestsOnConnectionReached: false,
+realworld-docker-api |     _defaultKeepAlive: true,
+realworld-docker-api |     useChunkedEncodingByDefault: false,
+realworld-docker-api |     sendDate: false,
+realworld-docker-api |     _removedConnection: false,
+realworld-docker-api |     _removedContLen: false,
+realworld-docker-api |     _removedTE: false,
+realworld-docker-api |     strictContentLength: false,
+realworld-docker-api |     _contentLength: 0,
+realworld-docker-api |     _hasBody: true,
+realworld-docker-api |     _trailer: '',
+realworld-docker-api |     finished: true,
+realworld-docker-api |     _headerSent: true,
+realworld-docker-api |     _closed: true,
+realworld-docker-api |     socket: <ref *1> Socket {
+realworld-docker-api |       connecting: false,
+realworld-docker-api |       _hadError: false,
+realworld-docker-api |       _parent: null,
+realworld-docker-api |       _host: 'auth',
+realworld-docker-api |       _closeAfterHandlingError: false,
+realworld-docker-api |       _readableState: ReadableState {
+realworld-docker-api |         state: 266328,
+realworld-docker-api |         highWaterMark: 16384,
+realworld-docker-api |         buffer: BufferList { head: null, tail: null, length: 0 },
+realworld-docker-api |         length: 0,
+realworld-docker-api |         pipes: [],
+realworld-docker-api |         flowing: true,
+realworld-docker-api |         errored: null,
+realworld-docker-api |         defaultEncoding: 'utf8',
+realworld-docker-api |         awaitDrainWriters: null,
+realworld-docker-api |         decoder: null,
+realworld-docker-api |         encoding: null,
+realworld-docker-api |         [Symbol(kPaused)]: false
+realworld-docker-api |       },
+realworld-docker-api |       _events: [Object: null prototype] {
+realworld-docker-api |         end: [Function: onReadableStreamEnd],
+realworld-docker-api |         free: [Function: onFree],
+realworld-docker-api |         close: [Function: onClose],
+realworld-docker-api |         timeout: [Function: onTimeout],
+realworld-docker-api |         agentRemove: [Function: onRemove],
+realworld-docker-api |         error: [Function: bound onceWrapper] {
+realworld-docker-api |           listener: [Function: freeSocketErrorListener]
+realworld-docker-api |         }
+realworld-docker-api |       },
+realworld-docker-api |       _eventsCount: 6,
+realworld-docker-api |       _maxListeners: undefined,
+realworld-docker-api |       _writableState: WritableState {
+realworld-docker-api |         state: 786500,
+realworld-docker-api |         highWaterMark: 16384,
+realworld-docker-api |         defaultEncoding: 'utf8',
+realworld-docker-api |         length: 0,
+realworld-docker-api |         corked: 0,
+realworld-docker-api |         onwrite: [Function: bound onwrite],
+realworld-docker-api |         writecb: null,
+realworld-docker-api |         writelen: 0,
+realworld-docker-api |         afterWriteTickInfo: null,
+realworld-docker-api |         buffered: [],
+realworld-docker-api |         bufferedIndex: 0,
+realworld-docker-api |         pendingcb: 0,
+realworld-docker-api |         errored: null,
+realworld-docker-api |         [Symbol(kOnFinished)]: []
+realworld-docker-api |       },
+realworld-docker-api |       allowHalfOpen: false,
+realworld-docker-api |       _sockname: null,
+realworld-docker-api |       _pendingData: null,
+realworld-docker-api |       _pendingEncoding: '',
+realworld-docker-api |       server: null,
+realworld-docker-api |       _server: null,
+realworld-docker-api |       timeout: 5000,
+realworld-docker-api |       parser: null,
+realworld-docker-api |       _httpMessage: null,
+realworld-docker-api |       [Symbol(async_id_symbol)]: -1,
+realworld-docker-api |       [Symbol(kHandle)]: TCP {
+realworld-docker-api |         reading: true,
+realworld-docker-api |         onconnection: null,
+realworld-docker-api |         [Symbol(owner_symbol)]: [Circular *1]
+realworld-docker-api |       },
+realworld-docker-api |       [Symbol(lastWriteQueueSize)]: 0,
+realworld-docker-api |       [Symbol(timeout)]: <ref *2> Timeout {
+realworld-docker-api |         _idleTimeout: 5000,
+realworld-docker-api |         _idlePrev: TimersList {
+realworld-docker-api |           _idleNext: [Circular *2],
+realworld-docker-api |           _idlePrev: [Circular *2],
+realworld-docker-api |           expiry: 103242,
+realworld-docker-api |           id: -9007199254740961,
+realworld-docker-api |           msecs: 5000,
+realworld-docker-api |           priorityQueuePosition: 2
+realworld-docker-api |         },
+realworld-docker-api |         _idleNext: TimersList {
+realworld-docker-api |           _idleNext: [Circular *2],
+realworld-docker-api |           _idlePrev: [Circular *2],
+realworld-docker-api |           expiry: 103242,
+realworld-docker-api |           id: -9007199254740961,
+realworld-docker-api |           msecs: 5000,
+realworld-docker-api |           priorityQueuePosition: 2
+realworld-docker-api |         },
+realworld-docker-api |         _idleStart: 98250,
+realworld-docker-api |         _onTimeout: [Function: bound ],
+realworld-docker-api |         _timerArgs: undefined,
+realworld-docker-api |         _repeat: null,
+realworld-docker-api |         _destroyed: false,
+realworld-docker-api |         [Symbol(refed)]: false,
+realworld-docker-api |         [Symbol(kHasPrimitive)]: false,
+realworld-docker-api |         [Symbol(asyncId)]: 249,
+realworld-docker-api |         [Symbol(triggerId)]: 247
+realworld-docker-api |       },
+realworld-docker-api |       [Symbol(kBuffer)]: null,
+realworld-docker-api |       [Symbol(kBufferCb)]: null,
+realworld-docker-api |       [Symbol(kBufferGen)]: null,
+realworld-docker-api |       [Symbol(kCapture)]: false,
+realworld-docker-api |       [Symbol(kSetNoDelay)]: true,
+realworld-docker-api |       [Symbol(kSetKeepAlive)]: true,
+realworld-docker-api |       [Symbol(kSetKeepAliveInitialDelay)]: 1,
+realworld-docker-api |       [Symbol(kBytesRead)]: 0,
+realworld-docker-api |       [Symbol(kBytesWritten)]: 0
+realworld-docker-api |     },
+realworld-docker-api |     _header: 'GET /api/currentUser HTTP/1.1\r\n' +
+realworld-docker-api |       'Accept: application/json, text/plain, */*\r\n' +
+realworld-docker-api |       'User-Agent: axios/1.6.2\r\n' +
+realworld-docker-api |       'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+realworld-docker-api |       'Host: auth:3002\r\n' +
+realworld-docker-api |       'Connection: keep-alive\r\n' +
+realworld-docker-api |       '\r\n',
+realworld-docker-api |     _keepAliveTimeout: 0,
+realworld-docker-api |     _onPendingData: [Function: nop],
+realworld-docker-api |     agent: Agent {
+realworld-docker-api |       _events: [Object: null prototype] {
+realworld-docker-api |         free: [Function (anonymous)],
+realworld-docker-api |         newListener: [Function: maybeEnableKeylog]
+realworld-docker-api |       },
+realworld-docker-api |       _eventsCount: 2,
+realworld-docker-api |       _maxListeners: undefined,
+realworld-docker-api |       defaultPort: 80,
+realworld-docker-api |       protocol: 'http:',
+realworld-docker-api |       options: [Object: null prototype] {
+realworld-docker-api |         keepAlive: true,
+realworld-docker-api |         scheduling: 'lifo',
+realworld-docker-api |         timeout: 5000,
+realworld-docker-api |         noDelay: true,
+realworld-docker-api |         path: null
+realworld-docker-api |       },
+realworld-docker-api |       requests: [Object: null prototype] {},
+realworld-docker-api |       sockets: [Object: null prototype] {},
+realworld-docker-api |       freeSockets: [Object: null prototype] {
+realworld-docker-api |         'auth:3002:': [
+realworld-docker-api |           <ref *1> Socket {
+realworld-docker-api |             connecting: false,
+realworld-docker-api |             _hadError: false,
+realworld-docker-api |             _parent: null,
+realworld-docker-api |             _host: 'auth',
+realworld-docker-api |             _closeAfterHandlingError: false,
+realworld-docker-api |             _readableState: [ReadableState],
+realworld-docker-api |             _events: [Object: null prototype],
+realworld-docker-api |             _eventsCount: 6,
+realworld-docker-api |             _maxListeners: undefined,
+realworld-docker-api |             _writableState: [WritableState],
+realworld-docker-api |             allowHalfOpen: false,
+realworld-docker-api |             _sockname: null,
+realworld-docker-api |             _pendingData: null,
+realworld-docker-api |             _pendingEncoding: '',
+realworld-docker-api |             server: null,
+realworld-docker-api |             _server: null,
+realworld-docker-api |             timeout: 5000,
+realworld-docker-api |             parser: null,
+realworld-docker-api |             _httpMessage: null,
+realworld-docker-api |             [Symbol(async_id_symbol)]: -1,
+realworld-docker-api |             [Symbol(kHandle)]: [TCP],
+realworld-docker-api |             [Symbol(lastWriteQueueSize)]: 0,
+realworld-docker-api |             [Symbol(timeout)]: [Timeout],
+realworld-docker-api |             [Symbol(kBuffer)]: null,
+realworld-docker-api |             [Symbol(kBufferCb)]: null,
+realworld-docker-api |             [Symbol(kBufferGen)]: null,
+realworld-docker-api |             [Symbol(kCapture)]: false,
+realworld-docker-api |             [Symbol(kSetNoDelay)]: true,
+realworld-docker-api |             [Symbol(kSetKeepAlive)]: true,
+realworld-docker-api |             [Symbol(kSetKeepAliveInitialDelay)]: 1,
+realworld-docker-api |             [Symbol(kBytesRead)]: 0,
+realworld-docker-api |             [Symbol(kBytesWritten)]: 0
+realworld-docker-api |           }
+realworld-docker-api |         ]
+realworld-docker-api |       },
+realworld-docker-api |       keepAliveMsecs: 1000,
+realworld-docker-api |       keepAlive: true,
+realworld-docker-api |       maxSockets: Infinity,
+realworld-docker-api |       maxFreeSockets: 256,
+realworld-docker-api |       scheduling: 'lifo',
+realworld-docker-api |       maxTotalSockets: Infinity,
+realworld-docker-api |       totalSocketCount: 1,
+realworld-docker-api |       [Symbol(kCapture)]: false
+realworld-docker-api |     },
+realworld-docker-api |     socketPath: undefined,
+realworld-docker-api |     method: 'GET',
+realworld-docker-api |     maxHeaderSize: undefined,
+realworld-docker-api |     insecureHTTPParser: undefined,
+realworld-docker-api |     joinDuplicateHeaders: undefined,
+realworld-docker-api |     path: '/api/currentUser',
+realworld-docker-api |     _ended: true,
+realworld-docker-api |     res: IncomingMessage {
+realworld-docker-api |       _readableState: ReadableState {
+realworld-docker-api |         state: 456758,
+realworld-docker-api |         highWaterMark: 16384,
+realworld-docker-api |         buffer: BufferList { head: null, tail: null, length: 0 },
+realworld-docker-api |         length: 0,
+realworld-docker-api |         pipes: [],
+realworld-docker-api |         flowing: true,
+realworld-docker-api |         errored: null,
+realworld-docker-api |         defaultEncoding: 'utf8',
+realworld-docker-api |         awaitDrainWriters: null,
+realworld-docker-api |         decoder: null,
+realworld-docker-api |         encoding: null,
+realworld-docker-api |         [Symbol(kPaused)]: false
+realworld-docker-api |       },
+realworld-docker-api |       _events: [Object: null prototype] {
+realworld-docker-api |         end: [ [Function: responseOnEnd], [Function: handleStreamEnd] ],
+realworld-docker-api |         error: [Function: handleStreamError],
+realworld-docker-api |         data: [Function: handleStreamData],
+realworld-docker-api |         aborted: [Function: handlerStreamAborted]
+realworld-docker-api |       },
+realworld-docker-api |       _eventsCount: 4,
+realworld-docker-api |       _maxListeners: undefined,
+realworld-docker-api |       socket: null,
+realworld-docker-api |       httpVersionMajor: 1,
+realworld-docker-api |       httpVersionMinor: 1,
+realworld-docker-api |       httpVersion: '1.1',
+realworld-docker-api |       complete: true,
+realworld-docker-api |       rawHeaders: [
+realworld-docker-api |         'X-Powered-By',
+realworld-docker-api |         'Express',
+realworld-docker-api |         'Content-Security-Policy',
+realworld-docker-api |         "default-src 'none'",
+realworld-docker-api |         'X-Content-Type-Options',
+realworld-docker-api |         'nosniff',
+realworld-docker-api |         'Content-Type',
+realworld-docker-api |         'text/html; charset=utf-8',
+realworld-docker-api |         'Content-Length',
+realworld-docker-api |         '154',
+realworld-docker-api |         'Date',
+realworld-docker-api |         'Fri, 17 Nov 2023 22:52:20 GMT',
+realworld-docker-api |         'Connection',
+realworld-docker-api |         'keep-alive',
+realworld-docker-api |         'Keep-Alive',
+realworld-docker-api |         'timeout=5'
+realworld-docker-api |       ],
+realworld-docker-api |       rawTrailers: [],
+realworld-docker-api |       joinDuplicateHeaders: undefined,
+realworld-docker-api |       aborted: false,
+realworld-docker-api |       upgrade: false,
+realworld-docker-api |       url: '',
+realworld-docker-api |       method: null,
+realworld-docker-api |       statusCode: 404,
+realworld-docker-api |       statusMessage: 'Not Found',
+realworld-docker-api |       client: <ref *1> Socket {
+realworld-docker-api |         connecting: false,
+realworld-docker-api |         _hadError: false,
+realworld-docker-api |         _parent: null,
+realworld-docker-api |         _host: 'auth',
+realworld-docker-api |         _closeAfterHandlingError: false,
+realworld-docker-api |         _readableState: ReadableState {
+realworld-docker-api |           state: 266328,
+realworld-docker-api |           highWaterMark: 16384,
+realworld-docker-api |           buffer: BufferList { head: null, tail: null, length: 0 },
+realworld-docker-api |           length: 0,
+realworld-docker-api |           pipes: [],
+realworld-docker-api |           flowing: true,
+realworld-docker-api |           errored: null,
+realworld-docker-api |           defaultEncoding: 'utf8',
+realworld-docker-api |           awaitDrainWriters: null,
+realworld-docker-api |           decoder: null,
+realworld-docker-api |           encoding: null,
+realworld-docker-api |           [Symbol(kPaused)]: false
+realworld-docker-api |         },
+realworld-docker-api |         _events: [Object: null prototype] {
+realworld-docker-api |           end: [Function: onReadableStreamEnd],
+realworld-docker-api |           free: [Function: onFree],
+realworld-docker-api |           close: [Function: onClose],
+realworld-docker-api |           timeout: [Function: onTimeout],
+realworld-docker-api |           agentRemove: [Function: onRemove],
+realworld-docker-api |           error: [Function: bound onceWrapper] {
+realworld-docker-api |             listener: [Function: freeSocketErrorListener]
+realworld-docker-api |           }
+realworld-docker-api |         },
+realworld-docker-api |         _eventsCount: 6,
+realworld-docker-api |         _maxListeners: undefined,
+realworld-docker-api |         _writableState: WritableState {
+realworld-docker-api |           state: 786500,
+realworld-docker-api |           highWaterMark: 16384,
+realworld-docker-api |           defaultEncoding: 'utf8',
+realworld-docker-api |           length: 0,
+realworld-docker-api |           corked: 0,
+realworld-docker-api |           onwrite: [Function: bound onwrite],
+realworld-docker-api |           writecb: null,
+realworld-docker-api |           writelen: 0,
+realworld-docker-api |           afterWriteTickInfo: null,
+realworld-docker-api |           buffered: [],
+realworld-docker-api |           bufferedIndex: 0,
+realworld-docker-api |           pendingcb: 0,
+realworld-docker-api |           errored: null,
+realworld-docker-api |           [Symbol(kOnFinished)]: []
+realworld-docker-api |         },
+realworld-docker-api |         allowHalfOpen: false,
+realworld-docker-api |         _sockname: null,
+realworld-docker-api |         _pendingData: null,
+realworld-docker-api |         _pendingEncoding: '',
+realworld-docker-api |         server: null,
+realworld-docker-api |         _server: null,
+realworld-docker-api |         timeout: 5000,
+realworld-docker-api |         parser: null,
+realworld-docker-api |         _httpMessage: null,
+realworld-docker-api |         [Symbol(async_id_symbol)]: -1,
+realworld-docker-api |         [Symbol(kHandle)]: TCP {
+realworld-docker-api |           reading: true,
+realworld-docker-api |           onconnection: null,
+realworld-docker-api |           [Symbol(owner_symbol)]: [Circular *1]
+realworld-docker-api |         },
+realworld-docker-api |         [Symbol(lastWriteQueueSize)]: 0,
+realworld-docker-api |         [Symbol(timeout)]: <ref *2> Timeout {
+realworld-docker-api |           _idleTimeout: 5000,
+realworld-docker-api |           _idlePrev: TimersList {
+realworld-docker-api |             _idleNext: [Circular *2],
+realworld-docker-api |             _idlePrev: [Circular *2],
+realworld-docker-api |             expiry: 103242,
+realworld-docker-api |             id: -9007199254740961,
+realworld-docker-api |             msecs: 5000,
+realworld-docker-api |             priorityQueuePosition: 2
+realworld-docker-api |           },
+realworld-docker-api |           _idleNext: TimersList {
+realworld-docker-api |             _idleNext: [Circular *2],
+realworld-docker-api |             _idlePrev: [Circular *2],
+realworld-docker-api |             expiry: 103242,
+realworld-docker-api |             id: -9007199254740961,
+realworld-docker-api |             msecs: 5000,
+realworld-docker-api |             priorityQueuePosition: 2
+realworld-docker-api |           },
+realworld-docker-api |           _idleStart: 98250,
+realworld-docker-api |           _onTimeout: [Function: bound ],
+realworld-docker-api |           _timerArgs: undefined,
+realworld-docker-api |           _repeat: null,
+realworld-docker-api |           _destroyed: false,
+realworld-docker-api |           [Symbol(refed)]: false,
+realworld-docker-api |           [Symbol(kHasPrimitive)]: false,
+realworld-docker-api |           [Symbol(asyncId)]: 249,
+realworld-docker-api |           [Symbol(triggerId)]: 247
+realworld-docker-api |         },
+realworld-docker-api |         [Symbol(kBuffer)]: null,
+realworld-docker-api |         [Symbol(kBufferCb)]: null,
+realworld-docker-api |         [Symbol(kBufferGen)]: null,
+realworld-docker-api |         [Symbol(kCapture)]: false,
+realworld-docker-api |         [Symbol(kSetNoDelay)]: true,
+realworld-docker-api |         [Symbol(kSetKeepAlive)]: true,
+realworld-docker-api |         [Symbol(kSetKeepAliveInitialDelay)]: 1,
+realworld-docker-api |         [Symbol(kBytesRead)]: 0,
+realworld-docker-api |         [Symbol(kBytesWritten)]: 0
+realworld-docker-api |       },
+realworld-docker-api |       _consuming: false,
+realworld-docker-api |       _dumped: false,
+realworld-docker-api |       req: [Circular *3],
+realworld-docker-api |       responseUrl: 'http://auth:3002/api/currentUser',
+realworld-docker-api |       redirects: [],
+realworld-docker-api |       [Symbol(kCapture)]: false,
+realworld-docker-api |       [Symbol(kHeaders)]: {
+realworld-docker-api |         'x-powered-by': 'Express',
+realworld-docker-api |         'content-security-policy': "default-src 'none'",
+realworld-docker-api |         'x-content-type-options': 'nosniff',
+realworld-docker-api |         'content-type': 'text/html; charset=utf-8',
+realworld-docker-api |         'content-length': '154',
+realworld-docker-api |         date: 'Fri, 17 Nov 2023 22:52:20 GMT',
+realworld-docker-api |         connection: 'keep-alive',
+realworld-docker-api |         'keep-alive': 'timeout=5'
+realworld-docker-api |       },
+realworld-docker-api |       [Symbol(kHeadersCount)]: 16,
+realworld-docker-api |       [Symbol(kTrailers)]: null,
+realworld-docker-api |       [Symbol(kTrailersCount)]: 0
+realworld-docker-api |     },
+realworld-docker-api |     aborted: false,
+realworld-docker-api |     timeoutCb: null,
+realworld-docker-api |     upgradeOrConnect: false,
+realworld-docker-api |     parser: null,
+realworld-docker-api |     maxHeadersCount: null,
+realworld-docker-api |     reusedSocket: false,
+realworld-docker-api |     host: 'auth',
+realworld-docker-api |     protocol: 'http:',
+realworld-docker-api |     _redirectable: Writable {
+realworld-docker-api |       _writableState: WritableState {
+realworld-docker-api |         state: 802924,
+realworld-docker-api |         highWaterMark: 16384,
+realworld-docker-api |         defaultEncoding: 'utf8',
+realworld-docker-api |         length: 0,
+realworld-docker-api |         corked: 0,
+realworld-docker-api |         onwrite: [Function: bound onwrite],
+realworld-docker-api |         writecb: null,
+realworld-docker-api |         writelen: 0,
+realworld-docker-api |         afterWriteTickInfo: null,
+realworld-docker-api |         buffered: [],
+realworld-docker-api |         bufferedIndex: 0,
+realworld-docker-api |         pendingcb: 0,
+realworld-docker-api |         errored: null,
+realworld-docker-api |         [Symbol(kOnFinished)]: []
+realworld-docker-api |       },
+realworld-docker-api |       _events: [Object: null prototype] {
+realworld-docker-api |         response: [Function: handleResponse],
+realworld-docker-api |         error: [Function: handleRequestError],
+realworld-docker-api |         socket: [Function: handleRequestSocket]
+realworld-docker-api |       },
+realworld-docker-api |       _eventsCount: 3,
+realworld-docker-api |       _maxListeners: undefined,
+realworld-docker-api |       _options: {
+realworld-docker-api |         maxRedirects: 21,
+realworld-docker-api |         maxBodyLength: Infinity,
+realworld-docker-api |         protocol: 'http:',
+realworld-docker-api |         path: '/api/currentUser',
+realworld-docker-api |         method: 'GET',
+realworld-docker-api |         headers: [Object: null prototype] {
+realworld-docker-api |           Accept: 'application/json, text/plain, */*',
+realworld-docker-api |           'User-Agent': 'axios/1.6.2',
+realworld-docker-api |           'Accept-Encoding': 'gzip, compress, deflate, br'
+realworld-docker-api |         },
+realworld-docker-api |         agents: { http: undefined, https: undefined },
+realworld-docker-api |         auth: undefined,
+realworld-docker-api |         family: undefined,
+realworld-docker-api |         beforeRedirect: [Function: dispatchBeforeRedirect],
+realworld-docker-api |         beforeRedirects: { proxy: [Function: beforeRedirect] },
+realworld-docker-api |         hostname: 'auth',
+realworld-docker-api |         port: '3002',
+realworld-docker-api |         agent: undefined,
+realworld-docker-api |         nativeProtocols: {
+realworld-docker-api |           'http:': {
+realworld-docker-api |             _connectionListener: [Function: connectionListener],
+realworld-docker-api |             METHODS: [Array],
+realworld-docker-api |             STATUS_CODES: [Object],
+realworld-docker-api |             Agent: [Function],
+realworld-docker-api |             ClientRequest: [Function: ClientRequest],
+realworld-docker-api |             IncomingMessage: [Function: IncomingMessage],
+realworld-docker-api |             OutgoingMessage: [Function: OutgoingMessage],
+realworld-docker-api |             Server: [Function: Server],
+realworld-docker-api |             ServerResponse: [Function: ServerResponse],
+realworld-docker-api |             createServer: [Function: createServer],
+realworld-docker-api |             validateHeaderName: [Function: __node_internal_],
+realworld-docker-api |             validateHeaderValue: [Function: __node_internal_],
+realworld-docker-api |             get: [Function: get],
+realworld-docker-api |             request: [Function: request],
+realworld-docker-api |             setMaxIdleHTTPParsers: [Function: setMaxIdleHTTPParsers],
+realworld-docker-api |             maxHeaderSize: [Getter],
+realworld-docker-api |             globalAgent: [Getter/Setter]
+realworld-docker-api |           },
+realworld-docker-api |           'https:': {
+realworld-docker-api |             Agent: [Function: Agent],
+realworld-docker-api |             globalAgent: [Agent],
+realworld-docker-api |             Server: [Function: Server],
+realworld-docker-api |             createServer: [Function: createServer],
+realworld-docker-api |             get: [Function: get],
+realworld-docker-api |             request: [Function: request]
+realworld-docker-api |           }
+realworld-docker-api |         },
+realworld-docker-api |         pathname: '/api/currentUser'
+realworld-docker-api |       },
+realworld-docker-api |       _ended: true,
+realworld-docker-api |       _ending: true,
+realworld-docker-api |       _redirectCount: 0,
+realworld-docker-api |       _redirects: [],
+realworld-docker-api |       _requestBodyLength: 0,
+realworld-docker-api |       _requestBodyBuffers: [],
+realworld-docker-api |       _onNativeResponse: [Function (anonymous)],
+realworld-docker-api |       _currentRequest: [Circular *3],
+realworld-docker-api |       _currentUrl: 'http://auth:3002/api/currentUser',
+realworld-docker-api |       [Symbol(kCapture)]: false
+realworld-docker-api |     },
+realworld-docker-api |     [Symbol(kCapture)]: false,
+realworld-docker-api |     [Symbol(kBytesWritten)]: 0,
+realworld-docker-api |     [Symbol(kNeedDrain)]: false,
+realworld-docker-api |     [Symbol(corked)]: 0,
+realworld-docker-api |     [Symbol(kOutHeaders)]: [Object: null prototype] {
+realworld-docker-api |       accept: [ 'Accept', 'application/json, text/plain, */*' ],
+realworld-docker-api |       'user-agent': [ 'User-Agent', 'axios/1.6.2' ],
+realworld-docker-api |       'accept-encoding': [ 'Accept-Encoding', 'gzip, compress, deflate, br' ],
+realworld-docker-api |       host: [ 'Host', 'auth:3002' ]
+realworld-docker-api |     },
+realworld-docker-api |     [Symbol(errored)]: null,
+realworld-docker-api |     [Symbol(kHighWaterMark)]: 16384,
+realworld-docker-api |     [Symbol(kRejectNonStandardBodyWrites)]: false,
+realworld-docker-api |     [Symbol(kUniqueHeaders)]: null
+realworld-docker-api |   },
+realworld-docker-api |   response: {
+realworld-docker-api |     status: 404,
+realworld-docker-api |     statusText: 'Not Found',
+realworld-docker-api |     headers: Object [AxiosHeaders] {
+realworld-docker-api |       'x-powered-by': 'Express',
+realworld-docker-api |       'content-security-policy': "default-src 'none'",
+realworld-docker-api |       'x-content-type-options': 'nosniff',
+realworld-docker-api |       'content-type': 'text/html; charset=utf-8',
+realworld-docker-api |       'content-length': '154',
+realworld-docker-api |       date: 'Fri, 17 Nov 2023 22:52:20 GMT',
+realworld-docker-api |       connection: 'keep-alive',
+realworld-docker-api |       'keep-alive': 'timeout=5'
+realworld-docker-api |     },
+realworld-docker-api |     config: {
+realworld-docker-api |       transitional: {
+realworld-docker-api |         silentJSONParsing: true,
+realworld-docker-api |         forcedJSONParsing: true,
+realworld-docker-api |         clarifyTimeoutError: false
+realworld-docker-api |       },
+realworld-docker-api |       adapter: [ 'xhr', 'http' ],
+realworld-docker-api |       transformRequest: [ [Function: transformRequest] ],
+realworld-docker-api |       transformResponse: [ [Function: transformResponse] ],
+realworld-docker-api |       timeout: 0,
+realworld-docker-api |       xsrfCookieName: 'XSRF-TOKEN',
+realworld-docker-api |       xsrfHeaderName: 'X-XSRF-TOKEN',
+realworld-docker-api |       maxContentLength: -1,
+realworld-docker-api |       maxBodyLength: -1,
+realworld-docker-api |       env: {
+realworld-docker-api |         FormData: [Function: FormData] {
+realworld-docker-api |           LINE_BREAK: '\r\n',
+realworld-docker-api |           DEFAULT_CONTENT_TYPE: 'application/octet-stream'
+realworld-docker-api |         },
+realworld-docker-api |         Blob: [class Blob]
+realworld-docker-api |       },
+realworld-docker-api |       validateStatus: [Function: validateStatus],
+realworld-docker-api |       headers: Object [AxiosHeaders] {
+realworld-docker-api |         Accept: 'application/json, text/plain, */*',
+realworld-docker-api |         'Content-Type': undefined,
+realworld-docker-api |         'User-Agent': 'axios/1.6.2',
+realworld-docker-api |         'Accept-Encoding': 'gzip, compress, deflate, br'
+realworld-docker-api |       },
+realworld-docker-api |       method: 'get',
+realworld-docker-api |       url: 'http://auth:3002/api/currentUser',
+realworld-docker-api |       data: undefined
+realworld-docker-api |     },
+realworld-docker-api |     request: <ref *3> ClientRequest {
+realworld-docker-api |       _events: [Object: null prototype] {
+realworld-docker-api |         abort: [Function (anonymous)],
+realworld-docker-api |         aborted: [Function (anonymous)],
+realworld-docker-api |         connect: [Function (anonymous)],
+realworld-docker-api |         error: [Function (anonymous)],
+realworld-docker-api |         socket: [Function (anonymous)],
+realworld-docker-api |         timeout: [Function (anonymous)],
+realworld-docker-api |         finish: [Function: requestOnFinish]
+realworld-docker-api |       },
+realworld-docker-api |       _eventsCount: 7,
+realworld-docker-api |       _maxListeners: undefined,
+realworld-docker-api |       outputData: [],
+realworld-docker-api |       outputSize: 0,
+realworld-docker-api |       writable: true,
+realworld-docker-api |       destroyed: true,
+realworld-docker-api |       _last: true,
+realworld-docker-api |       chunkedEncoding: false,
+realworld-docker-api |       shouldKeepAlive: true,
+realworld-docker-api |       maxRequestsOnConnectionReached: false,
+realworld-docker-api |       _defaultKeepAlive: true,
+realworld-docker-api |       useChunkedEncodingByDefault: false,
+realworld-docker-api |       sendDate: false,
+realworld-docker-api |       _removedConnection: false,
+realworld-docker-api |       _removedContLen: false,
+realworld-docker-api |       _removedTE: false,
+realworld-docker-api |       strictContentLength: false,
+realworld-docker-api |       _contentLength: 0,
+realworld-docker-api |       _hasBody: true,
+realworld-docker-api |       _trailer: '',
+realworld-docker-api |       finished: true,
+realworld-docker-api |       _headerSent: true,
+realworld-docker-api |       _closed: true,
+realworld-docker-api |       socket: <ref *1> Socket {
+realworld-docker-api |         connecting: false,
+realworld-docker-api |         _hadError: false,
+realworld-docker-api |         _parent: null,
+realworld-docker-api |         _host: 'auth',
+realworld-docker-api |         _closeAfterHandlingError: false,
+realworld-docker-api |         _readableState: ReadableState {
+realworld-docker-api |           state: 266328,
+realworld-docker-api |           highWaterMark: 16384,
+realworld-docker-api |           buffer: BufferList { head: null, tail: null, length: 0 },
+realworld-docker-api |           length: 0,
+realworld-docker-api |           pipes: [],
+realworld-docker-api |           flowing: true,
+realworld-docker-api |           errored: null,
+realworld-docker-api |           defaultEncoding: 'utf8',
+realworld-docker-api |           awaitDrainWriters: null,
+realworld-docker-api |           decoder: null,
+realworld-docker-api |           encoding: null,
+realworld-docker-api |           [Symbol(kPaused)]: false
+realworld-docker-api |         },
+realworld-docker-api |         _events: [Object: null prototype] {
+realworld-docker-api |           end: [Function: onReadableStreamEnd],
+realworld-docker-api |           free: [Function: onFree],
+realworld-docker-api |           close: [Function: onClose],
+realworld-docker-api |           timeout: [Function: onTimeout],
+realworld-docker-api |           agentRemove: [Function: onRemove],
+realworld-docker-api |           error: [Function: bound onceWrapper] {
+realworld-docker-api |             listener: [Function: freeSocketErrorListener]
+realworld-docker-api |           }
+realworld-docker-api |         },
+realworld-docker-api |         _eventsCount: 6,
+realworld-docker-api |         _maxListeners: undefined,
+realworld-docker-api |         _writableState: WritableState {
+realworld-docker-api |           state: 786500,
+realworld-docker-api |           highWaterMark: 16384,
+realworld-docker-api |           defaultEncoding: 'utf8',
+realworld-docker-api |           length: 0,
+realworld-docker-api |           corked: 0,
+realworld-docker-api |           onwrite: [Function: bound onwrite],
+realworld-docker-api |           writecb: null,
+realworld-docker-api |           writelen: 0,
+realworld-docker-api |           afterWriteTickInfo: null,
+realworld-docker-api |           buffered: [],
+realworld-docker-api |           bufferedIndex: 0,
+realworld-docker-api |           pendingcb: 0,
+realworld-docker-api |           errored: null,
+realworld-docker-api |           [Symbol(kOnFinished)]: []
+realworld-docker-api |         },
+realworld-docker-api |         allowHalfOpen: false,
+realworld-docker-api |         _sockname: null,
+realworld-docker-api |         _pendingData: null,
+realworld-docker-api |         _pendingEncoding: '',
+realworld-docker-api |         server: null,
+realworld-docker-api |         _server: null,
+realworld-docker-api |         timeout: 5000,
+realworld-docker-api |         parser: null,
+realworld-docker-api |         _httpMessage: null,
+realworld-docker-api |         [Symbol(async_id_symbol)]: -1,
+realworld-docker-api |         [Symbol(kHandle)]: TCP {
+realworld-docker-api |           reading: true,
+realworld-docker-api |           onconnection: null,
+realworld-docker-api |           [Symbol(owner_symbol)]: [Circular *1]
+realworld-docker-api |         },
+realworld-docker-api |         [Symbol(lastWriteQueueSize)]: 0,
+realworld-docker-api |         [Symbol(timeout)]: <ref *2> Timeout {
+realworld-docker-api |           _idleTimeout: 5000,
+realworld-docker-api |           _idlePrev: TimersList {
+realworld-docker-api |             _idleNext: [Circular *2],
+realworld-docker-api |             _idlePrev: [Circular *2],
+realworld-docker-api |             expiry: 103242,
+realworld-docker-api |             id: -9007199254740961,
+realworld-docker-api |             msecs: 5000,
+realworld-docker-api |             priorityQueuePosition: 2
+realworld-docker-api |           },
+realworld-docker-api |           _idleNext: TimersList {
+realworld-docker-api |             _idleNext: [Circular *2],
+realworld-docker-api |             _idlePrev: [Circular *2],
+realworld-docker-api |             expiry: 103242,
+realworld-docker-api |             id: -9007199254740961,
+realworld-docker-api |             msecs: 5000,
+realworld-docker-api |             priorityQueuePosition: 2
+realworld-docker-api |           },
+realworld-docker-api |           _idleStart: 98250,
+realworld-docker-api |           _onTimeout: [Function: bound ],
+realworld-docker-api |           _timerArgs: undefined,
+realworld-docker-api |           _repeat: null,
+realworld-docker-api |           _destroyed: false,
+realworld-docker-api |           [Symbol(refed)]: false,
+realworld-docker-api |           [Symbol(kHasPrimitive)]: false,
+realworld-docker-api |           [Symbol(asyncId)]: 249,
+realworld-docker-api |           [Symbol(triggerId)]: 247
+realworld-docker-api |         },
+realworld-docker-api |         [Symbol(kBuffer)]: null,
+realworld-docker-api |         [Symbol(kBufferCb)]: null,
+realworld-docker-api |         [Symbol(kBufferGen)]: null,
+realworld-docker-api |         [Symbol(kCapture)]: false,
+realworld-docker-api |         [Symbol(kSetNoDelay)]: true,
+realworld-docker-api |         [Symbol(kSetKeepAlive)]: true,
+realworld-docker-api |         [Symbol(kSetKeepAliveInitialDelay)]: 1,
+realworld-docker-api |         [Symbol(kBytesRead)]: 0,
+realworld-docker-api |         [Symbol(kBytesWritten)]: 0
+realworld-docker-api |       },
+realworld-docker-api |       _header: 'GET /api/currentUser HTTP/1.1\r\n' +
+realworld-docker-api |         'Accept: application/json, text/plain, */*\r\n' +
+realworld-docker-api |         'User-Agent: axios/1.6.2\r\n' +
+realworld-docker-api |         'Accept-Encoding: gzip, compress, deflate, br\r\n' +
+realworld-docker-api |         'Host: auth:3002\r\n' +
+realworld-docker-api |         'Connection: keep-alive\r\n' +
+realworld-docker-api |         '\r\n',
+realworld-docker-api |       _keepAliveTimeout: 0,
+realworld-docker-api |       _onPendingData: [Function: nop],
+realworld-docker-api |       agent: Agent {
+realworld-docker-api |         _events: [Object: null prototype] {
+realworld-docker-api |           free: [Function (anonymous)],
+realworld-docker-api |           newListener: [Function: maybeEnableKeylog]
+realworld-docker-api |         },
+realworld-docker-api |         _eventsCount: 2,
+realworld-docker-api |         _maxListeners: undefined,
+realworld-docker-api |         defaultPort: 80,
+realworld-docker-api |         protocol: 'http:',
+realworld-docker-api |         options: [Object: null prototype] {
+realworld-docker-api |           keepAlive: true,
+realworld-docker-api |           scheduling: 'lifo',
+realworld-docker-api |           timeout: 5000,
+realworld-docker-api |           noDelay: true,
+realworld-docker-api |           path: null
+realworld-docker-api |         },
+realworld-docker-api |         requests: [Object: null prototype] {},
+realworld-docker-api |         sockets: [Object: null prototype] {},
+realworld-docker-api |         freeSockets: [Object: null prototype] { 'auth:3002:': [ [Socket] ] },
+realworld-docker-api |         keepAliveMsecs: 1000,
+realworld-docker-api |         keepAlive: true,
+realworld-docker-api |         maxSockets: Infinity,
+realworld-docker-api |         maxFreeSockets: 256,
+realworld-docker-api |         scheduling: 'lifo',
+realworld-docker-api |         maxTotalSockets: Infinity,
+realworld-docker-api |         totalSocketCount: 1,
+realworld-docker-api |         [Symbol(kCapture)]: false
+realworld-docker-api |       },
+realworld-docker-api |       socketPath: undefined,
+realworld-docker-api |       method: 'GET',
+realworld-docker-api |       maxHeaderSize: undefined,
+realworld-docker-api |       insecureHTTPParser: undefined,
+realworld-docker-api |       joinDuplicateHeaders: undefined,
+realworld-docker-api |       path: '/api/currentUser',
+realworld-docker-api |       _ended: true,
+realworld-docker-api |       res: IncomingMessage {
+realworld-docker-api |         _readableState: ReadableState {
+realworld-docker-api |           state: 456758,
+realworld-docker-api |           highWaterMark: 16384,
+realworld-docker-api |           buffer: BufferList { head: null, tail: null, length: 0 },
+realworld-docker-api |           length: 0,
+realworld-docker-api |           pipes: [],
+realworld-docker-api |           flowing: true,
+realworld-docker-api |           errored: null,
+realworld-docker-api |           defaultEncoding: 'utf8',
+realworld-docker-api |           awaitDrainWriters: null,
+realworld-docker-api |           decoder: null,
+realworld-docker-api |           encoding: null,
+realworld-docker-api |           [Symbol(kPaused)]: false
+realworld-docker-api |         },
+realworld-docker-api |         _events: [Object: null prototype] {
+realworld-docker-api |           end: [ [Function: responseOnEnd], [Function: handleStreamEnd] ],
+realworld-docker-api |           error: [Function: handleStreamError],
+realworld-docker-api |           data: [Function: handleStreamData],
+realworld-docker-api |           aborted: [Function: handlerStreamAborted]
+realworld-docker-api |         },
+realworld-docker-api |         _eventsCount: 4,
+realworld-docker-api |         _maxListeners: undefined,
+realworld-docker-api |         socket: null,
+realworld-docker-api |         httpVersionMajor: 1,
+realworld-docker-api |         httpVersionMinor: 1,
+realworld-docker-api |         httpVersion: '1.1',
+realworld-docker-api |         complete: true,
+realworld-docker-api |         rawHeaders: [
+realworld-docker-api |           'X-Powered-By',
+realworld-docker-api |           'Express',
+realworld-docker-api |           'Content-Security-Policy',
+realworld-docker-api |           "default-src 'none'",
+realworld-docker-api |           'X-Content-Type-Options',
+realworld-docker-api |           'nosniff',
+realworld-docker-api |           'Content-Type',
+realworld-docker-api |           'text/html; charset=utf-8',
+realworld-docker-api |           'Content-Length',
+realworld-docker-api |           '154',
+realworld-docker-api |           'Date',
+realworld-docker-api |           'Fri, 17 Nov 2023 22:52:20 GMT',
+realworld-docker-api |           'Connection',
+realworld-docker-api |           'keep-alive',
+realworld-docker-api |           'Keep-Alive',
+realworld-docker-api |           'timeout=5'
+realworld-docker-api |         ],
+realworld-docker-api |         rawTrailers: [],
+realworld-docker-api |         joinDuplicateHeaders: undefined,
+realworld-docker-api |         aborted: false,
+realworld-docker-api |         upgrade: false,
+realworld-docker-api |         url: '',
+realworld-docker-api |         method: null,
+realworld-docker-api |         statusCode: 404,
+realworld-docker-api |         statusMessage: 'Not Found',
+realworld-docker-api |         client: <ref *1> Socket {
+realworld-docker-api |           connecting: false,
+realworld-docker-api |           _hadError: false,
+realworld-docker-api |           _parent: null,
+realworld-docker-api |           _host: 'auth',
+realworld-docker-api |           _closeAfterHandlingError: false,
+realworld-docker-api |           _readableState: ReadableState {
+realworld-docker-api |             state: 266328,
+realworld-docker-api |             highWaterMark: 16384,
+realworld-docker-api |             buffer: [BufferList],
+realworld-docker-api |             length: 0,
+realworld-docker-api |             pipes: [],
+realworld-docker-api |             flowing: true,
+realworld-docker-api |             errored: null,
+realworld-docker-api |             defaultEncoding: 'utf8',
+realworld-docker-api |             awaitDrainWriters: null,
+realworld-docker-api |             decoder: null,
+realworld-docker-api |             encoding: null,
+realworld-docker-api |             [Symbol(kPaused)]: false
+realworld-docker-api |           },
+realworld-docker-api |           _events: [Object: null prototype] {
+realworld-docker-api |             end: [Function: onReadableStreamEnd],
+realworld-docker-api |             free: [Function: onFree],
+realworld-docker-api |             close: [Function: onClose],
+realworld-docker-api |             timeout: [Function: onTimeout],
+realworld-docker-api |             agentRemove: [Function: onRemove],
+realworld-docker-api |             error: [Function]
+realworld-docker-api |           },
+realworld-docker-api |           _eventsCount: 6,
+realworld-docker-api |           _maxListeners: undefined,
+realworld-docker-api |           _writableState: WritableState {
+realworld-docker-api |             state: 786500,
+realworld-docker-api |             highWaterMark: 16384,
+realworld-docker-api |             defaultEncoding: 'utf8',
+realworld-docker-api |             length: 0,
+realworld-docker-api |             corked: 0,
+realworld-docker-api |             onwrite: [Function: bound onwrite],
+realworld-docker-api |             writecb: null,
+realworld-docker-api |             writelen: 0,
+realworld-docker-api |             afterWriteTickInfo: null,
+realworld-docker-api |             buffered: [],
+realworld-docker-api |             bufferedIndex: 0,
+realworld-docker-api |             pendingcb: 0,
+realworld-docker-api |             errored: null,
+realworld-docker-api |             [Symbol(kOnFinished)]: []
+realworld-docker-api |           },
+realworld-docker-api |           allowHalfOpen: false,
+realworld-docker-api |           _sockname: null,
+realworld-docker-api |           _pendingData: null,
+realworld-docker-api |           _pendingEncoding: '',
+realworld-docker-api |           server: null,
+realworld-docker-api |           _server: null,
+realworld-docker-api |           timeout: 5000,
+realworld-docker-api |           parser: null,
+realworld-docker-api |           _httpMessage: null,
+realworld-docker-api |           [Symbol(async_id_symbol)]: -1,
+realworld-docker-api |           [Symbol(kHandle)]: TCP {
+realworld-docker-api |             reading: true,
+realworld-docker-api |             onconnection: null,
+realworld-docker-api |             [Symbol(owner_symbol)]: [Circular *1]
+realworld-docker-api |           },
+realworld-docker-api |           [Symbol(lastWriteQueueSize)]: 0,
+realworld-docker-api |           [Symbol(timeout)]: <ref *2> Timeout {
+realworld-docker-api |             _idleTimeout: 5000,
+realworld-docker-api |             _idlePrev: [TimersList],
+realworld-docker-api |             _idleNext: [TimersList],
+realworld-docker-api |             _idleStart: 98250,
+realworld-docker-api |             _onTimeout: [Function: bound ],
+realworld-docker-api |             _timerArgs: undefined,
+realworld-docker-api |             _repeat: null,
+realworld-docker-api |             _destroyed: false,
+realworld-docker-api |             [Symbol(refed)]: false,
+realworld-docker-api |             [Symbol(kHasPrimitive)]: false,
+realworld-docker-api |             [Symbol(asyncId)]: 249,
+realworld-docker-api |             [Symbol(triggerId)]: 247
+realworld-docker-api |           },
+realworld-docker-api |           [Symbol(kBuffer)]: null,
+realworld-docker-api |           [Symbol(kBufferCb)]: null,
+realworld-docker-api |           [Symbol(kBufferGen)]: null,
+realworld-docker-api |           [Symbol(kCapture)]: false,
+realworld-docker-api |           [Symbol(kSetNoDelay)]: true,
+realworld-docker-api |           [Symbol(kSetKeepAlive)]: true,
+realworld-docker-api |           [Symbol(kSetKeepAliveInitialDelay)]: 1,
+realworld-docker-api |           [Symbol(kBytesRead)]: 0,
+realworld-docker-api |           [Symbol(kBytesWritten)]: 0
+realworld-docker-api |         },
+realworld-docker-api |         _consuming: false,
+realworld-docker-api |         _dumped: false,
+realworld-docker-api |         req: [Circular *3],
+realworld-docker-api |         responseUrl: 'http://auth:3002/api/currentUser',
+realworld-docker-api |         redirects: [],
+realworld-docker-api |         [Symbol(kCapture)]: false,
+realworld-docker-api |         [Symbol(kHeaders)]: {
+realworld-docker-api |           'x-powered-by': 'Express',
+realworld-docker-api |           'content-security-policy': "default-src 'none'",
+realworld-docker-api |           'x-content-type-options': 'nosniff',
+realworld-docker-api |           'content-type': 'text/html; charset=utf-8',
+realworld-docker-api |           'content-length': '154',
+realworld-docker-api |           date: 'Fri, 17 Nov 2023 22:52:20 GMT',
+realworld-docker-api |           connection: 'keep-alive',
+realworld-docker-api |           'keep-alive': 'timeout=5'
+realworld-docker-api |         },
+realworld-docker-api |         [Symbol(kHeadersCount)]: 16,
+realworld-docker-api |         [Symbol(kTrailers)]: null,
+realworld-docker-api |         [Symbol(kTrailersCount)]: 0
+realworld-docker-api |       },
+realworld-docker-api |       aborted: false,
+realworld-docker-api |       timeoutCb: null,
+realworld-docker-api |       upgradeOrConnect: false,
+realworld-docker-api |       parser: null,
+realworld-docker-api |       maxHeadersCount: null,
+realworld-docker-api |       reusedSocket: false,
+realworld-docker-api |       host: 'auth',
+realworld-docker-api |       protocol: 'http:',
+realworld-docker-api |       _redirectable: Writable {
+realworld-docker-api |         _writableState: WritableState {
+realworld-docker-api |           state: 802924,
+realworld-docker-api |           highWaterMark: 16384,
+realworld-docker-api |           defaultEncoding: 'utf8',
+realworld-docker-api |           length: 0,
+realworld-docker-api |           corked: 0,
+realworld-docker-api |           onwrite: [Function: bound onwrite],
+realworld-docker-api |           writecb: null,
+realworld-docker-api |           writelen: 0,
+realworld-docker-api |           afterWriteTickInfo: null,
+realworld-docker-api |           buffered: [],
+realworld-docker-api |           bufferedIndex: 0,
+realworld-docker-api |           pendingcb: 0,
+realworld-docker-api |           errored: null,
+realworld-docker-api |           [Symbol(kOnFinished)]: []
+realworld-docker-api |         },
+realworld-docker-api |         _events: [Object: null prototype] {
+realworld-docker-api |           response: [Function: handleResponse],
+realworld-docker-api |           error: [Function: handleRequestError],
+realworld-docker-api |           socket: [Function: handleRequestSocket]
+realworld-docker-api |         },
+realworld-docker-api |         _eventsCount: 3,
+realworld-docker-api |         _maxListeners: undefined,
+realworld-docker-api |         _options: {
+realworld-docker-api |           maxRedirects: 21,
+realworld-docker-api |           maxBodyLength: Infinity,
+realworld-docker-api |           protocol: 'http:',
+realworld-docker-api |           path: '/api/currentUser',
+realworld-docker-api |           method: 'GET',
+realworld-docker-api |           headers: [Object: null prototype] {
+realworld-docker-api |             Accept: 'application/json, text/plain, */*',
+realworld-docker-api |             'User-Agent': 'axios/1.6.2',
+realworld-docker-api |             'Accept-Encoding': 'gzip, compress, deflate, br'
+realworld-docker-api |           },
+realworld-docker-api |           agents: { http: undefined, https: undefined },
+realworld-docker-api |           auth: undefined,
+realworld-docker-api |           family: undefined,
+realworld-docker-api |           beforeRedirect: [Function: dispatchBeforeRedirect],
+realworld-docker-api |           beforeRedirects: { proxy: [Function: beforeRedirect] },
+realworld-docker-api |           hostname: 'auth',
+realworld-docker-api |           port: '3002',
+realworld-docker-api |           agent: undefined,
+realworld-docker-api |           nativeProtocols: { 'http:': [Object], 'https:': [Object] },
+realworld-docker-api |           pathname: '/api/currentUser'
+realworld-docker-api |         },
+realworld-docker-api |         _ended: true,
+realworld-docker-api |         _ending: true,
+realworld-docker-api |         _redirectCount: 0,
+realworld-docker-api |         _redirects: [],
+realworld-docker-api |         _requestBodyLength: 0,
+realworld-docker-api |         _requestBodyBuffers: [],
+realworld-docker-api |         _onNativeResponse: [Function (anonymous)],
+realworld-docker-api |         _currentRequest: [Circular *3],
+realworld-docker-api |         _currentUrl: 'http://auth:3002/api/currentUser',
+realworld-docker-api |         [Symbol(kCapture)]: false
+realworld-docker-api |       },
+realworld-docker-api |       [Symbol(kCapture)]: false,
+realworld-docker-api |       [Symbol(kBytesWritten)]: 0,
+realworld-docker-api |       [Symbol(kNeedDrain)]: false,
+realworld-docker-api |       [Symbol(corked)]: 0,
+realworld-docker-api |       [Symbol(kOutHeaders)]: [Object: null prototype] {
+realworld-docker-api |         accept: [ 'Accept', 'application/json, text/plain, */*' ],
+realworld-docker-api |         'user-agent': [ 'User-Agent', 'axios/1.6.2' ],
+realworld-docker-api |         'accept-encoding': [ 'Accept-Encoding', 'gzip, compress, deflate, br' ],
+realworld-docker-api |         host: [ 'Host', 'auth:3002' ]
+realworld-docker-api |       },
+realworld-docker-api |       [Symbol(errored)]: null,
+realworld-docker-api |       [Symbol(kHighWaterMark)]: 16384,
+realworld-docker-api |       [Symbol(kRejectNonStandardBodyWrites)]: false,
+realworld-docker-api |       [Symbol(kUniqueHeaders)]: null
+realworld-docker-api |     },
+realworld-docker-api |     data: '<!DOCTYPE html>\n' +
+realworld-docker-api |       '<html lang="en">\n' +
+realworld-docker-api |       '<head>\n' +
+realworld-docker-api |       '<meta charset="utf-8">\n' +
+realworld-docker-api |       '<title>Error</title>\n' +
+realworld-docker-api |       '</head>\n' +
+realworld-docker-api |       '<body>\n' +
+realworld-docker-api |       '<pre>Cannot GET /api/currentUser</pre>\n' +
+realworld-docker-api |       '</body>\n' +
+realworld-docker-api |       '</html>\n'
+realworld-docker-api |   }
+realworld-docker-api | }
+realworld-docker-api | 
+realworld-docker-api | Node.js v20.8.0
+realworld-docker-api-db | {"t":{"$date":"2023-11-17T22:52:20.462+00:00"},"s":"I",  "c":"NETWORK",  "id":22944,   "ctx":"conn3","msg":"Connection ended","attr":{"remote":"172.19.0.6:56552","uuid":{"uuid":{"$uuid":"f64324a3-b019-4ace-86c3-c2e7581651b7"}},"connectionId":3,"connectionCount":3}}
+realworld-docker-api
