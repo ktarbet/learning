@@ -39,6 +39,58 @@ WHERE  df.tablespace_name='CWMS_20_TSV';
 
 ```
 
+ monitor CCP
+
+```sql
+SELECT count( * ) FROM ccp.cp_comp_tasklist;
+
+-- If count > 50,000, we throw a “yellow” light.
+
+SELECT machine,
+       count( * ) "COUNT",
+       ( sysdate - MIN( logon_time ) ) "LOGIN_DAYS",
+       ( sysdate - MAX( prev_exec_start ) ) * 1440 "LAST_ACTIVITY_MINUTES"
+  FROM v$session WHERE username = ‘G0DCSA26’
+GROUP BY machine;
+
+--  if count < 2, we throw a “red” light.  If the last activity returned is > 15 minutes, we throw a “yellow”, if > 60 a “red”.  The machine and login days are just displayed.
+
+SELECT nvl( sysdate - MIN( date_time_loaded ), 0 ) age
+ FROM ccp.cp_comp_tasklist''' )
+
+-- If age > 2 days, we throw a “yellow” light, if > 5 a “red”.
+
+SELECT ( last_tsv - last_ccp ) * 24 * 60 ccp_lag FROM
+  ( SELECT ( SELECT CAST( MAX( data_entry_date ) AS date )
+               FROM cwms_20.at_tsv_count )       last_tsv,
+  ( SELECT CAST( MAX( data_entry_date ) AS date )
+      FROM ccp.cp_comp_tasklist_count ) last_ccp
+  FROM dual );
+
+-- If ccp_lag is over 10 minutes, we throw a “yellow”, if over 30 a “red”
+
+
+SELECT COUNT( DECODE( msg_state, 'READY',     1 ) ) ready,
+       COUNT( DECODE( msg_state, 'PROCESSED', 1 ) ) processed
+FROM   cwms_20.aq$nwdp_ts_stored_table
+WHERE  consumer_name='CCP_SUBSCRIBER;
+
+-- If ready is > 100, we throw a “yellow” light, if > 1000 a “red”
+
+We also show a summary based on:
+
+SELECT loading_application_name                 "CCP Process",
+       TRUNC( ( sysdate - heartbeat ) * 86400 ) "Heartbeat (sec)",
+       SUBSTR( cur_status, 7 )                  "Computations"
+FROM   ccp.ref_loading_application_prop LEFT JOIN
+       ccp.cp_comp_proc_lock USING ( loading_application_id ) LEFT JOIN
+       ccp.hdb_loading_application USING ( loading_application_id )
+WHERE  LOWER( prop_name ) = 'compproc_util' AND LOWER( prop_value ) = 'true'
+ORDER BY 1;
+
+
+```
+
 
 
 ## Ratings
