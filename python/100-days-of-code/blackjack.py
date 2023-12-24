@@ -32,6 +32,11 @@ cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 print_intro()
 
+def black_jack(list):
+  return len(list) == 2 and sum(list) == 21
+
+
+
 def get_card():
   return cards[random.randint(0,len(cards)-1)]
   
@@ -57,13 +62,17 @@ def print_final_status():
   print(f"Your final hand: {yourCards}, final score: {sum(yourCards)}")
   print(f"Computer's final hand: {computerCards}, final score {sum(computerCards)}")  
 
-  if over_21(yourCards):
+  if black_jack(yourCards):
+    print("your win! BlackJack")
+  elif black_jack(computerCards):
+      print("Computer wins! BlackJack")
+  elif over_21(yourCards):
     print("You went over. You Loose \U0001F641 ")
-  elif sum(yourCards) == sum(computerCards):
+  elif sum_cards(yourCards) == sum_cards(computerCards):
     print("Draw...")
   elif over_21(computerCards):
     print("Dealer went over... You Win!!")
-  elif sum(computerCards) < sum(yourCards):
+  elif sum_cards(computerCards) < sum_cards(yourCards):
     print("your win!")
   else:
     print("Dealer wins.")
@@ -73,8 +82,17 @@ def get_cards(list,numCards):
   for i in range(0,numCards):
     list.append(get_card())
 
+def sum_cards(list):
+  rval = sum(list)
+  if rval >21 and 11 in list: # check for any Aces '11'
+    idx = list.index(11)
+    list[idx]=1
+    rval = sum(list)
+  return rval
+
+
 def over_21(list):
-  return sum(list)>21
+  return sum_cards(list) >21
 
 def new_game():
   yourCards.clear()
@@ -86,11 +104,11 @@ def new_game():
 while play_again() == True:
   new_game()
  
-  while not over_21(yourCards) and another_card():
+  while not over_21(yourCards) and not black_jack(yourCards) and not black_jack(computerCards)  and another_card():
     get_cards(yourCards,1)
     print_status()
 
-  while not over_21(computerCards) and sum(computerCards)<=16 :
+  while not over_21(computerCards) and sum_cards(computerCards)<=16 :
     get_cards(computerCards,1)
 
   print_final_status()
