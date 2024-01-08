@@ -132,7 +132,14 @@ RADAR  more efficient rating points in more unformated/raw/minimize-whitespace
 ```
 
 
+## LRTS
 
-
+```sql
+SELECT db_office_id, COUNT(ts_code) num_ts_ids
+FROM cwms_v_Ts_id
+WHERE INSTR(cwms_Ts_id, '~') > 0
+AND interval_utc_offset != -2147483648
+GROUP BY db_office_id
+```
 
 
