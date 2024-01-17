@@ -8,11 +8,19 @@ RIGHT = 0
 class Snake:
 
     def __init__(self):
+        self.create_snake()
+
+    def create_snake(self):
         self.snake_body = []
         x = 0
         for i in range(0, 3):
             self.__add_segment(i)
         self.head = self.snake_body[0]
+
+    def reset(self):
+        for t in self.snake_body:
+            t.goto(1000,1000)
+        self.create_snake()
 
     def __add_segment(self, i):
         t = Turtle("square")

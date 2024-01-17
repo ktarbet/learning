@@ -22,7 +22,8 @@ screen.onkey(snake.right, "Right")
 game_over = False
 while not game_over:
     screen.update()
-    time.sleep(0.1)
+    score_board.update()
+    time.sleep(0.2)
     snake.move()
 
     # did we find food?
@@ -31,18 +32,17 @@ while not game_over:
         score_board.score += 1
         snake.feed()
         food.refresh()
-        score_board.update()
 
     # did we hit the wall
     x = snake.head.xcor()
     y = snake.head.ycor()
     if x < -280 or x > 280 or y > 280 or y < -280:
-        game_over = True
-        score_board.game_over()
+        score_board.reset()
+        snake.reset()
 
     # did snake hit itself?
     if snake.eating_tail():
-        game_over = True
-        score_board.game_over()
+        score_board.reset()
+        snake.reset()
 
 screen.exitonclick()
