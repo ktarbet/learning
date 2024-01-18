@@ -1,0 +1,5 @@
+.....  PATH ----> ;C:\Programs\Anaconda3;C:\Programs\Anaconda3\condabin;.
+
+conda create -n karl
+conda activate karl
+conda install numpy pandas
