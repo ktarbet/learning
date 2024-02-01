@@ -3,3 +3,12 @@
 conda create -n karl
 conda activate karl
 conda install numpy pandas
+
+
+## OpenDCS  setup
+conda create -n opendcs
+conda activate opendcs
+
+conda install sphinx
+#conda install charset_normalizer
+conda install sphinx_rtd_theme
