@@ -10,5 +10,4 @@ conda create -n opendcs
 conda activate opendcs
 
 conda install sphinx
-#conda install charset_normalizer
 conda install sphinx_rtd_theme
