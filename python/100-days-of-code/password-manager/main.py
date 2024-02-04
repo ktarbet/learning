@@ -1,11 +1,16 @@
 import tkinter
-from tkinter import Label, Button, Entry
+from tkinter import Label, Button, Entry, END
+
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
-def save_entry(url:str,username:str,password:str):
-    pass
+def save_entry(url: str, username: str, password: str):
+    width = 30
+    sep = "[-]"
+    with open('data.txt', 'a') as file:
+        file.write(f"{url.ljust(width)}{sep}{username.ljust(width)}{sep}{password.ljust(width)}\n")
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = tkinter.Tk()
@@ -32,7 +37,7 @@ user_label.grid(column=0, row=2)
 
 username = Entry(width=35)
 username.grid(row=2, column=1, columnspan=2)
-username.insert(0,"karl@learning-python.now")
+username.insert(0, "karl@learning-python.now")
 
 password_label = Label(text="Password:")
 password_label.grid(column=0, row=3)
@@ -43,7 +48,12 @@ password.grid(row=3, column=1)
 generate_password = Button(text="Generate Password")
 generate_password.grid(row=3, column=2)
 
-add = Button(text="Add", width=36,command=)
+add = Button(text="Add", width=36, command=lambda: (
+    save_entry(web_url.get(), username.get(), password.get()),
+    password.delete(0,END),
+    web_url.delete(0, END)
+))
+
 add.grid(row=4, column=1, columnspan=2)
 
 window.mainloop()
