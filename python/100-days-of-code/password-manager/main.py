@@ -1,15 +1,49 @@
 import tkinter
-from tkinter import Label, Button, Entry, END
+from tkinter import Label, Button, Entry, END, messagebox
+from random import randint, choice, shuffle
+import pyperclip
 
 
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
+def make_password():
+    # ---------------------------- PASSWORD GENERATOR ------------------------------- #
+    # Password Generator Project
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+               'v',
+               'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
+               'R',
+               'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+    nr_letters = randint(8, 10)
+    nr_symbols = randint(2, 4)
+    nr_numbers = randint(2, 4)
+
+    password_list = [choice(letters) for _ in range(nr_letters)] \
+                    + [choice(symbols) for _ in range(nr_symbols)] \
+                    + [choice(numbers) for _ in range(nr_numbers)]
+
+    print(password_list)
+    shuffle(password_list)
+
+    return "".join(password_list)
+
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+
+
 def save_entry(url: str, username: str, password: str):
-    width = 30
-    sep = "[-]"
-    with open('data.txt', 'a') as file:
-        file.write(f"{url.ljust(width)}{sep}{username.ljust(width)}{sep}{password.ljust(width)}\n")
+    if len(url.strip()) == 0 or len(username.strip()) == 0 or len(password.strip()) == 0:
+        messagebox.showinfo("oops", "can't have empty entries!")
+        return
+
+    if messagebox.askokcancel(title="entry", message=f"password='{password}\n"
+                                                     f"username='{username}'\n"):
+        width = 30
+        sep = "[-]"
+        with open('data.txt', 'a') as file:
+            file.write(f"{url.ljust(width)}{sep}{username.ljust(width)}{sep}{password.ljust(width)}\n")
+        messagebox.showinfo("password saved", "password saved")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -45,12 +79,16 @@ password_label.grid(column=0, row=3)
 password = Entry(width=21)
 password.grid(row=3, column=1)
 
-generate_password = Button(text="Generate Password")
+generate_password = Button(text="Generate Password", command=lambda: (
+    password.delete(0, END),
+    password.insert(0, make_password()),
+    pyperclip.copy(password.get())
+))
 generate_password.grid(row=3, column=2)
 
 add = Button(text="Add", width=36, command=lambda: (
     save_entry(web_url.get(), username.get(), password.get()),
-    password.delete(0,END),
+    password.delete(0, END),
     web_url.delete(0, END)
 ))
 
