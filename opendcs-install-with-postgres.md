@@ -31,7 +31,17 @@ vi opendcs/decodes.properties
 ```text
 editDatabaseType:OPENTSDB
 EditDatabaseLocation=jdbc:postgresql://localhost/opendcs
+DbAuthFile=$HOME/.decodes.auth
 ```
+set password for openDCS software tools
+
+```bash
+./bin/setDecodesUser $HOME/.decodes.auth
+User Name: hydromet
+Password:
+writing...
+```
+
 
 ## Configure OpenDCS database
 
@@ -50,7 +60,25 @@ Please provide a password:admin
 Please repeat the password:admin
 ```
 
+Import required meta-data
+
+```bash
+./bin/dbimport ./edit-db/loading-app/*.xml
+./bin/dbimport ./edit-db/enum/*.xml 
+./bin/dbimport ./edit-db/eu/EngineeringUnitList.xml 
+./bin/dbimport ./edit-db/datatype/DataTypeEquivalenceList.xml 
+./bin/dbimport ./edit-db/presentation/*.xml 
+./bin/compimport ./edit-db/comp-standard/*.xml 
+
+```
+
+
+
+
+
 # Windows Client Install
 
 java -jar C:\project\opendcs\stage\opendcs-installer-7.0.12-RC04.jar
+
+
 
