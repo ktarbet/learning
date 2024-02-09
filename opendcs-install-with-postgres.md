@@ -31,7 +31,7 @@ vi opendcs/decodes.properties
 ```text
 editDatabaseType:OPENTSDB
 EditDatabaseLocation=jdbc:postgresql://localhost/opendcs
-DbAuthFile=$HOME/.decodes.auth
+DbAuthFile=UserAuthFile:$HOME/.opendcs/.decodes.auth
 ```
 set password for openDCS software tools
 
@@ -79,6 +79,14 @@ Import required meta-data
 # Windows Client Install
 
 java -jar C:\project\opendcs\stage\opendcs-installer-7.0.12-RC04.jar
+
+note: This example istalled to C:\test\OPENDCS7.0.12-RC04
+
+mkdir %USERPROFILE%\.opendcs
+C:\test\OPENDCS7.0.12-RC04\bin>setDecodesUser.bat %USERPROFILE%\.opendcs\.decodes.auth
+User Name: hydromet
+Password:
+writing...
 
 
 
