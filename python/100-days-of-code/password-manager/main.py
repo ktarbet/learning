@@ -1,3 +1,4 @@
+import json
 import tkinter
 from tkinter import Label, Button, Entry, END, messagebox
 from random import randint, choice, shuffle
@@ -37,13 +38,22 @@ def save_entry(url: str, username: str, password: str):
         messagebox.showinfo("oops", "can't have empty entries!")
         return
 
-    if messagebox.askokcancel(title="entry", message=f"password='{password}\n"
-                                                     f"username='{username}'\n"):
-        width = 30
-        sep = "[-]"
-        with open('data.txt', 'a') as file:
-            file.write(f"{url.ljust(width)}{sep}{username.ljust(width)}{sep}{password.ljust(width)}\n")
-        messagebox.showinfo("password saved", "password saved")
+    new_data = {
+        url: {
+            "email": username,
+            "password": password,
+        }
+    }
+    try:
+        with open('data.json', 'r') as file:
+            data = json.load(file)
+            data.update(new_data)
+    except FileNotFoundError:
+        print("created new file")
+        data = new_data
+
+    with open('data.json', "w") as file:
+        json.dump(data, file, indent=4)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
