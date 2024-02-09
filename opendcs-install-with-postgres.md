@@ -68,7 +68,7 @@ Import required meta-data
 ./bin/dbimport ./edit-db/eu/EngineeringUnitList.xml 
 ./bin/dbimport ./edit-db/datatype/DataTypeEquivalenceList.xml 
 ./bin/dbimport ./edit-db/presentation/*.xml 
-./bin/compimport ./edit-db/comp-standard/*.xml 
+./bin/compimport ./imports/comp-standard/*.xml
 
 ```
 
