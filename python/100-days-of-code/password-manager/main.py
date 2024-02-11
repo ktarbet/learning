@@ -1,8 +1,11 @@
 import json
+import os
 import tkinter
 from tkinter import Label, Button, Entry, END, messagebox
 from random import randint, choice, shuffle
 import pyperclip
+
+FILENAME = 'data.json'
 
 
 def make_password():
@@ -45,15 +48,26 @@ def save_entry(url: str, username: str, password: str):
         }
     }
     try:
-        with open('data.json', 'r') as file:
+        with open(FILENAME, 'r') as file:
             data = json.load(file)
             data.update(new_data)
     except FileNotFoundError:
         print("created new file")
         data = new_data
 
-    with open('data.json', "w") as file:
+    with open(FILENAME, "w") as file:
         json.dump(data, file, indent=4)
+
+
+def find_password(website_name: str):
+    if os.path.isfile(FILENAME):
+        with open(FILENAME, 'r') as file:
+            data = json.load(file)
+            if website_name in data:
+                return data[website_name]
+
+    else:
+        return None
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -64,32 +78,46 @@ window.title("Driving Tkinter")
 window.minsize(width=width, height=height)
 window.config(padx=20, pady=20)
 
+LABEL_WIDTH=33
+
 canvas = tkinter.Canvas(width=width, height=height)
 img = tkinter.PhotoImage(file="logo.png")
 canvas.create_image(width / 2, height / 2, image=img)
 canvas.grid(column=1, row=0)
 
-web_label = Label(text="Website:")
+web_label = Label(text="Website:",width=LABEL_WIDTH)
 web_label.grid(column=0, row=1)
 
-web_url = Entry(width=35)
-web_url.grid(column=1, row=1, columnspan=2)
+web_url = Entry(width=LABEL_WIDTH)
+web_url.grid(column=1, row=1, columnspan=1)
 web_url.focus()
 
-user_label = Label(text="Email/Username")
+
+def on_search(url: str):
+    p = find_password(url)
+    if p:
+        password.delete(0, END)
+        password.insert(0, p["password"]),
+        pyperclip.copy(p["password"])
+
+
+search = Button(text="Search", width=int(LABEL_WIDTH/2), command=lambda: on_search(web_url.get()))
+search.grid(row=1, column=2)
+
+user_label = Label(text="Email/Username",width=LABEL_WIDTH)
 user_label.grid(column=0, row=2)
 
-username = Entry(width=35)
-username.grid(row=2, column=1, columnspan=2)
+username = Entry(width=LABEL_WIDTH)
+username.grid(row=2, column=1, columnspan=1)
 username.insert(0, "karl@learning-python.now")
 
-password_label = Label(text="Password:")
+password_label = Label(text="Password:",width=LABEL_WIDTH)
 password_label.grid(column=0, row=3)
 
-password = Entry(width=21)
+password = Entry(width=LABEL_WIDTH)
 password.grid(row=3, column=1)
 
-generate_password = Button(text="Generate Password", command=lambda: (
+generate_password = Button(text="Generate Password", width=int(LABEL_WIDTH/2), command=lambda: (
     password.delete(0, END),
     password.insert(0, make_password()),
     pyperclip.copy(password.get())
