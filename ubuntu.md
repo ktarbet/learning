@@ -4,6 +4,8 @@ My Basic Ubunutu  setup
 
 install VSCode
 
+sudo apt install default-jre
+
 sudo apt-get install openjdk-8-jdk
 
 apt-get update
