@@ -36,7 +36,8 @@ DbAuthFile=UserAuthFile:$HOME/.opendcs/.decodes.auth
 set password for openDCS software tools
 
 ```bash
-./bin/setDecodesUser $HOME/.decodes.auth
+mkdir $HOME/.opendcs
+./bin/setDecodesUser $HOME/.opendcs/.decodes.auth
 User Name: hydromet
 Password:
 writing...
