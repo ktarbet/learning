@@ -4,7 +4,7 @@
 ## Install PostgreSQL
 
 ```bash
-docker run --name opendcs-pg -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+docker run --name opendcs-pg -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres:16.2
 ```
 ref: https://hub.docker.com/_/postgres
 
