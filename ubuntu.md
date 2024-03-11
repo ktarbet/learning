@@ -16,5 +16,6 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo update-alternatives --config java
 
 sudo usermod -aG docker $USER
+
 sudo usermod -aG sudo $USER
 
