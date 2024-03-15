@@ -25,27 +25,28 @@ def extract_raw_timeseries(df, site_id, year, plot_number, condition, column_nam
     The input data column 'Time' is fractional number of minutes
     that can reset to zero to represent 60.
     """
-    print(df.dtypes['Year'])
     filtered_data = df[(df["Site ID"] == site_id) & (df["Year"] == year)
                        & (df["Plot number"] == plot_number)
                        & (df["Condition"].str.strip() == condition)
-                       ]
+                       ].reset_index(drop=True)
 
-    keeper_rows = []
+    rows = []
     extra_t = 0  # used to accumulate minutes, when the fractional minutes 'Time' column resets with 0
     for index, row in filtered_data.iterrows():
         year = row['Year']
         month = row['Month']
         day = row['Day']
         time = row['Time']
-        if time == 0:
+        if time == 0 and index != 0:
             extra_t = extra_t + 60
         date = datetime(year=int(year), month=int(month), day=int(day))
         t = date + timedelta(minutes=time + extra_t)
 
-        keeper_rows.append([t, row[column_name]])
+        rows.append([t, row[column_name]])
         # print(f"{t},{row['Precipitation (mm/hr)']},{row['Runoff (mm/hr)']}")
-    return pandas.DataFrame(keeper_rows, columns=['timestamp', column_name])
+    out = pandas.DataFrame(rows, columns=['timestamp', column_name])
+    out.set_index('timestamp', inplace=True)
+    return out
 
 
 def filter_out_timesteps_less_than_1minute(df):
@@ -58,6 +59,13 @@ def filter_out_timesteps_less_than_1minute(df):
     return df_filtered
 
 
+def condition_timeseries_to_precip(df):
+    data_column = df.columns[0]
+    for index, row in df.iterrows():
+        if row[data_column] == 0:  # precip has stopped
+            print(f"Found value 0 at index {index}")
+
+
 FILENAME = 'rainfall_sim.csv'
 SITEID = "Ab"
 PLOT_NUMBER = 2
@@ -66,20 +74,22 @@ CONDITION = 'N'
 SERIES_NAME = 'Precipitation (mm/hr)'
 
 data = pandas.read_csv(FILENAME)
-ts_raw = extract_raw_timeseries(data, SITEID, YEAR, PLOT_NUMBER, CONDITION, SERIES_NAME)
-#print(ts_raw.to_string())
+raw_ts = extract_raw_timeseries(data, SITEID, YEAR, PLOT_NUMBER, CONDITION, SERIES_NAME)
+print(raw_ts.to_string())
+# detect precipitation going off - (use previous precipitation one minute prior to zero )
+# insert values to enhance interpolation
+ts_conditioned = condition_timeseries_to_precip(raw_ts)
 
-ts_filter = filter_out_timesteps_less_than_1minute(ts_raw)
-#print(ts_filter.to_string())
+# ts_filter = filter_out_timesteps_less_than_1minute(ts_raw)
+# print(ts_filter.to_string())
 
-ts_filter['2'] = ts_raw[SERIES_NAME]
-print(ts_filter.to_string())
-plt.figure(figsize=(16, 8), dpi=150)
-ts_filter.plot(label='H', color=['orange', 'green'])
-plt.title('Price Plot')
-plt.xlabel('Years')
-plt.legend()
-plt.show()
-#plot(ts_combined, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
-#plot(ts_raw, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
-#plot(ts_filter, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
+
+# plt.figure(figsize=(16, 8), dpi=150)
+# ts_filter.plot(label='H', color=['orange', 'green'])
+# plt.title('Price Plot')
+# plt.xlabel('Years')
+# plt.legend()
+# plt.show()
+# plot(ts_combined, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
+# plot(ts_raw, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
+# plot(ts_filter, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
