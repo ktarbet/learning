@@ -19,6 +19,18 @@ def plot(df, title="title", series_label="series1"):
     plt.show()
 
 
+def plot_data_frames(data_frames):
+    # Plot the data frames
+    for df in data_frames:
+        for column in df.columns:
+            plt.plot(df.index, df[column], label=column, marker ='x')
+
+    plt.xlabel('Time')
+    plt.ylabel('Value')
+    plt.legend()
+    plt.show()
+
+
 def extract_raw_timeseries(df, site_id, year, plot_number, condition, column_name):
     """
     reads timeseries data from a subset of the input data
@@ -61,9 +73,23 @@ def filter_out_timesteps_less_than_1minute(df):
 
 def condition_timeseries_to_precip(df):
     data_column = df.columns[0]
-    for index, row in df.iterrows():
-        if row[data_column] == 0:  # precip has stopped
-            print(f"Found value 0 at index {index}")
+    modified_df = df.copy()  # Create a copy of the input DataFrame
+    prev_row = None
+
+    for t, row in df.iterrows():
+        have_prev_precip = prev_row is not None and prev_row[data_column] != 0
+
+        if row[data_column] == 0 and have_prev_precip:  # precip has stopped
+            if t - prev_row.name > timedelta(minutes=1):  # is previous row more than 1 minute prior
+                print(f"Found value 0 at time: {t}, previous precip = {prev_row[data_column]}")
+                new_time = t - timedelta(minutes=1)
+                new_entry = prev_row.copy()
+                modified_df.loc[new_time] = new_entry
+
+        prev_row = row
+
+    modified_df.sort_index(inplace=True)
+    return modified_df
 
 
 FILENAME = 'rainfall_sim.csv'
@@ -75,21 +101,12 @@ SERIES_NAME = 'Precipitation (mm/hr)'
 
 data = pandas.read_csv(FILENAME)
 raw_ts = extract_raw_timeseries(data, SITEID, YEAR, PLOT_NUMBER, CONDITION, SERIES_NAME)
-print(raw_ts.to_string())
+# print(raw_ts.to_string())
+print(f"raw data has {raw_ts.size} rows")
 # detect precipitation going off - (use previous precipitation one minute prior to zero )
 # insert values to enhance interpolation
 ts_conditioned = condition_timeseries_to_precip(raw_ts)
+plot_data_frames([raw_ts,ts_conditioned])
 
 # ts_filter = filter_out_timesteps_less_than_1minute(ts_raw)
 # print(ts_filter.to_string())
-
-
-# plt.figure(figsize=(16, 8), dpi=150)
-# ts_filter.plot(label='H', color=['orange', 'green'])
-# plt.title('Price Plot')
-# plt.xlabel('Years')
-# plt.legend()
-# plt.show()
-# plot(ts_combined, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
-# plot(ts_raw, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
-# plot(ts_filter, title=f"{SITEID} {YEAR} plot:{PLOT_NUMBER}", series_label=SERIES_NAME)
