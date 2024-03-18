@@ -5,28 +5,17 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 from datetime import datetime, timedelta
 import pandas
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 
-
-def plot(df, title="title", series_label="series1"):
-    plt.figure(figsize=(12, 6))
-    plt.plot(df.iloc[:, 0], df.iloc[:, 1], label=series_label)
-    # plt.plot(df['DateTime'], df['Runoff (mm/hr)'], label='Runoff (mm/hr)')
-    plt.xlabel('Date Time')
-    plt.ylabel('Values')
-    plt.title(title)
-    plt.legend()
-    plt.grid(True)
-    plt.show()
-
-
-def plot_data_frames(data_frames):
+def plot_data_frames(data_frames, labels, markers):
     # Plot the data frames
-    for df in data_frames:
+    for df, label, marker in zip(data_frames, labels, markers):
         for column in df.columns:
-            plt.plot(df.index, df[column], label=column, marker ='x')
+            plt.plot(df.index, df[column], label=label, marker=marker)
 
     plt.xlabel('Time')
     plt.ylabel('Value')
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
     plt.legend()
     plt.show()
 
@@ -106,7 +95,7 @@ print(f"raw data has {raw_ts.size} rows")
 # detect precipitation going off - (use previous precipitation one minute prior to zero )
 # insert values to enhance interpolation
 ts_conditioned = condition_timeseries_to_precip(raw_ts)
-plot_data_frames([raw_ts,ts_conditioned])
+plot_data_frames([raw_ts, ts_conditioned],["raw","conditioned"],['o','x'])
 
 # ts_filter = filter_out_timesteps_less_than_1minute(ts_raw)
 # print(ts_filter.to_string())
