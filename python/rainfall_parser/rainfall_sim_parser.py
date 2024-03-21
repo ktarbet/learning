@@ -81,7 +81,7 @@ def condition_timeseries_to_precip(df):
     return modified_df
 
 def interpolate_1minute_timeseries(df):
-    interpolated_df = df.resample('1T').asfreq().interpolate(method='time')
+    interpolated_df = df.resample('1min').asfreq().interpolate(method='time')
     return interpolated_df
 
 
