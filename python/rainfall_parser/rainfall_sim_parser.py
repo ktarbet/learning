@@ -80,8 +80,14 @@ def condition_timeseries_to_precip(df):
     modified_df.sort_index(inplace=True)
     return modified_df
 
+def interpolate_1minute_timeseries(df):
+    interpolated_df = df.resample('1T').asfreq().interpolate(method='time')
+    return interpolated_df
+
+
 
 FILENAME = 'rainfall_sim.csv'
+OUTPUT_FILENAME = 'out.csv'
 SITEID = "Ab"
 PLOT_NUMBER = 2
 YEAR = 2004
@@ -95,7 +101,10 @@ print(f"raw data has {raw_ts.size} rows")
 # detect precipitation going off - (use previous precipitation one minute prior to zero )
 # insert values to enhance interpolation
 ts_conditioned = condition_timeseries_to_precip(raw_ts)
-plot_data_frames([raw_ts, ts_conditioned],["raw","conditioned"],['o','x'])
+ts_1minute = interpolate_1minute_timeseries(ts_conditioned)
+
+ts_1minute.to_csv(OUTPUT_FILENAME)
+plot_data_frames([raw_ts, ts_conditioned,ts_1minute],["raw","conditioned","1minute"],['o','x','*'])
 
 # ts_filter = filter_out_timesteps_less_than_1minute(ts_raw)
 # print(ts_filter.to_string())
