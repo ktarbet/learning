@@ -7,7 +7,7 @@ import pandas
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-def plot_data_frames(data_frames, labels, markers):
+def plot_data_frames(data_frames, labels, markers, title):
     # Plot the data frames
     for df, label, marker in zip(data_frames, labels, markers):
         for column in df.columns:
@@ -15,6 +15,7 @@ def plot_data_frames(data_frames, labels, markers):
 
     plt.xlabel('Time')
     plt.ylabel('Value')
+    plt.title(title)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
     plt.legend()
     plt.show()
@@ -66,14 +67,24 @@ def condition_timeseries_to_precip(df):
     prev_row = None
 
     for t, row in df.iterrows():
-        have_prev_precip = prev_row is not None and prev_row[data_column] != 0
 
-        if row[data_column] == 0 and have_prev_precip:  # precip has stopped
-            if t - prev_row.name > timedelta(minutes=1):  # is previous row more than 1 minute prior
-                print(f"Found value 0 at time: {t}, previous precip = {prev_row[data_column]}")
-                new_time = t - timedelta(minutes=1)
-                new_entry = prev_row.copy()
-                modified_df.loc[new_time] = new_entry
+        have_prev_precip = prev_row is not None and prev_row[data_column] != 0
+        precip_stopped = row[data_column] == 0 and have_prev_precip
+        precip_started = prev_row is not None and row[data_column] != 0 and prev_row[data_column] == 0
+        more_than_1minute_gap = prev_row is not None and t - prev_row.name > timedelta(minutes=1)
+
+        if precip_started:
+            print("precip started")
+
+        if precip_stopped and more_than_1minute_gap:
+            print(f"Found value 0 at time: {t}, previous precip = {prev_row[data_column]}")
+            new_time = t - timedelta(minutes=1)
+            new_entry = prev_row.copy()
+            modified_df.loc[new_time] = new_entry
+        elif precip_started and more_than_1minute_gap:
+            print(f"precip started with {row[data_column]}, at time: {t}, previous precip = {prev_row[data_column]}")
+            new_time = t - timedelta(seconds=15)
+            modified_df.loc[new_time] = 0
 
         prev_row = row
 
@@ -81,15 +92,13 @@ def condition_timeseries_to_precip(df):
     return modified_df
 
 def interpolate_1minute_timeseries(df):
-    interpolated_df = df.resample('1min').asfreq().interpolate(method='time')
-    return interpolated_df
-
-
+    s = df.resample('1min').ffill()
+    return s
 
 FILENAME = 'rainfall_sim.csv'
 OUTPUT_FILENAME = 'out.csv'
 SITEID = "Ab"
-PLOT_NUMBER = 2
+PLOT_NUMBER = 1
 YEAR = 2004
 CONDITION = 'N'
 SERIES_NAME = 'Precipitation (mm/hr)'
@@ -102,9 +111,14 @@ print(f"raw data has {raw_ts.size} rows")
 # insert values to enhance interpolation
 ts_conditioned = condition_timeseries_to_precip(raw_ts)
 ts_1minute = interpolate_1minute_timeseries(ts_conditioned)
+#print(ts_1minute.to_string())
 
 ts_1minute.to_csv(OUTPUT_FILENAME)
-plot_data_frames([raw_ts, ts_conditioned,ts_1minute],["raw","conditioned","1minute"],['o','x','*'])
+combined_df = pandas.concat([raw_ts, ts_conditioned, ts_1minute], axis=1)
+combined_df.to_csv('combined_data.csv')
+
+title = f"{SITEID} {YEAR} plot number:{PLOT_NUMBER} condition:{CONDITION} "
+plot_data_frames([raw_ts, ts_conditioned,ts_1minute],["raw","conditioned","1minute"],['o','x','*'],title)
 
 # ts_filter = filter_out_timesteps_less_than_1minute(ts_raw)
 # print(ts_filter.to_string())
