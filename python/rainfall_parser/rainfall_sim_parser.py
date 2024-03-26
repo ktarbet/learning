@@ -25,7 +25,8 @@ def extract_raw_timeseries(df, site_id, year, plot_number, condition, column_nam
     """
     reads timeseries data from a subset of the input data
     The input data column 'Time' is fractional number of minutes
-    that can reset to zero to represent 60.
+    The time 'overflows' each minute, that is detected with either
+     a zero value or decreasing from previous value
     """
     filtered_data = df[(df["Site ID"] == site_id) & (df["Year"] == year)
                        & (df["Plot number"] == plot_number)
@@ -33,17 +34,22 @@ def extract_raw_timeseries(df, site_id, year, plot_number, condition, column_nam
                        ].reset_index(drop=True)
 
     rows = []
+    prev_row = None
     extra_t = 0  # used to accumulate minutes, when the fractional minutes 'Time' column resets with 0
-    for index, row in filtered_data.iterrows():
+    for _, row in filtered_data.iterrows():
         year = row['Year']
         month = row['Month']
         day = row['Day']
         time = row['Time']
-        if time == 0 and index != 0:
+        minute_overflow = prev_row is not None and time < prev_row['Time']
+
+        if minute_overflow:
             extra_t = extra_t + 60
+
         date = datetime(year=int(year), month=int(month), day=int(day))
         t = date + timedelta(minutes=time + extra_t)
 
+        prev_row = row
         rows.append([t, row[column_name]])
         # print(f"{t},{row['Precipitation (mm/hr)']},{row['Runoff (mm/hr)']}")
     out = pandas.DataFrame(rows, columns=['timestamp', column_name])
@@ -62,6 +68,13 @@ def filter_out_timesteps_less_than_1minute(df):
 
 
 def condition_timeseries_to_precip(df):
+    """
+    condition_timeseries_to_precip inserts extra data points to
+    avoid incorrectly interpolating across un-eventual gaps in data.
+
+    insert zero precip values 1-minute before precip resumes (after period of zero-precip)
+    insert previous precip value 1-minute before precip stops (after period of non-zero precip)
+    """
     data_column = df.columns[0]
     modified_df = df.copy()  # Create a copy of the input DataFrame
     prev_row = None
@@ -98,9 +111,9 @@ def interpolate_1minute_timeseries(df):
 FILENAME = 'rainfall_sim.csv'
 OUTPUT_FILENAME = 'out.csv'
 SITEID = "Ab"
-PLOT_NUMBER = 1
+PLOT_NUMBER = 3
 YEAR = 2004
-CONDITION = 'N'
+CONDITION = 'B'
 SERIES_NAME = 'Precipitation (mm/hr)'
 
 data = pandas.read_csv(FILENAME)
@@ -110,6 +123,10 @@ print(f"raw data has {raw_ts.size} rows")
 # detect precipitation going off - (use previous precipitation one minute prior to zero )
 # insert values to enhance interpolation
 ts_conditioned = condition_timeseries_to_precip(raw_ts)
+#ts_conditioned.to_csv('conditioned.csv')
+
+#plot_data_frames([raw_ts, ts_conditioned],["raw","conditioned"],['o','x',],"tst")
+
 ts_1minute = interpolate_1minute_timeseries(ts_conditioned)
 #print(ts_1minute.to_string())
 
