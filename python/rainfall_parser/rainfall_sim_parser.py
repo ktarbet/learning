@@ -7,6 +7,7 @@ import pandas
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
+
 def plot_data_frames(data_frames, labels, markers, title):
     # Plot the data frames
     for df, label, marker in zip(data_frames, labels, markers):
@@ -36,14 +37,17 @@ def extract_raw_timeseries(df, site_id, year, plot_number, condition, column_nam
     rows = []
     prev_row = None
     extra_t = 0  # used to accumulate minutes, when the fractional minutes 'Time' column resets with 0
+    delta_t = 0
     for _, row in filtered_data.iterrows():
         year = row['Year']
         month = row['Month']
         day = row['Day']
         time = row['Time']
-        minute_overflow = prev_row is not None and time < prev_row['Time']
+        if prev_row is not None:
+            delta_t = time - prev_row['Time']
+        # minute_overflow = prev_row is not None and delta_t < 0
 
-        if minute_overflow:
+        if delta_t < 0:
             extra_t = extra_t + 60
 
         date = datetime(year=int(year), month=int(month), day=int(day))
@@ -104,38 +108,34 @@ def condition_timeseries_to_precip(df):
     modified_df.sort_index(inplace=True)
     return modified_df
 
+
 def interpolate_1minute_timeseries(df):
     s = df.resample('1min').ffill()
     return s
 
-FILENAME = 'rainfall_sim.csv'
-OUTPUT_FILENAME = 'out.csv'
-SITEID = "Ab"
-PLOT_NUMBER = 3
-YEAR = 2004
-CONDITION = 'B'
-SERIES_NAME = 'Precipitation (mm/hr)'
 
-data = pandas.read_csv(FILENAME)
-raw_ts = extract_raw_timeseries(data, SITEID, YEAR, PLOT_NUMBER, CONDITION, SERIES_NAME)
-# print(raw_ts.to_string())
-print(f"raw data has {raw_ts.size} rows")
-# detect precipitation going off - (use previous precipitation one minute prior to zero )
-# insert values to enhance interpolation
-ts_conditioned = condition_timeseries_to_precip(raw_ts)
-#ts_conditioned.to_csv('conditioned.csv')
+def generate_1minute_precip(filename, siteid, plot_number, year, condition):
+    output_filename = f"{siteid}_plot_{plot_number}_{year}_{condition}.csv"
+    SERIES_NAME = 'Precipitation (mm/hr)'
+    data = pandas.read_csv(filename)
+    raw_ts = extract_raw_timeseries(data, siteid, year, plot_number, condition, SERIES_NAME)
+    # print(raw_ts.to_string())
+    print(f"raw data has {raw_ts.size} rows")
+    # detect precipitation going off - (use previous precipitation one minute prior to zero )
+    # insert values to enhance interpolation
+    ts_conditioned = condition_timeseries_to_precip(raw_ts)
+    # ts_conditioned.to_csv('conditioned.csv')
+    # plot_data_frames([raw_ts, ts_conditioned],["raw","conditioned"],['o','x',],"tst")
+    ts_1minute = interpolate_1minute_timeseries(ts_conditioned)
+    # print(ts_1minute.to_string())
+    ts_1minute.to_csv(output_filename)
+    combined_df = pandas.concat([raw_ts, ts_conditioned, ts_1minute], axis=1)
+    combined_df.to_csv('combined_data.csv')
+    title = f"{siteid} {year} plot number:{plot_number} condition:{condition} "
+    plot_data_frames([raw_ts, ts_conditioned, ts_1minute], ["raw", "conditioned", "1minute"], ['o', 'x', '*'], title)
 
-#plot_data_frames([raw_ts, ts_conditioned],["raw","conditioned"],['o','x',],"tst")
 
-ts_1minute = interpolate_1minute_timeseries(ts_conditioned)
-#print(ts_1minute.to_string())
-
-ts_1minute.to_csv(OUTPUT_FILENAME)
-combined_df = pandas.concat([raw_ts, ts_conditioned, ts_1minute], axis=1)
-combined_df.to_csv('combined_data.csv')
-
-title = f"{SITEID} {YEAR} plot number:{PLOT_NUMBER} condition:{CONDITION} "
-plot_data_frames([raw_ts, ts_conditioned,ts_1minute],["raw","conditioned","1minute"],['o','x','*'],title)
-
-# ts_filter = filter_out_timesteps_less_than_1minute(ts_raw)
-# print(ts_filter.to_string())
+generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=2, year=2004, condition='N')
+generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=2, year=2004, condition='B')
+generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=3, year=2004, condition='N')
+generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=3, year=2004, condition='B')
