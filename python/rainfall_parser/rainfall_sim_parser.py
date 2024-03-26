@@ -74,7 +74,7 @@ def filter_out_timesteps_less_than_1minute(df):
 def condition_timeseries_to_precip(df):
     """
     condition_timeseries_to_precip inserts extra data points to
-    avoid incorrectly interpolating across un-eventual gaps in data.
+    avoid incorrectly interpolating across steady-state gaps in the data.
 
     insert zero precip values 1-minute before precip resumes (after period of zero-precip)
     insert previous precip value 1-minute before precip stops (after period of non-zero precip)
@@ -134,8 +134,8 @@ def generate_1minute_precip(filename, siteid, plot_number, year, condition):
     title = f"{siteid} {year} plot number:{plot_number} condition:{condition} "
     plot_data_frames([raw_ts, ts_conditioned, ts_1minute], ["raw", "conditioned", "1minute"], ['o', 'x', '*'], title)
 
-
-generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=2, year=2004, condition='N')
-generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=2, year=2004, condition='B')
-generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=3, year=2004, condition='N')
-generate_1minute_precip(filename='rainfall_sim.csv', siteid='Ab', plot_number=3, year=2004, condition='B')
+input_file = 'rainfall_sim.csv'
+generate_1minute_precip(filename=input_file, siteid='Ab', plot_number=2, year=2004, condition='N')
+generate_1minute_precip(filename=input_file, siteid='Ab', plot_number=2, year=2004, condition='B')
+generate_1minute_precip(filename=input_file, siteid='Ab', plot_number=3, year=2004, condition='N')
+generate_1minute_precip(filename=input_file, siteid='Ab', plot_number=3, year=2004, condition='B')
