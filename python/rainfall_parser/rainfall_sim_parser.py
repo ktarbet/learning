@@ -6,16 +6,16 @@ from datetime import datetime, timedelta
 import pandas
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import re
 
-
-def plot_data_frames(data_frames, labels, markers, title):
+def plot_data_frames(data_frames, labels, markers, title, ylabel):
     # Plot the data frames
     for df, label, marker in zip(data_frames, labels, markers):
         for column in df.columns:
             plt.plot(df.index, df[column], label=label, marker=marker)
 
     plt.xlabel('Time')
-    plt.ylabel('Value')
+    plt.ylabel(ylabel)
     plt.title(title)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
     plt.legend()
@@ -116,9 +116,12 @@ def interpolate_1minute_timeseries(df):
 
 def generate_1minute_precip(filename, siteid, plot_number, year, condition):
     output_filename = f"{siteid}_plot_{plot_number}_{year}_{condition}.csv"
-    SERIES_NAME = 'Precipitation (mm/hr)'
+    series_name = 'Precipitation (mm/hr)'
+    units = re.findall(r'\((.*?)\)', series_name)[0]
+    series_name_min = 'Precipitation (mm/min)'
+
     data = pandas.read_csv(filename)
-    raw_ts = extract_raw_timeseries(data, siteid, year, plot_number, condition, SERIES_NAME)
+    raw_ts = extract_raw_timeseries(data, siteid, year, plot_number, condition, series_name)
     # print(raw_ts.to_string())
     print(f"raw data has {raw_ts.size} rows")
     # detect precipitation going off - (use previous precipitation one minute prior to zero )
@@ -128,11 +131,13 @@ def generate_1minute_precip(filename, siteid, plot_number, year, condition):
     # plot_data_frames([raw_ts, ts_conditioned],["raw","conditioned"],['o','x',],"tst")
     ts_1minute = interpolate_1minute_timeseries(ts_conditioned)
     # print(ts_1minute.to_string())
-    ts_1minute.to_csv(output_filename)
-    combined_df = pandas.concat([raw_ts, ts_conditioned, ts_1minute], axis=1)
-    combined_df.to_csv('combined_data.csv')
+    # convert from mm/hour to mm/minute
     title = f"{siteid} {year} plot number:{plot_number} condition:{condition} "
-    plot_data_frames([raw_ts, ts_conditioned, ts_1minute], ["raw", "conditioned", "1minute"], ['o', 'x', '*'], title)
+    plot_data_frames([raw_ts, ts_conditioned, ts_1minute], ["raw", "conditioned", "1minute"], ['o', 'x', '*'], title,units)
+    ts_1minute[series_name] = ts_1minute[series_name] / 60
+    ts_1minute = ts_1minute.rename(columns={series_name: series_name_min})
+    ts_1minute.to_csv(output_filename)
+
 
 input_file = 'rainfall_sim.csv'
 generate_1minute_precip(filename=input_file, siteid='Ab', plot_number=2, year=2004, condition='N')
