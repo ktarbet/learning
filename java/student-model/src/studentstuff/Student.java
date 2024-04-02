@@ -1,0 +1,88 @@
+package studentstuff;
+
+import java.security.InvalidParameterException;
+import java.time.LocalDate;
+
+public class Student {
+    private String name;
+    private String id; // string or Integer??
+    private String[] Courses;
+    private LocalDate enrollDate;
+
+    private double overallGrade;
+
+    public Student(String name, LocalDate enrollDate,
+                   String id, float overallGrade,String[] courses) {
+        if( !isValid(name,enrollDate,id,overallGrade,courses))
+        {
+            throw new InvalidParameterException("");
+        }
+        this.name = name;
+        this.enrollDate = enrollDate;
+        this.id = id;
+        this.Courses = courses;
+        this.overallGrade=overallGrade;
+    }
+
+    public LocalDate getEnrollDate() {
+        return enrollDate;
+    }
+
+    public void setEnrollDate(LocalDate enrollDate) {
+        this.enrollDate = enrollDate;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String[] getCourses() {
+        return Courses;
+    }
+
+    public void setCourses(String[] courses) {
+        Courses = courses;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String toString(){
+     return id+","+ name+", grade:"+getGrade()+","+enrollDate.toString();
+    }
+
+    public double getGrade() {
+       return overallGrade;
+    }
+
+    public static boolean isValid(String name, LocalDate enrollDate,
+                                  String id, double overallGrade,
+                                  String[] courses){
+        if( name == null || name.length()==0) {
+            return false;
+        }
+        if(enrollDate == null ){
+            return false;
+        }
+        if ( overallGrade <0 || overallGrade >4.0) {
+            return false;
+        }
+        if (id == null || id.length() == 0){
+            return false;
+        }
+        if( courses == null){
+            return false;
+        }
+
+        return true;
+    }
+}
