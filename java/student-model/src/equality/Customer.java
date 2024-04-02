@@ -17,6 +17,7 @@ public class Customer {
 
     @Override
     public boolean equals(Customer this, Object other){
+        //if( other instanceof Customer otherC) // newer Java
         if( other instanceof Customer){
             Customer otherC = (Customer)other;
             return otherC.name.equals(this.name) && otherC.address.equals(this.address);
