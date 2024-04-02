@@ -2,25 +2,30 @@ package studentstuff;
 
 import java.security.InvalidParameterException;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 public class Student {
     private String name;
-    private String id; // string or Integer??
-    private String[] Courses;
+    private String id;
+
+    Set<String> Courses = new HashSet();
     private LocalDate enrollDate;
 
     private double overallGrade;
 
     public Student(String name, LocalDate enrollDate,
-                   String id, float overallGrade,String[] courses) {
-        if( !isValid(name,enrollDate,id,overallGrade,courses))
+                   float overallGrade,String[] courses) {
+        if( !isValid(name,enrollDate,overallGrade,courses))
         {
             throw new InvalidParameterException("");
         }
         this.name = name;
-        this.enrollDate = enrollDate;
-        this.id = id;
-        this.Courses = courses;
+        setEnrollDate(enrollDate);
+        this.id = String.valueOf(UUID.randomUUID());
+        this.setCourses(courses);
         this.overallGrade=overallGrade;
     }
 
@@ -41,11 +46,12 @@ public class Student {
     }
 
     public String[] getCourses() {
-        return Courses;
+        return Courses.toArray(new String[]{});
     }
 
     public void setCourses(String[] courses) {
-        Courses = courses;
+        Courses.clear();
+        Courses.addAll(List.of(courses));
     }
 
     public String getName() {
@@ -64,8 +70,24 @@ public class Student {
        return overallGrade;
     }
 
+    @Override
+    public int hashCode(){
+        int c = this.name.hashCode()
+                +this.enrollDate.hashCode()
+                +this.getId().hashCode();
+        return c;
+    }
+
+    @Override
+    public boolean equals(Student this, Object o){
+        if ( o instanceof Student){
+            Student s = (Student) o;
+            return s.id == this.id;
+        }
+        return false;
+    }
     public static boolean isValid(String name, LocalDate enrollDate,
-                                  String id, double overallGrade,
+                                  double overallGrade,
                                   String[] courses){
         if( name == null || name.length()==0) {
             return false;
@@ -74,9 +96,6 @@ public class Student {
             return false;
         }
         if ( overallGrade <0 || overallGrade >4.0) {
-            return false;
-        }
-        if (id == null || id.length() == 0){
             return false;
         }
         if( courses == null){

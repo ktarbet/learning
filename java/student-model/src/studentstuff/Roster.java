@@ -11,13 +11,13 @@ public class Roster {
     List<Student> students;
     public Roster(String fileName){
         this.students = new ArrayList<>();
-        students.add(new Student("Karl2", LocalDate.now().plusDays(-5),"id123",3.5f,new String[]{}));
-        students.add(new Student("Karl3", LocalDate.now().plusDays(-4),"id124",2.5f,new String[]{}));
-        students.add(new Student("Karl4", LocalDate.now().plusDays(-3),"id125",1.5f,new String[]{}));
-        students.add(new Student("Karl5", LocalDate.now().plusDays(-2),"id126",3.5f,new String[]{}));
-        students.add(new Student("Karl6", LocalDate.now().plusDays(-1),"id127",4.0f,new String[]{}));
-        students.add(new Student("Karl7", LocalDate.now().plusDays(-0),"id128",2.5f,new String[]{}));
-        students.add(new Student("Karl8", LocalDate.now().plusDays(+1),"id129",0.5f,new String[]{}));
+        students.add(new Student("Karl2", LocalDate.now().plusDays(-5),3.5f,new String[]{}));
+        students.add(new Student("Karl3", LocalDate.now().plusDays(-4),2.5f,new String[]{}));
+        students.add(new Student("Karl4", LocalDate.now().plusDays(-3),1.5f,new String[]{}));
+        students.add(new Student("Karl5", LocalDate.now().plusDays(-2),3.5f,new String[]{}));
+        students.add(new Student("Karl6", LocalDate.now().plusDays(-1),4.0f,new String[]{}));
+        students.add(new Student("Karl7", LocalDate.now().plusDays(-0),2.5f,new String[]{}));
+        students.add(new Student("Karl8", LocalDate.now().plusDays(+1),0.5f,new String[]{}));
     }
 
     public void print(boolean sorted){
