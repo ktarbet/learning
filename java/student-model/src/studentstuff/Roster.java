@@ -95,7 +95,7 @@ public class Roster {
           System.out.println("Sort by Name, then by grade");
           r.print( (x,y) -> {
               final int compName = CharSequence.compare(x.getName(),y.getName());
-              if(compName ==0)
+              if(compName !=0)
                   return 0;
               return Double.compare(x.getGrade(),y.getGrade());
           } );
