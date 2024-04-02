@@ -46,7 +46,7 @@ public class Student {
     }
 
     public String[] getCourses() {
-        return Courses.toArray(new String[]{});
+        return Courses.toArray(new String[0]);
     }
 
     public void setCourses(String[] courses) {
