@@ -2,6 +2,8 @@ import requests
 import os
 import json
 import pandas as pd
+import pytz
+from datetime import datetime, timedelta
 
 JIRA_SERVER = os.environ.get("JIRA_SERVER")
 HEADERS = {"Authorization": "Bearer " + os.environ.get("TOKEN")}
@@ -67,6 +69,16 @@ def create_worklog_summary(project:str):
         all_logs.extend(logs)
 
     df_work_logs = pd.DataFrame(all_logs)
+    df_work_logs['total_hours'] = df_work_logs['seconds'] / (60 * 60)
+    now = datetime.now(pytz.timezone('US/Pacific'))
+    last_30_days = now - timedelta(days=30)
+
+    df_work_logs['started'] = df_work_logs['started'].apply(lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S.%f%z'))
+
+    df_work_logs['last_30_days_hours'] = df_work_logs.apply(lambda row: row['total_hours'] if (row['started'] > last_30_days) else 0, axis=1)
+    user_hours = df_work_logs.pivot_table(index='username', values=['total_hours','last_30_days_hours'], aggfunc='sum').reset_index()
+
+    user_hours.to_csv(f'{project}_user_summary.csv',index=False)
     df_work_logs.to_csv(f'{project}.csv',index=False)
 
 
