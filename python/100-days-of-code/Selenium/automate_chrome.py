@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
+from selenium.webdriver.common.keys import Keys
 
 def get_driver():
     options = webdriver.ChromeOptions()
@@ -63,18 +63,49 @@ def get_upcoming_python_events(driver: webdriver):
         }
     print(events)
 
-def wikipedia_page_challenge(driver: webdriver):
+def wikipedia_page_counter(driver: webdriver):
     driver.get("https://en.wikipedia.org/wiki/Main_Page")
     e = driver.find_element(By.CSS_SELECTOR,value="#articlecount a")
     article_count = e.text
     print(article_count)
+
+
+def click_link(driver: webdriver):
+    driver.get("https://en.wikipedia.org/wiki/Main_Page")
+    link = driver.find_element(By.CSS_SELECTOR,value="#articlecount a")
+    link.click()
+
+def wikipedia_search(driver:webdriver):
+    driver.get("https://en.wikipedia.org/wiki/Main_Page")
+    driver.implicitly_wait(1)
+    search = driver.find_element(By.LINK_TEXT, value="Search")
+    search.click() # to expand/open/expose search input element
+    driver.implicitly_wait(1)
+    search = driver.find_element(By.NAME, value="search")
+    search.send_keys("python", Keys.ENTER)
+
+def signup_example(driver:webdriver):
+    driver.get("https://secure-retreat-92358.herokuapp.com/")
+    text_box = driver.find_element(By.NAME,value="fName")
+    text_box.send_keys("Karl")
+    text_box = driver.find_element(By.NAME, value="lName")
+    text_box.send_keys("Tarbet")
+    text_box = driver.find_element(By.NAME, value="email")
+    text_box.send_keys("Karl.Tarbet@email123997-data.python")
+    button = driver.find_element(By.CSS_SELECTOR,".btn")
+    button.click()
+
 
 d = get_driver()
 # get_amazon_price(d)
 # scrape_python_org(d)
 # using_xpath(d, '//*[@id="site-map"]/div[2]/div/ul/li[3]/a')
 # get_upcoming_python_events(d)
-wikipedia_page_challenge(d)
+# wikipedia_page_counter(d)
+# click_link(d)
+# wikipedia_search(d)
+signup_example(d)
 
-d.quit()  # exit Chrome
+
+#d.quit()  # exit Chrome
 # driver.close() # close active tab
