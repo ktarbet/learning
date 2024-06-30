@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Site</title>
+</head>
+<body>
+<h1>Hellow World</h1>
+<h1>{{5*6}}</h1>
+<h3>random number: {{args["num"]}}</h3>
+<a href="{{ url_for('blog', num=3) }}">Blog</a>
+
+</body>
+<footer>The year is {{args["year"]}}</footer>
+</html>
