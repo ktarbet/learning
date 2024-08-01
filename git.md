@@ -33,7 +33,7 @@ git push -u origin archive-v3.0
 
 ## pushing just HEAD
 
-git clone --depth 1 https://bitbucket.hecdev.net/scm/dss/heclib.git   hec-heclib
+git clone --depth 1 https://bitbucket.localhost/scm/dss/heclib.git   hec-heclib
 git remote set-url origin  https://github.com/HydrologicEngineeringCenter/hec-heclib.git
 
 
@@ -83,11 +83,11 @@ origin	http://localhost:3000/ktarbet/heclib.git (push)
 I want to keep the original repo synced, whenever I push.
 
 ```bash
-[karl@karl heclib]$ git remote set-url origin --add https://bitbucket.hecdev.net/scm/dss/heclib.git
+[karl@karl heclib]$ git remote set-url origin --add https://bitbucket.localhost/scm/dss/heclib.git
 [karl@karl heclib]$ git remote -v show
 origin	http://localhost:3000/ktarbet/heclib.git (fetch)
 origin	http://localhost:3000/ktarbet/heclib.git (push)
-origin	https://bitbucket.hecdev.net/scm/dss/heclib.git (push)
+origin	https://bitbucket.localhost/scm/dss/heclib.git (push)
 ```
 
 
