@@ -29,7 +29,7 @@
 [1, 2, 20, 30, 40]
 
 ```
-## insert, extend, remove, clear , count, copy
+##  List:   insert, extend, remove, clear , count, copy
 ```python
 
 >> a=[-1,-2,-3]
@@ -118,7 +118,7 @@ False
 [-1, 0, 1, 3, 6, 12]
 ```
 
-## searching
+## searching in List
 ```python
 >>> a=[5,6,7]
 >>> a.index(6)
@@ -132,6 +132,24 @@ False
 True
 ```
 
+# Dictionary: get, in, values, keys
+```python
+>>> d = { 1 : 'x', 2 : 'y'}
+>>> 'x' in d
+False
+>>> 1 in d
+True
+>>> 'x' in d.values()
+True
+>>> print(d.get(5))
+None
+>>> print(d.get(5,'empty'))
+empty
+>>> print(d.get(1,'empty'))
+x
+>>> d[1]
+'x'
+```
 
 # Tuple is immuatable 
 ```python
