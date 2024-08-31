@@ -184,7 +184,8 @@ dict_keys(['Snake River', 'Payette River'])
 >>> a
 ['Payette River', 'Snake River']
 
-
+>>> len(flows)
+2
 ```
 
 # Tuple is immuatable 
