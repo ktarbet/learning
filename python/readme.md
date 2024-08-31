@@ -149,6 +149,15 @@ empty
 x
 >>> d[1]
 'x'
+
+{'Boise River': 1200, 'Snake River': 2500}
+>>> flows['Payette River']= 5000
+>>> flows
+{'Boise River': 1200, 'Snake River': 2500, 'Payette River': 5000}
+>>> del flows['Boise River']
+>>> flows
+{'Snake River': 2500, 'Payette River': 5000}
+>>>
 ```
 
 # Tuple is immuatable 
