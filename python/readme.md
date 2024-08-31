@@ -158,6 +158,33 @@ x
 >>> flows
 {'Snake River': 2500, 'Payette River': 5000}
 >>>
+>>> for river in flows:
+...     print(river)
+...
+Snake River
+Payette River
+>>> for river in flows.keys():
+...     print(river)
+...
+Snake River
+Payette River
+
+>>> for river in flows.items():
+...     print(river)
+...
+('Snake River', 2500)
+('Payette River', 5000)
+
+>>> flows.keys()
+dict_keys(['Snake River', 'Payette River'])
+>>> a = list(flows.keys())
+>>> a
+['Snake River', 'Payette River']
+>>> a = sorted(flows.keys())
+>>> a
+['Payette River', 'Snake River']
+
+
 ```
 
 # Tuple is immuatable 
