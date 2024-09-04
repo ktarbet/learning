@@ -186,6 +186,12 @@ dict_keys(['Snake River', 'Payette River'])
 
 >>> len(flows)
 2
+
+see also:
+https://automatetheboringstuff.com/2e/chapter5/
+for example on counting characters
+dict.setdefault(key,default_value)
+dict[key] += dict[key] +1
 ```
 
 # Tuple is immuatable 
