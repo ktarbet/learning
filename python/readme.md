@@ -29,7 +29,7 @@
 [1, 2, 20, 30, 40]
 
 ```
-##  List:   insert, extend, remove, clear , count, copy
+##  List:   insert, extend, remove, clear , count, copy, sum, len
 ```python
 
 >> a=[-1,-2,-3]
@@ -59,6 +59,10 @@
 >>> b = a.copy()
 >>> b
 [8, 7, 6, 6, 5, 5]
+>>> sum(b)
+37
+>>> len(b)
+6
 ```
 
 ## append to list
