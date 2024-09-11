@@ -236,6 +236,16 @@ print("Karl " ,end='')
 print(" T.")
 #a=12
 #Karl  T
+
+>>> x =list(range(1,5))
+>>> x
+[1, 2, 3, 4]
+# create indexes to iterate backwards
+>>> y =list(range(len(x)-1,-1,-1))
+>>> y
+[3, 2, 1, 0]
+>>>
+
 ```
 ## random
 
