@@ -265,6 +265,29 @@ print(f"average ={stats.mean(numbers)}")
 ```
 
 
+## Pandas
+
+```python
+import pandas as pd
+from datetime import datetime
+
+
+def t(str) -> datetime:
+    return datetime.strptime(str, '%Y-%m-%d')
+
+flow_series = pd.Series([300, 350., 298., 450],
+                        index=[t('2024-01-01'), t('2024-01-02'), t('2024-01-03'), t('2024-01-04')])
+
+
+print(flow_series)
+# 2024-01-01    300.0
+# 2024-01-02    350.0
+# 2024-01-03    298.0
+# 2024-01-04    450.0
+# dtype: float64
+
+```
+
 # style guide
 
 https://peps.python.org/pep-0000/   
