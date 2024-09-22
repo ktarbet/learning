@@ -1,4 +1,33 @@
+## all about strings
 
+```python
+>>> s="Snake River"
+>>> s[:4]
+'Snak'
+>>> s[:-1]
+'Snake Rive'
+
+>>> "Snake" in s
+True
+
+>>> s.upper()
+'SNAKE RIVER'
+>>> s.lower()
+'snake river'
+>>> s.title()
+'Snake River'
+>>> s.upper().isupper()
+True
+>>> s.startswith("Sn")
+True
+>>> s.endswith("er")
+True
+>>>
+```
+
+## Exceptions
+
+https://automatetheboringstuff.com/2e/chapter3/
 
 ## Indexing and slices.
 
