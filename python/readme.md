@@ -1,5 +1,7 @@
 ## all about strings
 
+https://docs.python.org/3/library/string.html
+
 ```python
 >>> s="Snake River"
 >>> s[:4]
