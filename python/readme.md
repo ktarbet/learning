@@ -1,4 +1,9 @@
+
+setup
+conda create --name karl python=3.11.4
+
 ## all about strings
+
 
 https://docs.python.org/3/library/string.html
 
@@ -8,6 +13,13 @@ https://docs.python.org/3/library/string.html
 'Snak'
 >>> s[:-1]
 'Snake Rive'
+s[::2]
+'SaeRvr'
+
+s[::1]
+​'Snake River'
+s[::5]
+'S r'
 
 >>> "Snake" in s
 True
