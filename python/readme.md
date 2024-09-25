@@ -24,6 +24,9 @@ s[::5]
 >>> "Snake" in s
 True
 
+>>> s.split()
+['Snake', 'River']
+
 >>> s.upper()
 'SNAKE RIVER'
 >>> s.lower()
@@ -55,7 +58,25 @@ A
 
 ## Exceptions
 
+```python
+try:
+    num=12
+    result = num/0
+except ZeroDivisionError:
+    print("can't divide by zero")
+else:
+    print(f"result = {result}")
+finally:
+    print("let's cleanup here.")
+
+#can't divide by zero
+#let's cleanup here.
+```
+
 https://automatetheboringstuff.com/2e/chapter3/
+
+
+ZeroDivisionError 
 
 ## Indexing and slices.
 
@@ -321,6 +342,25 @@ print(f"median = {stats.median(numbers)}")
 print(f"average ={stats.mean(numbers)}")
 ```
 
+## write to a file
+
+```python
+
+try:
+    with open("{010}.txt","w") as f1:
+        f1.write("a\n")
+        f1.write("b\n")
+except Exception:
+    print("Something went off track, oops")
+```
+
+## numpy
+
+```python
+
+
+```
+
 
 ## Pandas
 
@@ -342,6 +382,8 @@ print(flow_series)
 # 2024-01-03    298.0
 # 2024-01-04    450.0
 # dtype: float64
+
+mydf = pd.read_csv("nice_file.csv")
 
 ```
 
