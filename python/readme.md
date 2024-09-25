@@ -356,6 +356,8 @@ except Exception:
 
 ## numpy
 
+https://numpy.org/doc/stable/user/whatisnumpy.html
+
 ```python
 
 
