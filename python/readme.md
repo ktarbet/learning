@@ -357,9 +357,46 @@ except Exception:
 ## numpy
 
 https://numpy.org/doc/stable/user/whatisnumpy.html
+https://numpy.org/doc/stable/user/quickstart.html
+
 
 ```python
+>>> import numpy as np
+>>> a = np.arange(1,11)
+>>> a
+array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+>>> m = np.arange(1,11).reshape(5,2)
+>>> m
+array([[ 1,  2],
+       [ 3,  4],
+       [ 5,  6],
+       [ 7,  8],
+       [ 9, 10]])
+>>> m[2][1]
+np.int64(6)
+>>> m2 = m * 1.1
+>>> m2
+array([[ 1.1,  2.2],
+       [ 3.3,  4.4],
+       [ 5.5,  6.6],
+       [ 7.7,  8.8],
+       [ 9.9, 11. ]])
+>>> m2[2][1]
+np.float64(6.6000000000000005)
 
+# attributes: https://numpy.org/doc/stable/user/absolute_beginners.html#array-attributes
+>>> a = np.arange(1000)
+>>> len(a)
+1000
+>>> a.ndim
+1
+>>> a.size
+1000
+>>> a.shape
+(1000,)
+>>> a.dtype
+dtype('int64')
+>>>
 
 ```
 
