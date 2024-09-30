@@ -423,6 +423,8 @@ https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html
 
 https://pandas.pydata.org/pandas-docs/stable/reference/frame.html
 
+class pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=None)
+
 
 ```python
 import pandas as pd
