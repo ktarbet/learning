@@ -3,10 +3,44 @@ setup
 conda create --name karl python=3.11.4
 
 ## all about strings
-
-
 https://docs.python.org/3/library/string.html
 
+
+```python
+>>> s=" 123 \n"
+>>> s
+' 123 \n'
+>>> s.strip()
+'123'
+>>> s.lstrip()
+'123 \n'
+>>> s.rstrip()
+' 123'
+>>> s.index('2')
+2
+>>> s.index('4')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: substring not found
+>>> s =" a b a "
+>>> s.replace('b', 'a')
+' a a a '
+>>> s.replace('a', 'b')
+' b b b '
+
+>>> s
+' a b a '
+>>> s.find('c')
+-1
+```
+formatting and alignment of strings
+
+https://docs.python.org/3/library/string.html#formatspec
+>>> s
+' a b a '
+>>> f"{s:^20}"
+'       a b a        '
+#01234567890123456789
 ```python
 >>> s="Snake River"
 >>> s[:4]
