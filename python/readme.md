@@ -36,11 +36,14 @@ ValueError: substring not found
 formatting and alignment of strings
 
 https://docs.python.org/3/library/string.html#formatspec
+```python
 >>> s
 ' a b a '
 >>> f"{s:^20}"
 '       a b a        '
 #01234567890123456789
+```
+
 ```python
 >>> s="Snake River"
 >>> s[:4]
