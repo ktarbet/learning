@@ -69,6 +69,30 @@ False
 >>>
 
 
+# Regex
+# regex to matmch simple c# assignment with comment following
+# variable can't start with number , but otherwise a word \w that includes underscores
+
+>>> re.fullmatch("\s*([^0-9]*\w*)=\d+\s*;\s+//[a-z ]+",      'x=123;   // line of csharp code')
+<re.Match object; span=(0, 31), match='x=123;   // line of csharp code'>
+
+>>> re.sub(";", ' ','x_=123;')  # convert to python assignment
+'x_=123 '
+>>> re.split('[,\t\s]+',"x64\t,x86, \twin32")
+['x64', 'x86', 'win32']
+
+>>> re.search('\twin32',"x64\t,x86, \twin32")
+<re.Match object; span=(10, 16), match='\twin32'>
+
+>>> x = re.search('\twin32',"x64\t,x86, \twin32")
+>>> if not x is None:
+...     print(x.group())
+...
+        win32
+
+>>> re.findall('\t?(\w+)',"x64\t,x86, \twin32")
+['x64', 'x86', 'win32']
+
 ```
 formatting and alignment of strings
 
