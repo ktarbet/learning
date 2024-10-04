@@ -32,6 +32,43 @@ ValueError: substring not found
 ' a b a '
 >>> s.find('c')
 -1
+>>> s="a b c"
+>>> s.split()
+['a', 'b', 'c']
+>>> s.split('b')
+['a ', ' c']
+>>> "b".join((s.split('b')))
+'a b c'
+>>> s=r'File=c:\temp\tmp{010}.txt'
+>>> name,delim,value=s.partition('=')
+>>> value
+'c:\\temp\\tmp{010}.txt'
+
+>>> "Abc124".isdigit()
+False
+>>> "12".isdigit()
+True
+>>> "-12".isdigit()
+False
+>>> "Abc".isalpha()
+True
+>>> "Abc124".isalnum()
+True
+
+>>> "a".islower()
+True
+>>> "A".isupper()
+True
+
+>>> "1".isnumeric()
+True
+>>> "-1".isnumeric()
+False
+>>> "12.5".isnumeric()
+False
+>>>
+
+
 ```
 formatting and alignment of strings
 
