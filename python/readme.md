@@ -2,8 +2,20 @@
 setup
 conda create --name karl python=3.11.4
 
+##  Read a file
+
+```python
+try:
+    with open(filename, 'r') as f:
+      data = f.read()
+    except FileNotFoundError:
+            print(f"Error, {filename} does not exist")
+
+
 ## all about strings
 https://docs.python.org/3/library/string.html
+
+```
 
 
 ```python
