@@ -559,6 +559,38 @@ mydf = pd.read_csv("nice_file.csv")
 
 ```
 
+
+##  TextBlob
+
+https://textblob.readthedocs.io/en/stable/quickstart.html#quickstart
+setup
+
+```bat
+pip install textblob
+python -m textblob.download_corpora
+
+```python
+
+>>> from textblob import TextBlob
+>>> tb = TextBlob("Python 3.12.4  packaged by Anaconda, Inc. (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)] on win32")
+>>> tb.sentiment
+Sentiment(polarity=0.16666666666666666, subjectivity=0.3333333333333333)
+>>> import nltk
+>>> nltk.download('punkt_tab')
+>>> tb.sentences
+[Sentence("Python 3.12.4  packaged by Anaconda, Inc. (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)] on win32")]
+>>> tb.sentences
+
+>>> tb.words
+WordList(['Python', '3.12.4', 'packaged', 'by', 'Anaconda', 'Inc', 'Another', 'sentance', 'here', 'main', 'Jun', '18', '2024', '15:03:56', 'MSC', 'v.1929', '64', 'bit', 'AMD64', 'on', 'win32'])
+>>> 
+>>> tb.noun_phrases
+WordList(['python', 'jun', 'msc', 'amd64'])
+>>> tb.tags
+[('Python', 'NNP'), ('3.12.4', 'CD'), ('packaged', 'VBN'), ('by', 'IN'), ('Anaconda', 'NNP'), ('Inc.', 'NNP'), ('main', 'JJ'), ('Jun', 'NNP'), ('18', 'CD'), ('2024', 'CD'), ('15:03:56', 'CD'), ('[', 'NN'), ('MSC', 'NNP'), ('v.1929', 'VBZ'), ('64', 'CD'), ('bit', 'NN'), ('AMD64', 'NNP'), (']', 'VBP'), ('on', 'IN'), ('win32', 'NN')]
+
+```
+
 # style guide
 
 https://peps.python.org/pep-0000/   
