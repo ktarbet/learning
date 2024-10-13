@@ -589,6 +589,28 @@ WordList(['python', 'jun', 'msc', 'amd64'])
 >>> tb.tags
 [('Python', 'NNP'), ('3.12.4', 'CD'), ('packaged', 'VBN'), ('by', 'IN'), ('Anaconda', 'NNP'), ('Inc.', 'NNP'), ('main', 'JJ'), ('Jun', 'NNP'), ('18', 'CD'), ('2024', 'CD'), ('15:03:56', 'CD'), ('[', 'NN'), ('MSC', 'NNP'), ('v.1929', 'VBZ'), ('64', 'CD'), ('bit', 'NN'), ('AMD64', 'NNP'), (']', 'VBP'), ('on', 'IN'), ('win32', 'NN')]
 
+
+```
+# TextBlob spell checking examples
+
+```python
+>>> from textblob import TextBlob
+>>> txt = "I cann't spellll vwery wwell"
+>>> tb = TextBlob(txt)
+>>> tb.correct()
+TextBlob("I can't spell very well")
+>>> from textblob import Word
+>>> for word in txt.split():
+...     o = Word(word)
+...     print(o.spellcheck())
+...
+[('I', 1.0)]
+[('cannot', 1.0)]
+[('spell', 0.8181818181818182), ('spells', 0.09090909090909091), ('spelled', 0.09090909090909091)]
+[('very', 1.0)]
+[('well', 0.9892650701899257), ('dwell', 0.006606110652353427), ('swell', 0.004128819157720892)]
+>>>
+
 ```
 
 # style guide
