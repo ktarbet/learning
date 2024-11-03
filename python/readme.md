@@ -443,9 +443,21 @@ print(" T.")
 ```
 import random
 for i in range(10):
-    print(random.random())
+    print(random.random())  # value from zero (0) to 0.99999999999999.....
 
+>>> random.random()
+0.9829738732551279
 ```
+
+https://docs.python.org/3/library/random.html#random.random
+
+random.randrange(stop)  # integers
+random.randrange(start, stop[, step])  # integers
+
+
+## math
+
+https://docs.python.org/3/library/math.html#module-math
 
 ## statistics
 ```
