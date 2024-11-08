@@ -604,7 +604,7 @@ WordList(['python', 'jun', 'msc', 'amd64'])
 >>> tb.tags
 [('Python', 'NNP'), ('3.12.4', 'CD'), ('packaged', 'VBN'), ('by', 'IN'), ('Anaconda', 'NNP'), ('Inc.', 'NNP'), ('main', 'JJ'), ('Jun', 'NNP'), ('18', 'CD'), ('2024', 'CD'), ('15:03:56', 'CD'), ('[', 'NN'), ('MSC', 'NNP'), ('v.1929', 'VBZ'), ('64', 'CD'), ('bit', 'NN'), ('AMD64', 'NNP'), (']', 'VBP'), ('on', 'IN'), ('win32', 'NN')]
 
-
+# see https://www.geeksforgeeks.org/python-part-of-speech-tagging-using-textblob/
 ```
 # TextBlob spell checking examples
 
