@@ -11,6 +11,10 @@ https://lookerstudio.google.com/gallery?category=visualization
 
 https://www.data-to-viz.com/
 
+http://web-accessibility.carnegiemuseums.org/design/color/
+
+
+
 below from:   Creating Meaningful Data Visualizations training by: OPM Federal Staffing Center (Amanda Makulec)
 
 * decluter
