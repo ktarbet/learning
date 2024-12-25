@@ -1,4 +1,17 @@
-links from:   Creating Meaningful Data Visualizations training by: OPM Federal Staffing Center (Amanda Makulec)
+
+below from Google Data analytics on coursera
+-----
+https://informationisbeautiful.net/beautifulnews/ 
+https://datavizcatalogue.com/
+
+https://visme.co/blog/best-data-visualizations/
+
+https://www.tableau.com/learn/articles/best-data-visualization-blogs
+https://lookerstudio.google.com/gallery?category=visualization
+
+https://www.data-to-viz.com/
+
+below from:   Creating Meaningful Data Visualizations training by: OPM Federal Staffing Center (Amanda Makulec)
 
 * decluter
 * meaninful text
