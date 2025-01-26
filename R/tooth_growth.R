@@ -20,3 +20,13 @@ f <- ToothGrowth %>%
   arrange(len)
 
 f
+
+
+f <- ToothGrowth %>%  
+  filter(dose == 0.5) %>% 
+  group_by(supp) %>% 
+  summarize(mean_len = mean(len, na.rm=T), .group = "drop")
+f
+
+
+
