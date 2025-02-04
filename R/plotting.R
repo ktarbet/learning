@@ -7,12 +7,49 @@
 #  https://ggplot2.tidyverse.org/
 
 install.packages('ggplot2') 
+
 install.packages('palmerpenguins')
 library(ggplot2)
 library(palmerpenguins)
-View(penguins)
 
-ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+ 
+
+ggplot(data = penguins) +
+  geom_point(mapping = 
+               aes(x = flipper_length_mm, 
+                   y = body_mass_g, 
+                   alpha=species))
+
+ggplot(data = penguins) +
+  geom_point(mapping = 
+               aes(x = flipper_length_mm, 
+                   y = body_mass_g ), color ="purple")
+
+ggplot(data = penguins) +
+  geom_point(mapping = 
+               aes(x = flipper_length_mm, 
+                   y = body_mass_g, 
+                   shape=species, 
+                   color=species,
+                   size=species))
+
+
+ggplot(data = penguins) +
+  geom_smooth(mapping = 
+               aes(x = flipper_length_mm, 
+                   y = body_mass_g ), color ="purple")+
+  geom_point(mapping = 
+                aes(x = flipper_length_mm, 
+                    y = body_mass_g ))
+
+
+
+ggplot(data = penguins) +
+  geom_smooth(mapping = 
+                aes(x = flipper_length_mm, 
+                    y = body_mass_g , linetype=species))
+
+
 
 
 # aes   is aesthetic mappings 
