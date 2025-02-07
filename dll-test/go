@@ -1,0 +1,16 @@
+#/bin/bash
+set -x
+
+MY_PATH=/C/project/dll-test
+# MY_PATH=.
+
+rm *.dll *.a *.exe
+gcc -shared -o "$MY_PATH"/number_lib.dll number_lib.c -Wl,--out-implib,"$MY_PATH"/libnumber_lib.a
+
+gcc -c -o dss_lib.o dss_lib.c -I"$MY_PATH"
+
+gcc -shared -o dss_lib.dll dss_lib.o -L"$MY_PATH" -lnumber_lib -Wl,--out-implib,"$MY_PATH"/libdss_lib.a
+
+
+g++ main.cpp -o main.exe -L"$MY_PATH" -ldss_lib -lnumber_lib
+./main.exe
