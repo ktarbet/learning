@@ -1,0 +1,17 @@
+---
+title: "ggplot_hook_notes"
+author: "Karl"
+date: "2025-02-08"
+output: html_document
+---
+
+## Setup
+
+Notes:  we need 'tidyverse' and 'palmerpenguins'
+
+```{r loading packages, message=FALSE, warning=TRUE}
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
