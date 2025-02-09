@@ -1,0 +1,70 @@
+RivDIS - RivDIS contains monthly discharge measurements for 1018 stations 
+located throughout the world. The period of record varies widely from station 
+to station with a mean of 21.5 years. The data were digitized from published 
+UNESCO river archives by Charles Vorosmarty, Balazs Fekete, and B. A. Tucker of 
+the Complex Systems Research Center (CSRC) at the University of New Hampshire.
+Additional background information on these data is available by accessing the 
+associated guide document or the RivDIS page maintained by the CSRC. 
+
+The overall characteristics and availability of this data collection are summarized below. 
+
+    Spatial: gauging stations located on major rivers throughout the world 
+    Temporal: station-specific, ranging from 1807 to 1991 
+    Data Themes: river discharge 
+    Project Status: final; The data is available as one global file 
+                    or as individual station files.
+
+RivDIS data:
+  RIVDIS.DAT  
+	Monthly average discharge in cubic meters/sec 262791 records
+  STATION.DAT
+	Companion File 
+  STATIONS
+        A directory tree containing data and information about
+        individual stations, organized by country and station.
+    TEXT
+        A subdirectory tree containing data for individual stations 
+        and HTML files summarizing the corresponding data.  The
+        HTML files (viewable using a web browser) display plots
+        stored in the IMG subdirectory.
+    IMG
+        A subdirectory containing GIF files of plots.
+	
+About the plots:
+  For individual stations, there may be gaps during
+which no data were collected.  Gaps are
+ignored (rather than being counted as zero flow)
+in deriving quantities to be plotted.  There are
+3 plots for each station, as described below.
+
+"Mean Discharge Regime"
+  Derived by summing all available discharge
+measurements for a particular month and dividing 
+by the number of measurements.
+
+"Flow Duration Curve"
+  Flow duration is defined in "Applied Hydrogeology"
+by C.W. Fetter, Jr. as the probability that a
+given flow will be equaled or exceeded.
+The probabilities are obtained by simply counting
+the number of equal or higher measurements for each
+measured flow rate.  Dividing by the total number
+of measurements gives the flow duration as a
+fraction.  The fractions are then sorted by 
+discharge value and converted to percent.
+The resulting curve always falls monotonically 
+with increasing flow rate.
+
+"Monthly Discharge"
+  The available discharge data are plotted for the 
+period 1960 to 1990.  Flow duration levels labelled
+10%, 50%, and 90% are deduced from the Flow Duration
+Curve and include all measurements, not just those
+during the interval 1960 to 1990.  These levels 
+correspond to the closest measured value 
+(no interpolation is done) so they are imprecise 
+when the number of data points is small.
+
+
+KEYWORDS:
+river, discharge, water, monthly, measurements, average, global, station 

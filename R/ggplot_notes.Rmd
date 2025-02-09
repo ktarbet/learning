@@ -2,16 +2,33 @@
 title: "ggplot_hook_notes"
 author: "Karl"
 date: "2025-02-08"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
 
 ## Setup
 
-Notes:  we need 'tidyverse' and 'palmerpenguins'
+text *this* is important
+
+Notes: we need 'tidyverse' and 'palmerpenguins'
 
 ```{r loading packages, message=FALSE, warning=TRUE}
 
-library(tidyverse)
+library(ggplot2)
+
 library(palmerpenguins)
+
+data(penguins)
+
+ 
 ```
 
+```{r ggplot for penguin data visualization}
+
+ggplot(data = penguins) +
+
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+```

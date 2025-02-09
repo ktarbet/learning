@@ -1,0 +1,48 @@
+---
+title: "Global Monthly River Discharge Data Set (RivDIS)"
+output: html_notebook
+---
+
+This River Discharge Data is from [ORNL](https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=199)
+
+citation:
+Vorosmarty, C. J., B. M. Fekete, and B. A. Tucker. 1998. Global River Discharge, 1807-1991, V[ersion]. 1.1 (RivDIS). ORNL DAAC, Oak Ridge, Tennessee, USA. http://dx.doi.org/10.3334/ORNLDAAC/199.
+
+packages used: 'here' 'dplyr' 'lubridate' 'ggplot2'
+
+Read the list of stations. Skip first row. The second row has column names
+
+```{r}
+file_name <- here("rivdis_199","comp","STATION.DAT")
+station_info <- read.delim(file_name, sep = "|", header = TRUE, skip = 1)
+colnames(station_info) <- tolower(colnames(station_info))
+```
+
+Read the flow data for all stations. Monthly average discharge in cubic meters/sec 'cms' Skip first row. The second row has column names
+
+```{r}
+file_name  <- here("rivdis_199","data","RIVDIS.DAT")
+raw_flow_data <- read.delim(file_name, sep = "|", header = TRUE, skip = 1)
+colnames(raw_flow_data) <- tolower(colnames(raw_flow_data))
+flow_data_cms <- merge(raw_flow_data, station_info, by = "pointid")
+```
+
+-   filter by any that are 'Amazon Basin'
+-   create a date column that combines year/month/day=1
+
+```{r}
+
+flow_data_cms_amazon <- flow_data_cms %>%
+  filter(basn_stn == "Amazon Basin")
+
+flow_data_cms_amazon$date <- make_date(year = flow_data_cms_amazon$year,month = flow_data_cms_amazon$month, day =15)
+```
+
+```{r}
+ggplot(data = flow_data_cms_amazon) +
+  geom_line(mapping = 
+               aes(x = date, 
+                   y = dischrg, 
+                   shape=station, 
+                   color=station))
+```
