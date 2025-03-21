@@ -1,4 +1,16 @@
-Configuration Depot
+
+## Example commands
+
+```bash
+
+dbedit -P "%appata%\.opendcs\nwdm-xml.properties"
+
+
+```
+
+
+
+## Configuration Depot
 
 https://www.usgs.gov/apps/telemetry/index.html
 
