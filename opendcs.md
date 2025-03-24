@@ -35,6 +35,10 @@ https://github.com/opendcs/opendcs
 debugging with vscode.
 
 ```cmd
+
+# run the launcher app
+gradlew run
+
 gradlew runApp -Popendcs.app=dbedit -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.debug=5005 -Pno.docs=true
 
 gradlew runApp -Popendcs.app=msgaccess -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.debug=5005 -Pno.docs=true
