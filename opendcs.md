@@ -35,11 +35,21 @@ https://github.com/opendcs/opendcs
 debugging with vscode.
 
 ```cmd
-gradlew runApp -Popendcs.app=dbedit -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.debug=5005
+gradlew runApp -Popendcs.app=dbedit -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.debug=5005 -Pno.docs=true
 
-gradlew runApp -Popendcs.app=msgaccess -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.debug=5005
+gradlew runApp -Popendcs.app=msgaccess -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.debug=5005 -Pno.docs=true
 
-gradlew runApp -Popendcs.app=rs -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.arg=issue877
+gradlew runApp -Popendcs.app=rs -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.arg=issue877 -Pno.docs=true
+
+
+```
+
+## SQL commands that may be needed (ORACLE)
+
+```sql
+
+EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
+
 ```
 
 debug.settings
