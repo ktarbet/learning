@@ -54,6 +54,8 @@ gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\NWK.
 
 EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
 
+exec CWMS_ccp_vpd.set_ccp_session_ctx(null, null, 'NWDM');
+
 ```
 
 debug.settings
