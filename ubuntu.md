@@ -8,7 +8,8 @@ apt-get update
 
 # sudo apt install default-jre
 
-# Java
+### Java
+
 sudo update-alternatives --config java
 sudo apt-get install openjdk-11-jdk
 
