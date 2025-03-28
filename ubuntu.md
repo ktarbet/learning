@@ -1,23 +1,24 @@
+Ubunutu 24.04
 
+###  VMWare Tools
+sudo apt install open-vm-tools-desktop
 
-My Basic Ubunutu  setup
-
-install VSCode
-
-sudo apt install default-jre
-
-sudo apt-get install openjdk-8-jdk
-
+### install VSCode
 apt-get update
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
+# sudo apt install default-jre
 
-
+# Java
 sudo update-alternatives --config java
+sudo apt-get install openjdk-11-jdk
+
+
+### Docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
 
 sudo usermod -aG docker $USER
-
-sudo usermod -aG sudo $USER
+# reboot....
 
 
 --- Postgresql ---
