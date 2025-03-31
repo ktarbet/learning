@@ -11,6 +11,7 @@ apt-get update
 ### Java
 
 sudo update-alternatives --config java
+
 sudo apt-get install openjdk-11-jdk
 
 
