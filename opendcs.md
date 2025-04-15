@@ -96,7 +96,33 @@ EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','HQ');
 
 EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
 EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','NWDM');
+
 ```
+
+```bat
+
+###  configure user/password for using opendcs
+C:\project\opendcs\install\build\install\opendcs\bin>setDecodesUser %appdata%\.opendcs\oracle-test.auth    
+Creating or Updating: C:\Users\karl\AppData\Roaming\.opendcs\oracle-test.auth
+Please enter a username: S0HECTEST
+Please provide a password:test
+Please repeat the password:test
+
+###  install the opendcs schema into Oracle
+
+C:\project\opendcs\install\build\install\opendcs\bin>manageDatabase -I CWMS-Oracle -P %appdata%\.opendcs\oracle-test.profile
+Migrating Database:
+Please enter the schema owning username and password for database at jdbc:oracle:thin:@oracledb:1521:FREEPDB1?oracle.net.disableOob=true,
+username:S0HECTEST
+password:
+Please provide values for each of the presented properties.
+CWMS_SCHEMA (desc = Name of the CWMS Schema to reference) = CWMS_20
+CCP_SCHEMA (desc = Name of CCP schema to create.) = CCP
+DEFAULT_OFFICE_CODE (desc = Integer value of the default office to assign) = 1
+DEFAULT_OFFICE (desc = Ascii value of the default office to assign) = HQ
+TABLE_SPACE_SPEC (desc = Name of table space, leave blank if you don't need a separate table space) = 
+```
+
 ```
 ref: https://hub.docker.com/_/postgres
 
@@ -145,7 +171,7 @@ writing...
 ## Configure OpenDCS database
 
 ```text
-./bin/migrateApp -I OpenDCS-Postgres -P /home/hec/opendcs-install/decodes.properties
+./bin/manageDatabase -I OpenDCS-Postgres -P /home/hec/opendcs-install/decodes.properties
 Migrating Database:
 username:hydromet
 password:
