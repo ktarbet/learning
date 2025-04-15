@@ -90,8 +90,13 @@ docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
         -e OFFICE_EROC="s0" \
         registry-public.hecdev.net/cwms/database-ready-ora-23.5:latest-dev
 
+# after running the above command several users are created including:S0HECTEST, S0CWMSPD, ..
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','HQ');
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','HQ');
 
-
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','NWDM');
+```
 ```
 ref: https://hub.docker.com/_/postgres
 
