@@ -75,12 +75,23 @@ debug.settings
 ```
 
 
-# Server Setup - Installing OpenDCS with Postgresql on Linux 
+# Server Setup - Installing OpenDCS with Postgresql/Oracle on Linux 
 
 ## Install PostgreSQL
 
 ```bash
 docker run --name opendcs-pg -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres:16.2
+
+
+docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
+        -e ORACLE_PASSWORD="test"  \
+        -e CWMS_PASSWORD="test" \
+        -e OFFICE_ID="HQ" \
+        -e OFFICE_EROC="s0" \
+        registry-public.hecdev.net/cwms/database-ready-ora-23.5:latest-dev
+
+
+
 ```
 ref: https://hub.docker.com/_/postgres
 
@@ -97,9 +108,15 @@ create database opendcs owner hydromet;
 \q
 ```
 
+## Connect to Oracle
+
+```
+# sh-4.4$ sqlplus CWMS_20/test@localhost:1521/FREEPDB1?oracle.net.disableOob=true
+```
+
 ## Install OpenDCS
 
-java -jar /home/hec/opendcs/stage/opendcs-installer-7.0.12-RC04.jar
+unzip opendcs zip file.
 
 ## Configure decodes.properties
 
