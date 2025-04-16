@@ -16,7 +16,7 @@ note: in this example I'm using windows client and Oracle under Docker (on Linux
 
 ```text
 EditDatabaseType=CWMS
-EditDatabaseLocation=jdbc\:oracle\:thin\:@oracledb\:1521\:FREEPDB1?oracle.net.disableOob=true
+EditDatabaseLocation=jdbc\:oracle\:thin\:@127.0.0.1\:1521/FREEPDB1?oracle.net.disableOob=true
 EditPresentationGroup=SHEF-English
 SiteNameTypePreference=cwms
 EditTimeZone=UTC
