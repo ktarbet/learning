@@ -1,3 +1,104 @@
+#  OpenDCS  with CWMS-Oracle
+
+
+To setup OpenDCS with CWMS-Oracle (For Developement/Testing) use the following steps:
+
+1. Configure an OpenDCS property file for CWMS-Oracle.
+2. Configure OpenDCS username/password using the setDecodesUser OpenDCS program.
+3. Start up a new Oracle instance that includes the CWMS schema.
+4. Setup Oracle Permissions 
+5. Install the OpenDCS (CCP) Schema using the manageDatabase OpenDCS program.
+
+note: in this example I'm using windows client and Oracle under Docker (on Linux)
+
+
+##  configure a OpenDCS property file for CWMS-Oracle
+
+```text
+EditDatabaseType=CWMS
+EditDatabaseLocation=jdbc\:oracle\:thin\:@oracledb\:1521\:FREEPDB1?oracle.net.disableOob=true
+EditPresentationGroup=SHEF-English
+SiteNameTypePreference=cwms
+EditTimeZone=UTC
+EditOutputFormat=Human-Readable
+jdbcDriverClass=oracle.jdbc.driver.OracleDriver
+SqlKeyGenerator=decodes.sql.OracleSequenceKeyGenerator
+transportMediumTypePreference=goes
+dataTypeStdPreference=CWMS
+dbAuthFile=C\:/Users/karl/AppData/Roaming/.opendcs/oracle-test.auth"
+dbOfficeId=NWDM
+CwmsOfficeId=NWDM
+
+```
+
+## configure OpenDCS username/password using setDecodesUser OpenDCS program
+
+```bat
+C:\project\opendcs\install\build\install\opendcs\bin>setDecodesUser %appdata%\.opendcs\oracle-test.auth    
+Creating or Updating: C:\Users\karl\AppData\Roaming\.opendcs\oracle-test.auth
+Please enter a username: S0HECTEST
+Please provide a password:test
+Please repeat the password:test
+```
+
+
+## Start up a new Oracle instance that includes the CWMS schema.
+
+note: the docker command below creates several users are created including:S0HECTEST, S0CWMSPD,...
+
+we will be using S0HECTEST as the 'regular' OpenDCS user
+
+```bash
+
+docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
+        -e ORACLE_PASSWORD="test"  \
+        -e CWMS_PASSWORD="test" \
+        -e OFFICE_ID="HQ" \
+        -e OFFICE_EROC="s0" \
+        registry-public.hecdev.net/cwms/database-ready-ora-23.5:latest-dev
+```
+
+## Setup Oracle Permissions 
+
+```sql
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','HQ');
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','HQ');
+
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','NWDM');
+
+
+EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
+
+exec CWMS_ccp_vpd.set_ccp_session_ctx(null, null, 'NWDM');
+
+```
+
+###  install the opendcs schema into Oracle
+
+```
+C:\project\opendcs\install\build\install\opendcs\bin>manageDatabase -I CWMS-Oracle -P %appdata%\.opendcs\oracle-test.profile
+Migrating Database:
+Please enter the schema owning username and password for database at jdbc:oracle:thin:@oracledb:1521:FREEPDB1?oracle.net.disableOob=true,
+username:S0HECTEST
+password:
+Please provide values for each of the presented properties.
+CWMS_SCHEMA (desc = Name of the CWMS Schema to reference) = CWMS_20
+CCP_SCHEMA (desc = Name of CCP schema to create.) = CCP
+DEFAULT_OFFICE_CODE (desc = Integer value of the default office to assign) = 1
+DEFAULT_OFFICE (desc = Ascii value of the default office to assign) = HQ
+TABLE_SPACE_SPEC (desc = Name of table space, leave blank if you don't need a separate table space) = 
+```
+
+ ## Connect to Oracle
+
+```
+# sh-4.4$ sqlplus CWMS_20/test@localhost:1521/FREEPDB1?oracle.net.disableOob=true
+```
+
+
+
+
 
 ## Example commands
 
@@ -5,9 +106,7 @@
 
 dbedit -P "%appata%\.opendcs\nwdm-xml.properties"
 
-
 ```
-
 
 
 ## Configuration Depot
@@ -48,15 +147,6 @@ gradlew runApp -Popendcs.app=rs -Popendcs.profile="%appdata%\.opendcs\xml.profil
 gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\NWK.profile" -Popendcs.debug=5005 -Pno.docs=true -Popendcs.arg="C:\tmp\dbexport-drsd.xml"
 ```
 
-## SQL commands that may be needed (ORACLE)
-
-```sql
-
-EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
-
-exec CWMS_ccp_vpd.set_ccp_session_ctx(null, null, 'NWDM');
-
-```
 
 debug.settings
 ```json
@@ -75,53 +165,16 @@ debug.settings
 ```
 
 
-# Server Setup - Installing OpenDCS with Postgresql/Oracle on Linux 
+# Server Setup - Installing OpenDCS with Postgresql on Linux 
 
 ## Install PostgreSQL
 
 ```bash
 docker run --name opendcs-pg -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres:16.2
-
-
-docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
-        -e ORACLE_PASSWORD="test"  \
-        -e CWMS_PASSWORD="test" \
-        -e OFFICE_ID="HQ" \
-        -e OFFICE_EROC="s0" \
-        registry-public.hecdev.net/cwms/database-ready-ora-23.5:latest-dev
-
-# after running the above command several users are created including:S0HECTEST, S0CWMSPD, ..
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','HQ');
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','HQ');
-
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','NWDM');
-
 ```
 
-```bat
 
 ###  configure user/password for using opendcs
-C:\project\opendcs\install\build\install\opendcs\bin>setDecodesUser %appdata%\.opendcs\oracle-test.auth    
-Creating or Updating: C:\Users\karl\AppData\Roaming\.opendcs\oracle-test.auth
-Please enter a username: S0HECTEST
-Please provide a password:test
-Please repeat the password:test
-
-###  install the opendcs schema into Oracle
-
-C:\project\opendcs\install\build\install\opendcs\bin>manageDatabase -I CWMS-Oracle -P %appdata%\.opendcs\oracle-test.profile
-Migrating Database:
-Please enter the schema owning username and password for database at jdbc:oracle:thin:@oracledb:1521:FREEPDB1?oracle.net.disableOob=true,
-username:S0HECTEST
-password:
-Please provide values for each of the presented properties.
-CWMS_SCHEMA (desc = Name of the CWMS Schema to reference) = CWMS_20
-CCP_SCHEMA (desc = Name of CCP schema to create.) = CCP
-DEFAULT_OFFICE_CODE (desc = Integer value of the default office to assign) = 1
-DEFAULT_OFFICE (desc = Ascii value of the default office to assign) = HQ
-TABLE_SPACE_SPEC (desc = Name of table space, leave blank if you don't need a separate table space) = 
-```
 
 ```
 ref: https://hub.docker.com/_/postgres
@@ -139,11 +192,6 @@ create database opendcs owner hydromet;
 \q
 ```
 
-## Connect to Oracle
-
-```
-# sh-4.4$ sqlplus CWMS_20/test@localhost:1521/FREEPDB1?oracle.net.disableOob=true
-```
 
 ## Install OpenDCS
 
@@ -212,7 +260,5 @@ C:\test\OPENDCS7.0.12-RC04\bin>setDecodesUser.bat %USERPROFILE%\.opendcs\.decode
 User Name: hydromet
 Password:
 writing...
-
-
 
 
