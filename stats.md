@@ -27,6 +27,8 @@ Goodness of Fit tests -
   Bayesian Information Criterion (BIC)
   Akaike information Criterion (AIC)
 
+https://www.hec.usace.army.mil/confluence/sspdocs/sspum/latest/distribution-fitting-analysis/distribution-fitting-and-parameter-estimation
+
 
 Uncertianity
 
