@@ -18,3 +18,18 @@ Method of Mements.
 Linear Moments - less weight is given to the tails.
 
 Maximum Likelihood Estimation - 
+
+Goodness of Fit tests -  
+  K-S = largest diff in CDF
+  Chi-Square - sum of (diff between model and data.)
+  Anderson-Darling 
+  Bayesian Information Criterion (BIC)
+  Akaike information Criterion (AIC)
+
+
+Uncertianity
+
+Confidence Intervals
+
+
+  
