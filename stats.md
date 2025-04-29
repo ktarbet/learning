@@ -1,9 +1,10 @@
+Partial Duration - (Peaks over a threshold) 
 
 
 
 Parametric modeling : fit model 
 
-Ensure your sample is independent and Identically distributed.
+Ensure your sample is independent and Identically distributed. (IID)
 
 Multimodal Data - usually caused by a mixed population.   (snow events, rain events)
 
