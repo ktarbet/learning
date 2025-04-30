@@ -29,6 +29,9 @@ Goodness of Fit tests -
 
 https://www.hec.usace.army.mil/confluence/sspdocs/sspum/latest/distribution-fitting-analysis/distribution-fitting-and-parameter-estimation
 
+Application of at-site peak-streamflow frequency analyses for very low annual exceedance probabilities
+https://pubs.usgs.gov/publication/sir20175038
+
 
 Uncertianity
 
