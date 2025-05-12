@@ -25,7 +25,7 @@ jdbcDriverClass=oracle.jdbc.driver.OracleDriver
 SqlKeyGenerator=decodes.sql.OracleSequenceKeyGenerator
 transportMediumTypePreference=goes
 dataTypeStdPreference=CWMS
-dbAuthFile=C\:/Users/karl/AppData/Roaming/.opendcs/oracle-test.auth"
+dbAuthFile=C\:/Users/karl/AppData/Roaming/.opendcs/oracle-test.auth
 dbOfficeId=NWDM
 CwmsOfficeId=NWDM
 
