@@ -3,7 +3,7 @@
 
 To setup OpenDCS with CWMS-Oracle (For Developement/Testing) use the following steps:
 
-1. Configure an OpenDCS property file for CWMS-Oracle.
+1. Configure an OpenDCS property file for CWMS-Oracle.  "C:\Users\karl\AppData\Roaming\.opendcs\user.properties"
 2. Configure OpenDCS username/password using the setDecodesUser OpenDCS program.
 3. Start up a new Oracle instance that includes the CWMS schema.
 4. Setup Oracle Permissions 
@@ -77,7 +77,7 @@ exec CWMS_ccp_vpd.set_ccp_session_ctx(null, null, 'NWDM');
 ###  install the opendcs schema into Oracle
 
 ```
-C:\project\opendcs\install\build\install\opendcs\bin>manageDatabase -I CWMS-Oracle -P %appdata%\.opendcs\oracle-test.profile
+C:\project\opendcs\install\build\install\opendcs\bin>manageDatabase -I CWMS-Oracle 
 Migrating Database:
 Please enter the schema owning username and password for database at jdbc:oracle:thin:@oracledb:1521:FREEPDB1?oracle.net.disableOob=true,
 username:S0HECTEST
