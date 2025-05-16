@@ -56,6 +56,7 @@ note: the docker command below creates several users/roles
 
 
 ```bash
+# docker pull ghcr.io/hydrologicengineeringcenter/cwms-database/cwms/database-ready-ora-23.5:latest-dev
 
 docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
         -e ORACLE_PASSWORD="test"  \
