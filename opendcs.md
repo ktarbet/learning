@@ -25,7 +25,7 @@ jdbcDriverClass=oracle.jdbc.driver.OracleDriver
 SqlKeyGenerator=decodes.sql.OracleSequenceKeyGenerator
 transportMediumTypePreference=goes
 dataTypeStdPreference=CWMS
-dbAuthFile=C\:/Users/karl/AppData/Roaming/.opendcs/oracle-test.auth
+dbAuthFile=C\:/Users/karl/AppData/Roaming/.opendcs/karl.auth
 dbOfficeId=NWDM
 CwmsOfficeId=NWDM
 
@@ -35,8 +35,8 @@ CwmsOfficeId=NWDM
 
 ```bat
 C:\project\opendcs\install\build\install\opendcs\bin>setDecodesUser %appdata%\.opendcs\oracle-test.auth    
-Creating or Updating: C:\Users\karl\AppData\Roaming\.opendcs\oracle-test.auth
-Please enter a username: S0HECTEST
+Creating or Updating: C:\Users\karl\AppData\Roaming\.opendcs\karl.auth
+Please enter a username: karl
 Please provide a password:test
 Please repeat the password:test
 ```
@@ -44,9 +44,16 @@ Please repeat the password:test
 
 ## Start up a new Oracle instance that includes the CWMS schema.
 
-note: the docker command below creates several users are created including:S0HECTEST, S0CWMSPD,...
+note: the docker command below creates several users/roles
 
-we will be using S0HECTEST as the 'regular' OpenDCS user
+
+|user      | password|
+|----------|------|
+| builduser| ?    |
+| sys      | test |
+| system   | test |
+| s0hectest| ?    |
+
 
 ```bash
 
@@ -55,40 +62,89 @@ docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
         -e CWMS_PASSWORD="test" \
         -e OFFICE_ID="HQ" \
         -e OFFICE_EROC="s0" \
-        registry-public.hecdev.net/cwms/database-ready-ora-23.5:latest-dev
+        ghcr.io/hydrologicengineeringcenter/cwms-database/cwms/database-ready-ora-23.5:latest-dev
 ```
 
-## Setup Oracle Permissions 
+## Setup Oracle Permissions
 
 ```sql
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','HQ');
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','HQ');
+-- run the following with user 'SYS' so we know the builduser password.
+alter user builduser identified by "test";
+```
+ 
+```sql
+-- builduser needs extra permissions for installing the opendcs schema
+begin
 
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
-EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','NWDM');
 
+    execute immediate 'grant dba to builduser';
 
-EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
+    execute immediate 'grant select on dba_queues to builduser with grant option';
+    execute immediate 'grant select on dba_scheduler_jobs to builduser with grant option';
+    execute immediate 'grant select on dba_queue_subscribers to builduser with grant option';
+    execute immediate 'grant select on dba_subscr_registrations to builduser with grant option';
+    execute immediate 'grant select on dba_scheduler_jobs to builduser with grant option';
+    execute immediate 'grant select on dba_scheduler_job_log to builduser with grant option';
+    execute immediate 'grant select on dba_scheduler_job_run_details to builduser with grant option';
 
-exec CWMS_ccp_vpd.set_ccp_session_ctx(null, null, 'NWDM');
+    execute immediate 'grant execute on dbms_crypto to builduser with grant option';
+    execute immediate 'grant execute on dbms_aq to builduser with grant option';
+    execute immediate 'grant execute on dbms_aq_bqview to builduser with grant option';
+    execute immediate 'grant execute on dbms_aqadm to builduser with grant option';
+    execute immediate 'grant execute on dbms_lock to builduser with grant option';
+    execute immediate 'grant execute on dbms_rls to builduser with grant option';
+    execute immediate 'grant execute on dbms_lob to builduser with grant option';
+    execute immediate 'grant execute on dbms_random to builduser with grant option';
+    execute immediate 'grant execute on dbms_session to builduser with grant option';
+    execute immediate 'grant execute on utl_smtp to builduser with grant option';
+    execute immediate 'grant execute on utl_http to builduser with grant option';
+    execute immediate 'grant execute on utl_recomp to builduser with grant option';
+    execute immediate 'grant select on sys.v_$latch to builduser with grant option';
+    execute immediate 'grant select on sys.v_$mystat to builduser with grant option';
+    execute immediate 'grant select on sys.v_$statname to builduser with grant option';
+    execute immediate 'grant select on sys.v_$timer to builduser with grant option';
+    execute immediate 'grant ctxapp to builduser with admin option';
+    execute immediate 'grant execute on ctxsys.ctx_ddl to builduser with grant option';
+    execute immediate 'grant execute on ctxsys.ctx_doc to builduser with grant option';
+
+    execute immediate 'grant execute any procedure to builduser';
+end;
+
 
 ```
 
-###  install the opendcs schema into Oracle
 
-```
-C:\project\opendcs\install\build\install\opendcs\bin>manageDatabase -I CWMS-Oracle 
+###  Install the opendcs schema into Oracle
+
+```bat
+:: the manageDatabase command will install the OpenDCS schema (ccp) into the CWMS Oracle Database we setup above.
+manageDatabase  -d 3 -P "C:\Users\karl\AppData\Roaming\.opendcs\nwdm-test.profile" -username builduser -password test -appUsername karl -appPassword test -I CWMS-Oracle -DCWMS_SCHEMA=CWMS_20 -DCCP_SCHEMA=CCP -DDEFAULT_OFFICE_CODE=30  -DDEFAULT_OFFICE=NWDM
 Migrating Database:
-Please enter the schema owning username and password for database at jdbc:oracle:thin:@oracledb:1521:FREEPDB1?oracle.net.disableOob=true,
-username:S0HECTEST
-password:
 Please provide values for each of the presented properties.
-CWMS_SCHEMA (desc = Name of the CWMS Schema to reference) = CWMS_20
-CCP_SCHEMA (desc = Name of CCP schema to create.) = CCP
-DEFAULT_OFFICE_CODE (desc = Integer value of the default office to assign) = 1
-DEFAULT_OFFICE (desc = Ascii value of the default office to assign) = HQ
-TABLE_SPACE_SPEC (desc = Name of table space, leave blank if you don't need a separate table space) = 
+TABLE_SPACE_SPEC (desc = If data will be on a separate table space indicate the line here.) =
+Installing fresh database
+A default admin username will be created to allow initial data import and GUI configuration.
+Now loading baseline data.
+May 16, 2025 7:59:28 AM usace.cwms.db.jooq.AbstractCwmsDbDao testCompatibility_aroundBody0
+WARNING: JOOQ CWMSDB API implemented for CWMS database schema version 18.1.21, connecting to version 99.99.99
+Base line data has been imported. You may now begin using the software.
+If you will be running background apps such as CompProc and the RoutingScheduler,
+you should create a separate user. This is not currently covered in this application.
 ```
+
+Now we can run programs such as dbedit and dbimport like this:
+
+```bat
+dbedit  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "C:\Users\karl\AppData\Roaming\.opendcs\nwk-test.profile"
+
+dbimport  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "C:\Users\karl\AppData\Roaming\.opendcs\nwk-test.profile" "C:\project\opendcs.support\import-issue\dbexport-drsd.xml"
+
+```
+
+
+
+----------------------------
+
 
  ## Connect to Oracle
 
