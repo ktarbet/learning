@@ -149,6 +149,8 @@ dbimport  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "C
 
 ```sql
 
+exec cwms_20.CWMS_ENV.SET_SESSION_OFFICE_ID ('NWK');
+
 EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','HQ');
 EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','HQ');
 EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
