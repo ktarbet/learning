@@ -145,6 +145,17 @@ dbimport  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "C
 
 
 ----------------------------
+# Other CWMS Oracle commands that may be helpful
+
+```sql
+
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','HQ');
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','HQ');
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
+EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','NWDM');
+EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
+exec CWMS_ccp_vpd.set_ccp_session_ctx(null, null, 'NWDM');
+```
 
 
  ## Connect to Oracle
