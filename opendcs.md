@@ -157,6 +157,16 @@ EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Mgr','NWDM');
 EXEC cwms_sec.add_user_to_group('S0HECTEST', 'CCP Proc','NWDM');
 EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
 exec CWMS_ccp_vpd.set_ccp_session_ctx(null, null, 'NWDM');
+
+
+-- checking vpd config for PLATFORMCONFIG (I get 4 rows on system where vpd is configured)
+SELECT * FROM v$vpd_policy
+WHERE object_owner = 'CCP'
+AND object_name IN ('PLATFORMCONFIG');
+
+
+SELECT SYS_CONTEXT('CWMS_ENV', 'SESSION_OFFICE_CODE') FROM DUAL
+
 ```
 
 
