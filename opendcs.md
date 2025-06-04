@@ -186,6 +186,7 @@ SELECT SYS_CONTEXT('CWMS_ENV', 'SESSION_OFFICE_CODE') FROM DUAL
 
 dbedit -P "%appata%\.opendcs\nwdm-xml.properties"
 
+dbimport -P %appdata%\.opendcs\nwdm-test.profile -v -l CON "C:\project\opendcs.support\import-issue\nwdm-all.xml"
 ```
 
 
