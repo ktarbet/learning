@@ -137,6 +137,19 @@ If you will be running background apps such as CompProc and the RoutingScheduler
 you should create a separate user. This is not currently covered in this application.
 ```
 
+
+setup user karl to have permissions in two offices.
+```sql 
+EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWK');
+EXEC cwms_sec.add_user_to_group('karl', 'CCP Mgr','NWK');
+EXEC cwms_sec.add_user_to_group('karl', 'CCP Proc','NWK');
+
+EXEC cwms_sec.add_user_to_group('karl', 'CWMS Users','NWDM');
+EXEC cwms_sec.add_user_to_group('karl', 'CCP Mgr','NWDM');
+EXEC cwms_sec.add_user_to_group('karl', 'CCP Proc','NWDM');
+
+```
+
 Now we can run programs such as dbedit and dbimport like this:
 
 ```bat
