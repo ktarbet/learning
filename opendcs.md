@@ -150,6 +150,7 @@ EXEC cwms_sec.add_user_to_group('karl', 'CCP Proc','NWDM');
 
 ```
 
+
 Now we can run programs such as dbedit and dbimport like this:
 
 ```bat
@@ -167,6 +168,10 @@ dbimport  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "%
 # Other CWMS Oracle commands that may be helpful
 
 ```sql
+-- the following for debugging/research
+ALTER USER ccp
+  GRANT CONNECT THROUGH builduser;
+
 
 exec cwms_20.CWMS_ENV.SET_SESSION_OFFICE_ID ('NWK');
 
