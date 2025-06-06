@@ -140,9 +140,11 @@ you should create a separate user. This is not currently covered in this applica
 Now we can run programs such as dbedit and dbimport like this:
 
 ```bat
-dbedit  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "C:\Users\karl\AppData\Roaming\.opendcs\nwk-test.profile"
+dbedit  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "%appdata%\.opendcs\nwk-test.profile"
+```
 
-dbimport  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "C:\Users\karl\AppData\Roaming\.opendcs\nwk-test.profile" "C:\project\opendcs.support\import-issue\dbexport-drsd.xml"
+```bat
+dbimport  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "%appdata%\.opendcs\nwk-test.profile" "C:\project\opendcs.support\import-issue\dbexport-drsd.xml"
 
 ```
 
