@@ -68,49 +68,17 @@ docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
 
 ## Setup Oracle Permissions
 
-```sql
--- run the following with user 'SYS' so we know the builduser password.
-alter user builduser identified by "test";
-```
  
 ```sql
 -- builduser needs extra permissions for installing the opendcs schema
+
 begin
-
-
-    execute immediate 'grant dba to builduser';
-
     execute immediate 'grant select on dba_queues to builduser with grant option';
-    execute immediate 'grant select on dba_scheduler_jobs to builduser with grant option';
     execute immediate 'grant select on dba_queue_subscribers to builduser with grant option';
     execute immediate 'grant select on dba_subscr_registrations to builduser with grant option';
-    execute immediate 'grant select on dba_scheduler_jobs to builduser with grant option';
-    execute immediate 'grant select on dba_scheduler_job_log to builduser with grant option';
-    execute immediate 'grant select on dba_scheduler_job_run_details to builduser with grant option';
-
-    execute immediate 'grant execute on dbms_crypto to builduser with grant option';
-    execute immediate 'grant execute on dbms_aq to builduser with grant option';
-    execute immediate 'grant execute on dbms_aq_bqview to builduser with grant option';
-    execute immediate 'grant execute on dbms_aqadm to builduser with grant option';
-    execute immediate 'grant execute on dbms_lock to builduser with grant option';
-    execute immediate 'grant execute on dbms_rls to builduser with grant option';
-    execute immediate 'grant execute on dbms_lob to builduser with grant option';
-    execute immediate 'grant execute on dbms_random to builduser with grant option';
     execute immediate 'grant execute on dbms_session to builduser with grant option';
-    execute immediate 'grant execute on utl_smtp to builduser with grant option';
-    execute immediate 'grant execute on utl_http to builduser with grant option';
-    execute immediate 'grant execute on utl_recomp to builduser with grant option';
-    execute immediate 'grant select on sys.v_$latch to builduser with grant option';
-    execute immediate 'grant select on sys.v_$mystat to builduser with grant option';
-    execute immediate 'grant select on sys.v_$statname to builduser with grant option';
-    execute immediate 'grant select on sys.v_$timer to builduser with grant option';
-    execute immediate 'grant ctxapp to builduser with admin option';
-    execute immediate 'grant execute on ctxsys.ctx_ddl to builduser with grant option';
-    execute immediate 'grant execute on ctxsys.ctx_doc to builduser with grant option';
-
-    execute immediate 'grant execute any procedure to builduser';
+    
 end;
-
 
 ```
 
