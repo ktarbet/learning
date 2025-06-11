@@ -66,22 +66,6 @@ docker run  --rm -d -p 1521:1521 --name opendcs-oracle \
         ghcr.io/hydrologicengineeringcenter/cwms-database/cwms/database-ready-ora-23.5:latest-dev
 ```
 
-## Setup Oracle Permissions
-
- 
-```sql
--- builduser needs extra permissions for installing the opendcs schema
-
-begin
-    execute immediate 'grant select on dba_queues to builduser with grant option';
-    execute immediate 'grant select on dba_queue_subscribers to builduser with grant option';
-    execute immediate 'grant select on dba_subscr_registrations to builduser with grant option';
-    execute immediate 'grant execute on dbms_session to builduser with grant option';
-    
-end;
-
-```
-
 
 ###  Install the opendcs schema into Oracle
 
