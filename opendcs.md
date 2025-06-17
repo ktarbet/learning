@@ -110,11 +110,11 @@ EXEC cwms_sec.add_user_to_group('karl', 'CCP Proc','NWDM');
 Now we can run programs such as dbedit and dbimport like this:
 
 ```bat
-dbedit  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "%appdata%\.opendcs\nwk-test.profile"
+dbedit  -lCON  -d3  -P "%appdata%\.opendcs\nwk-test.profile"
 ```
 
 ```bat
-dbimport  -l C:\project\opendcs.support\import-issue\nwdm.import.txt  -d3  -P "%appdata%\.opendcs\nwk-test.profile" "C:\project\opendcs.support\import-issue\dbexport-drsd.xml"
+dbimport  -lCON -d3  -P "%appdata%\.opendcs\nwk-test.profile" "C:\project\opendcs.support\import-issue\dbexport-drsd.xml"
 
 ```
 
