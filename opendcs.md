@@ -74,8 +74,7 @@ docker logs -f opendcs-oracle
 ###  Install the opendcs schema into Oracle
 
 ```bat
-:: the manageDatabase command will install the OpenDCS schema (ccp) into the CWMS Oracle Database we setup above.
-manageDatabase  -d 3 -P "%appdata%\.opendcs\nwdm-test.profile" -username builduser -password test -appUsername karl -appPassword test -I CWMS-Oracle -DCWMS_SCHEMA=CWMS_20 -DCCP_SCHEMA=CCP -DDEFAULT_OFFICE_CODE=30  -DDEFAULT_OFFICE=NWDM
+manageDatabase  -d 3 -P "%appdata%\.opendcs\nwdm-test.profile" -username builduser -password test -appUsername karl -appPassword test -I CWMS-Oracle -DCWMS_SCHEMA=CWMS_20 -DCCP_SCHEMA=CCP -DDEFAULT_OFFICE_CODE=1  -DDEFAULT_OFFICE=HQ
 
 ```
 
