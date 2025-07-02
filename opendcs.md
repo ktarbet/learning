@@ -206,7 +206,10 @@ gradlew runApp -Popendcs.app=rs -Popendcs.profile="%appdata%\.opendcs\xml.profil
 
 gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\NWK.profile" -Popendcs.debug=5005 -Pno.docs=true -Popendcs.arg="C:\tmp\dbexport-drsd.xml"
 ```
+```
+gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\test-nwk.profile" -Popendcs.debug=5005 -Pno.docs=true -Popendcs.arg="C:\project\opendcs.support\import-issue\dbexport-nwk.xml"
 
+```
 
 debug.settings
 ```json
