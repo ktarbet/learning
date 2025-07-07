@@ -113,7 +113,7 @@ dbedit  -lCON  -d3  -P "%appdata%\.opendcs\nwk-test.profile"
 ```
 
 ```bat
-dbimport  -lCON -d3  -P "%appdata%\.opendcs\nwk-test.profile" "C:\project\opendcs.support\import-issue\dbexport-drsd.xml"
+dbimport  -lCON -d3  -P "%appdata%\.opendcs\test-nwk.profile" "C:\project\opendcs.support\import-issue\dbexport-nwk.xml"
 
 ```
 
