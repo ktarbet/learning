@@ -3,7 +3,7 @@
 
 To setup OpenDCS with CWMS-Oracle (For Developement/Testing) use the following steps:
 
-1. Configure an OpenDCS property file for CWMS-Oracle.  "C:\Users\karl\AppData\Roaming\.opendcs\user.properties"
+1. Configure an OpenDCS property file for CWMS-Oracle.  "%appdata%\.opendcs\user.properties"
 2. Configure OpenDCS username/password using the setDecodesUser OpenDCS program.
 3. Start up a new Oracle instance that includes the CWMS schema.
 4. Setup Oracle Permissions 
@@ -74,7 +74,7 @@ docker logs -f opendcs-oracle
 ###  Install the opendcs schema into Oracle
 
 ```bat
-manageDatabase  -d 3 -P "%appdata%\.opendcs\hq-test.profile" -username builduser -password test -appUsername karl -appPassword test -I CWMS-Oracle -DCWMS_SCHEMA=CWMS_20 -DCCP_SCHEMA=CCP -DDEFAULT_OFFICE_CODE=1  -DDEFAULT_OFFICE=HQ  
+manageDatabase  -d 3 -P "%appdata%\.opendcs\dev-hq.profile" -username builduser -password test -appUsername karl -appPassword test -I CWMS-Oracle -DCWMS_SCHEMA=CWMS_20 -DCCP_SCHEMA=CCP -DDEFAULT_OFFICE_CODE=1  -DDEFAULT_OFFICE=HQ  
 
 ```
 
@@ -109,11 +109,11 @@ EXEC cwms_sec.add_user_to_group('karl', 'CCP Proc','NWDM');
 Now we can run programs such as dbedit and dbimport like this:
 
 ```bat
-dbedit  -lCON  -d3  -P "%appdata%\.opendcs\nwk-test.profile"
+dbedit  -lCON  -d3  -P "%appdata%\.opendcs\dev-nwk.profile"
 ```
 
 ```bat
-dbimport  -lCON -d3  -P "%appdata%\.opendcs\test-nwk.profile" "C:\project\opendcs.support\import-issue\dbexport-nwk.xml"
+dbimport  -lCON -d3  -P "%appdata%\.opendcs\dev-nwk.profile" "C:\project\opendcs.support\import-issue\dbexport-nwk.xml"
 
 ```
 
@@ -165,7 +165,7 @@ SELECT SYS_CONTEXT('CWMS_ENV', 'SESSION_OFFICE_CODE') FROM DUAL
 
 dbedit -P "%appata%\.opendcs\nwdm-xml.properties"
 
-dbimport -P %appdata%\.opendcs\nwdm-test.profile -v -l CON "C:\project\opendcs.support\import-issue\nwdm-all.xml"
+dbimport -P %appdata%\.opendcs\dev-nwdm.profile -v -l CON "C:\project\opendcs.support\import-issue\nwdm-all.xml"
 ```
 
 
@@ -204,10 +204,10 @@ gradlew runApp -Popendcs.app=msgaccess -Popendcs.profile="%appdata%\.opendcs\xml
 
 gradlew runApp -Popendcs.app=rs -Popendcs.profile="%appdata%\.opendcs\xml.profile" -Popendcs.arg=issue877 -Pno.docs=true
 
-gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\NWK.profile" -Popendcs.debug=5005 -Pno.docs=true -Popendcs.arg="C:\tmp\dbexport-drsd.xml"
+gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\dev-nwk.profile" -Popendcs.debug=5005 -Pno.docs=true -Popendcs.arg="C:\tmp\dbexport-drsd.xml"
 ```
 ```
-gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\test-nwk.profile" -Popendcs.debug=5005 -Pno.docs=true -Popendcs.arg="C:\project\opendcs.support\import-issue\dbexport-nwk.xml"
+gradlew runApp -Popendcs.app=dbimport -Popendcs.profile="%appdata%\.opendcs\dev-nwk.profile" -Popendcs.debug=5005 -Pno.docs=true -Popendcs.arg="C:\project\opendcs.support\import-issue\dbexport-nwk.xml"
 
 ```
 
