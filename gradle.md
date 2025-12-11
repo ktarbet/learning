@@ -44,11 +44,44 @@ https://docs.gradle.org/current/dsl/org.gradle.api.Task.html
 myfile.gradle   (uses Script API)
   
   -i for logging
+  -Pkey1=value1
   
   logger.info "info level message"
 
 ```
   apply {
     println "hi from clousure code"
+```
+
+
+## gradle.properties 
+
+name=value
+name2=value2
+
+can add properties onto existing built-in objects.
+
+project.gradle.hasProoperty('gradleVersion')
+
+in build.gradle can use shortcut:
+hasProoperty('gradleVersion')
+
+
+project.ext.myprop ="Snake River"
+
+if (project.hasProperty('myprop') ) {
+    logger.info myprop
+  } else {
+  logger.info "can't find myprop"
+  }
+
+
+
+
+
+
+
+
+
   }
 ```  
