@@ -84,7 +84,7 @@ if (project.hasProperty('myprop') ) {
 
 
   }
-```
+
 
 
 ## Project Plugins
@@ -104,6 +104,13 @@ if (project.hasProperty('myprop') ) {
 java - SourceSet  (default src/main/java,  src/test/java)
 java-library (includes java) -- api configuration is added
 application (includes java) -  specifiy main, and run task
+
+
+
+## Tasks
+
+gradlew tasks --all
+
 
 
 
