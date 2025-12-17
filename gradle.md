@@ -84,4 +84,26 @@ if (project.hasProperty('myprop') ) {
 
 
   }
-```  
+```
+
+
+## Project Plugins
+
+ - Core https://docs.gradle.org/current/userguide/plugin_reference.html#header  ( don't need to specify version)
+ - Community  https://plugins.gradle.org/
+ - Local Plugin  implemented locally
+
+
+* plugins give provide new tasks
+* add new confiugrations
+* initilize configuration
+
+
+### More on  core plugins
+
+java - SourceSet  (default src/main/java,  src/test/java)
+java-library (includes java) -- api configuration is added
+application (includes java) -  specifiy main, and run task
+
+
+
