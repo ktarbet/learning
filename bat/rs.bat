@@ -1,0 +1,1 @@
+call launch_java.bat package.myapp %*
