@@ -1,8 +1,8 @@
 package hec.dependency;
 
-import java.io.BufferedReader;
+import ktarbet.utility.SystemUtility;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,14 +59,14 @@ public class JDeps {
         command.add("jdeps");
         command.add("--multi-release");
         command.add("11");
-        command.add("-verbose:package");
+        command.add("-verbose:class");
         command.add("-cp");
         command.add(classPath);
         command.add(jarPath);
 
         List<PackageDependency> dependencies = new ArrayList<>();
 
-        List<String> lines = Utility.runCommand(command);
+        List<String> lines = SystemUtility.runCommand(command);
          for (String line: lines){
 
                 if (line.startsWith("Warning:") || line.startsWith(jarPath)) {

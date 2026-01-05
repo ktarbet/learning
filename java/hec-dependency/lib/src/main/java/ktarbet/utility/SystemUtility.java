@@ -1,12 +1,12 @@
-package hec.dependency;
+package ktarbet.utility;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Utility {
+public class SystemUtility {
 
 
 
@@ -16,11 +16,8 @@ public class Utility {
         processBuilder.redirectErrorStream(true);
         Process process = processBuilder.start();
 
-        List<String> rval = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
-
-            rval.add(reader.readLine());
+            return reader.lines().collect(Collectors.toList());
         }
-        return rval;
     }
 }
