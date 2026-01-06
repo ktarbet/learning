@@ -48,9 +48,9 @@ public class Main implements Callable<Integer> {
 
     @Override
     public Integer call() throws IOException {
-        DependencyHunter h = new DependencyHunter(refJar.getPath());
+        DependencyHunter h = new DependencyHunter(refJar.getPath(), outputFile.getPath());
         h.addReferences(classPath, resultsColumn, jars, filter);
-        h.saveAsCsv(outputFile.getPath());
+        h.saveAsCsv();
 
         System.out.println("Dependency analysis complete. Output saved to " + outputFile.getPath());
         return 0;

@@ -1,7 +1,10 @@
 package hec.dependency;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 
 import tech.tablesaw.api.IntColumn;
@@ -17,32 +20,74 @@ public class DependencyHunter {
 
     private static final String CLASSNAME = "ClassName";
     private static final String JARS = "Jars";
+    private String resultsFileName;
     Table dataTable;
     /**
      * DependencyHunter looks at the referenceJar and finds incoming references
      * @param referenceJar used to create list of classes to study
      */
-    public DependencyHunter(String referenceJar) throws IOException {
+    public DependencyHunter(String referenceJar, String resultsFile) throws IOException {
 
-        String refJarName = Paths.get(referenceJar).getFileName().toString();
-        dataTable = Table.create(refJarName);
-        dataTable.addColumns(StringColumn.create(CLASSNAME));
-        dataTable.addColumns(StringColumn.create(JARS));
+        this.resultsFileName = resultsFile;
+        Path resultsPath = Paths.get(resultsFile);
 
-        var classNames = JarUtility.getClassNames(referenceJar);
-        for(var c : classNames) {
-             Row r = dataTable.appendRow();
-             r.setString(CLASSNAME, c);
-             r.setString(JARS, refJarName);
+        if (Files.exists(resultsPath)) {
+            System.out.println("Loading existing results from " + resultsFile);
+            dataTable = Table.read().csv(resultsFile);
+        } else {
+            String refJarName = Paths.get(referenceJar).getFileName().toString();
+            dataTable = Table.create(refJarName);
+            dataTable.addColumns(StringColumn.create(CLASSNAME));
+            dataTable.addColumns(StringColumn.create(JARS));
+
+            var classNames = JarUtility.getClassNames(referenceJar);
+            for(var c : classNames) {
+                 Row r = dataTable.appendRow();
+                 r.setString(CLASSNAME, c);
+                 r.setString(JARS, refJarName);
+            }
         }
     }
 
-    public void saveAsCsv(String csvFilename) {
-        dataTable.write().csv(csvFilename);
+    public void saveAsCsv() {
+        List<String> columnNames = dataTable.columnNames();
+        int jarsIndex = columnNames.indexOf(JARS);
+        if (jarsIndex >= 0 && jarsIndex < columnNames.size() - 1) {
+            List<String> sortColumns = columnNames.subList(jarsIndex + 1, columnNames.size());
+            dataTable.sortOn(descendingWithMissingLast(sortColumns)).write().csv(resultsFileName);
+        } else {
+            dataTable.write().csv(resultsFileName);
+        }
+    }
+
+    /**
+     * sorts descending with missing values at the bottom (like Excel).
+     */
+    private Comparator<Row> descendingWithMissingLast(List<String> sortColumns) {
+        return (row1, row2) -> {
+            for (String colName : sortColumns) {
+                IntColumn col = dataTable.intColumn(colName);
+                boolean missing1 = col.isMissing(row1.getRowNumber());
+                boolean missing2 = col.isMissing(row2.getRowNumber());
+
+                if (missing1 && missing2) continue;
+                if (missing1) return 1;  // missing goes to bottom
+                if (missing2) return -1; // missing goes to bottom
+
+                int val1 = col.getInt(row1.getRowNumber());
+                int val2 = col.getInt(row2.getRowNumber());
+                int cmp = Integer.compare(val2, val1); // descending
+                if (cmp != 0) return cmp;
+            }
+            return 0;
+        };
     }
 
     protected void addReferences(String classPath, String resultsColumn, String[] jarToAnalyze, String filter){
-        dataTable.addColumns(IntColumn.create(resultsColumn));
+
+        if (!dataTable.columnNames().contains(resultsColumn)) {
+            dataTable.addColumns(IntColumn.create(resultsColumn));
+        }
 
         try {
             JDeps jdepsAnalyzer = new JDeps(classPath, jarToAnalyze);
