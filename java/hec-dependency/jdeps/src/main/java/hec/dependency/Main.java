@@ -7,11 +7,11 @@ import picocli.CommandLine.Parameters;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.Callable;
 
 /**
- * A program to analyze dependencies in different HEC products.
+ * A program to analyze dependencies, and comapare across different java
+ * applications.
  * It uses the JDK tool 'jdeps' to mine dependency information.
  * https://docs.oracle.com/en/java/javase/11/tools/jdeps.html
  *
@@ -35,11 +35,11 @@ public class Main implements Callable<Integer> {
     @Option(names = {"-cp", "--classpath"}, required = true, description = "The classpath for the dependencies of the JAR(s) being analyzed (e.g., 'libs/*').")
     private String classPath;
     
-    @Option(names = {"-o", "--output-file"}, description = "The path to the output CSV file.", defaultValue = "c:/tmp/out2.csv")
+    @Option(names = {"-o", "--output-file"}, required = true, description = "The path to the output CSV file.")
     private File outputFile;
 
     @Parameters(description = "One or more JAR files to study for dependencies.", arity = "1..*")
-    private List<File> jars;
+    private String[] jars;
 
     public static void main(String[] args) {
         int exitCode = new CommandLine(new Main()).execute(args);
@@ -48,10 +48,8 @@ public class Main implements Callable<Integer> {
 
     @Override
     public Integer call() throws IOException {
-        String[] jarsArg = jars.stream().map(File::getPath).toArray(String[]::new);
-
         DependencyHunter h = new DependencyHunter(refJar.getPath());
-        h.addReferences(classPath, resultsColumn, jarsArg, filter);
+        h.addReferences(classPath, resultsColumn, jars, filter);
         h.saveAsCsv(outputFile.getPath());
 
         System.out.println("Dependency analysis complete. Output saved to " + outputFile.getPath());
