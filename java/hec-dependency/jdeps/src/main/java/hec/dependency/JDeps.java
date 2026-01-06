@@ -16,18 +16,18 @@ public class JDeps {
     /**
      * Represents a dependency between two packages.
      *
-     * @param dependentPackage  The package that has a dependency.
-     * @param dependencyPackage The package that is being depended on.
+     * @param dependentItem  The package/class that has a dependency.
+     * @param dependencyItem The package/class that is being depended on.
      * @param location          The location of the dependency, such as a JAR file or module name.
      */
     public record PackageDependency(
-            String dependentPackage,
-            String dependencyPackage,
+            String dependentItem,
+            String dependencyItem,
             String location
     ) {}
 
     private final String classPath;
-    private final String jarPath;
+    private final String[] jarPath;
 
     /**
      * Constructs a JDeps wrapper with the specified classpath and JAR file.
@@ -35,11 +35,11 @@ public class JDeps {
      * @param classPath The classpath to be used by jdeps.
      * @param jarPath   The path to the .jar file to be analyzed.
      */
-    public JDeps(String classPath, String jarPath) {
+    public JDeps(String classPath, String[] jarPath) {
         if (classPath == null || classPath.trim().isEmpty()) {
             throw new IllegalArgumentException("Class path cannot be null or empty.");
         }
-        if (jarPath == null || jarPath.trim().isEmpty()) {
+        if (jarPath == null || jarPath.length == 0) {
             throw new IllegalArgumentException("JAR path cannot be null or empty.");
         }
         this.classPath = classPath;
@@ -62,14 +62,24 @@ public class JDeps {
         command.add("-verbose:class");
         command.add("-cp");
         command.add(classPath);
-        command.add(jarPath);
+        command.addAll(List.of(jarPath));
 
         List<PackageDependency> dependencies = new ArrayList<>();
 
         List<String> lines = SystemUtility.runCommand(command);
          for (String line: lines){
 
-                if (line.startsWith("Warning:") || line.startsWith(jarPath)) {
+             /* example output.
+Warning: split package: org.xml.sax.ext jrt:/java.xml .\xml-apis-1.4.01.jar
+Warning: split package: org.xml.sax.helpers jrt:/java.xml .\xml-apis-1.4.01.jar
+dssgui-4.0.9.jar -> .\context-specific-help-1.1.0.jar
+dssgui-4.0.9.jar -> .\flogger-0.7.4.jar
+...
+   hec.dssgui.AbstractGridInfoTab                     -> hec.heclib.grid.GridData                           hec-monolith-7.0.4.jar
+   hec.dssgui.AbstractGridInfoTab                     -> java.awt.LayoutManager                             java.desktop
+   hec.dssgui.AbstractGridInfoTab                     -> java.awt.event.MouseEvent                          java.desktop
+              */
+                if (line.startsWith("Warning:") || !line.startsWith(" ")) {
                     continue;
                 }
                 String[] parts = line.trim().split("->");

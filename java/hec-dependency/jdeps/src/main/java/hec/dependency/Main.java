@@ -1,11 +1,14 @@
 package hec.dependency;
 
-import hec.dependency.JDeps.PackageDependency;
+import picocli.CommandLine;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.concurrent.Callable;
 
 /**
  * A program to analyze dependencies in different HEC products.
@@ -16,32 +19,42 @@ import java.util.stream.Collectors;
  *  1. Generate a table of dependencies on specific packages (e.g., from a monolith)
  *     for a given application JAR.
  */
-public class Main {
+@Command(name = "dependency-hunter", mixinStandardHelpOptions = true,
+        description = "Analyzes JAR dependencies using jdeps.")
+public class Main implements Callable<Integer> {
 
-    public static void main(String[] args) throws IOException {
-        if (args.length < 3) {
-            System.out.println("Usage: reference.jar <classpath> file1.jar <filter> ");
-            System.out.println("\nWhere:");
-            System.out.println("  <classpath>  - the classpath for the dependencies of the JAR being analyzed (e.g., 'libs/*').");
-            System.out.println("  file1.jar  - jar to study for dependencies.");
-            System.out.println("  filter - optional filter to limit dependencies ");
-            System.out.println("example: ");
-            System.out.println(" hec-monolith-7.0.4.jar .\\*;.\\ext\\* dssgui-4.0.9.jar   hec-monolith");
-            System.out.println("");
-            System.out.println(" in the example above hec-monolith-7.0.4.csv will be created/used for the results");
+    @Option(names = {"-c", "--column"}, required = true, description = "The column to add to the output file.")
+    private String resultsColumn;
 
-            return;
-        }
+    @Option(names = {"-r", "--reference-jar"}, required = true, description = "The reference JAR used to generate a list of class names.")
+    private File refJar;
 
-        String refJar = args[0];
-        String classPath = args[1];
-        String jarToAnalyze = args[2];
-        String filter = args.length>3 ? args[3] : "";
+    @Option(names = {"-f", "--filter"}, required = true, description = "Filter to limit output (typically the name of the reference jar).")
+    private String filter;
 
-        DependencyHunter h = new DependencyHunter(refJar);
-        h.addReferences(classPath, jarToAnalyze, filter);
-        h.saveAsCsv("c:\\tmp\\out.csv");
+    @Option(names = {"-cp", "--classpath"}, required = true, description = "The classpath for the dependencies of the JAR(s) being analyzed (e.g., 'libs/*').")
+    private String classPath;
+    
+    @Option(names = {"-o", "--output-file"}, description = "The path to the output CSV file.", defaultValue = "c:/tmp/out2.csv")
+    private File outputFile;
 
+    @Parameters(description = "One or more JAR files to study for dependencies.", arity = "1..*")
+    private List<File> jars;
+
+    public static void main(String[] args) {
+        int exitCode = new CommandLine(new Main()).execute(args);
+        System.exit(exitCode);
+    }
+
+    @Override
+    public Integer call() throws IOException {
+        String[] jarsArg = jars.stream().map(File::getPath).toArray(String[]::new);
+
+        DependencyHunter h = new DependencyHunter(refJar.getPath());
+        h.addReferences(classPath, resultsColumn, jarsArg, filter);
+        h.saveAsCsv(outputFile.getPath());
+
+        System.out.println("Dependency analysis complete. Output saved to " + outputFile.getPath());
+        return 0;
     }
 }
-
