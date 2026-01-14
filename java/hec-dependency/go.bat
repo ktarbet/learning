@@ -1,9 +1,25 @@
 @echo off
 setlocal enabledelayedexpansion
-del c:\tmp\monolith-study.csv
+
+set REPORT_CSV=c:\tmp\monolith-study.csv
+del %REPORT_CSV%
 
 :: DssVue
-call gradlew.bat run --args="--column dssvue --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\HEC-DSSVue-4.0.9\jar\hec-monolith-7.0.4.jar --filter hec-monolith --classpath C:\bin\HEC-DSSVue-4.0.9\jar\*;C:\bin\HEC-DSSVue-4.0.9\jar\ext\* C:\bin\HEC-DSSVue-4.0.9\jar\dssgui-4.0.9.jar C:\bin\HEC-DSSVue-4.0.9\jar\ext\*.jar"
+call gradlew.bat run --args="--column dssvue --output-file=%REPORT_CSV% --reference-jar C:\bin\HEC-DSSVue-4.0.9\jar\hec-monolith-7.0.4.jar --filter hec-monolith --classpath C:\bin\HEC-DSSVue-4.0.9\jar\*;C:\bin\HEC-DSSVue-4.0.9\jar\ext\* C:\bin\HEC-DSSVue-4.0.9\jar\dssgui-4.0.9.jar C:\bin\HEC-DSSVue-4.0.9\jar\ext\*.jar"
+
+
+:: RTS
+
+set CWMS_SHARED="C:\bin\CWMS-3.5.0\shared\jar"
+set CWMS="C:\bin\CWMS-3.5.0\"
+
+call gradlew.bat run --args="--column rts-app --output-file=%REPORT_CSV% --reference-jar %CWMS_SHARED%\hec-monolith-6.0.0-rc03.jar --filter hec-monolith --classpath %CWMS_SHARED%\*;%CWMS_SHARED%\ext\*;%CWMS_SHARED%\sys\*;%CWMS%\CAVI\jar\ext\*;%CWMS%\HEC-HMS\lib\hms-command-1.1.jar %CWMS_SHARED%\RTS-Application-3.5.0.jar %CWMS_SHARED%\*.jar"
+
+
+::  FIA
+
+set FIA_JAR=C:\bin\HEC-FIA-3.4.1\jar
+call gradlew.bat run --args="--column fia --output-file=%REPORT_CSV% --reference-jar %FIA_JAR%\hec-monolith-4.0.1.jar --filter hec-monolith --classpath %FIA_JAR%\*;%FIA_JAR%\system\*  %FIA_JAR%\fia-nf-3.4.1.jar"
 
 
 
@@ -15,25 +31,25 @@ call :create_classpath %RESSIM_JAR% "cwms*.jar" CWMS
 call :create_classpath %RESSIM_JAR% "ResSim*.jar" RSS
 set CP=!HEC!;!DSS!;!CWMS!;!RSS!
 
-echo !CP!
-call gradlew.bat run --args="--column ressim --output-file=c:\tmp\monolith-study.csv --reference-jar %RESSIM_JAR%\hec-monolith-6.2.0.jar --filter hec-monolith --classpath %CP%  %RESSIM_JAR%\ResSimApp-4.0.1.jar"
+
+call gradlew.bat run --args="--column ressim --output-file=%REPORT_CSV% --reference-jar %RESSIM_JAR%\hec-monolith-6.2.0.jar --filter hec-monolith --classpath %CP%  %RESSIM_JAR%\ResSimApp-4.0.1.jar"
 
 
 
 
 
 :: OpenDCS
-call gradlew.bat run --args="--column opendcs --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\opendcs-7.0.16-RC15\dep\hec-monolith-2.0.2.jar --filter hec-monolith --classpath C:\bin\opendcs-7.0.16-RC15\bin\opendcs.jar;C:\bin\opendcs-7.0.16-RC15\dep\* C:\bin\opendcs-7.0.16-RC15\bin\*.jar" 
+call gradlew.bat run --args="--column opendcs --output-file=%REPORT_CSV% --reference-jar C:\bin\opendcs-7.0.16-RC15\dep\hec-monolith-2.0.2.jar --filter hec-monolith --classpath C:\bin\opendcs-7.0.16-RC15\bin\opendcs.jar;C:\bin\opendcs-7.0.16-RC15\dep\* C:\bin\opendcs-7.0.16-RC15\bin\*.jar" 
 
 :: HMS
-call gradlew.bat run --args="--column hms --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\HEC-HMS-4.13\lib\hec-monolith-3.3.28.jar --filter hec-monolith --classpath C:\bin\HEC-HMS-4.13\lib\*;C:\bin\HEC-HMS-4.13\hms.jar C:\bin\HEC-HMS-4.13\hms.jar"
+call gradlew.bat run --args="--column hms --output-file=%REPORT_CSV% --reference-jar C:\bin\HEC-HMS-4.13\lib\hec-monolith-3.3.28.jar --filter hec-monolith --classpath C:\bin\HEC-HMS-4.13\lib\*;C:\bin\HEC-HMS-4.13\hms.jar C:\bin\HEC-HMS-4.13\hms.jar"
 
 
 :: SSP
 call :create_classpath "c:\bin\HEC-SSP-2.3.1-beta.1\lib" "hec-*.jar" CP
 set CP=C:\bin\HEC-SSP-2.3.1-beta.1\lib\ssp.jar;!CP!
 
-call gradlew.bat run --args="--column ssp --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\HEC-SSP-2.3.1-beta.1\lib\hec-monolith-3.3.23.jar --filter hec-monolith --classpath %CP% C:\bin\HEC-SSP-2.3.1-beta.1\lib\ssp.jar"
+call gradlew.bat run --args="--column ssp --output-file=%REPORT_CSV% --reference-jar C:\bin\HEC-SSP-2.3.1-beta.1\lib\hec-monolith-3.3.23.jar --filter hec-monolith --classpath %CP% C:\bin\HEC-SSP-2.3.1-beta.1\lib\ssp.jar"
 
 
 
