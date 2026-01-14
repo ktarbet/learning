@@ -80,6 +80,7 @@ dssgui-4.0.9.jar -> .\flogger-0.7.4.jar
    hec.dssgui.AbstractGridInfoTab                     -> java.awt.event.MouseEvent                          java.desktop
               */
                 if (line.startsWith("Warning:") || !line.startsWith(" ")) {
+                    System.err.println("Skipping line: " + line);
                     continue;
                 }
                 String[] parts = line.trim().split("->");

@@ -2,11 +2,21 @@
 setlocal enabledelayedexpansion
 
 set REPORT_CSV=c:\tmp\monolith-study.csv
-del %REPORT_CSV%
+if exist %REPORT_CSV% del %REPORT_CSV%
 
 :: DssVue
-call gradlew.bat run --args="--column dssvue --output-file=%REPORT_CSV% --reference-jar C:\bin\HEC-DSSVue-4.0.9\jar\hec-monolith-7.0.4.jar --filter hec-monolith --classpath C:\bin\HEC-DSSVue-4.0.9\jar\*;C:\bin\HEC-DSSVue-4.0.9\jar\ext\* C:\bin\HEC-DSSVue-4.0.9\jar\dssgui-4.0.9.jar C:\bin\HEC-DSSVue-4.0.9\jar\ext\*.jar"
+::call gradlew.bat run --args="--column dssvue --output-file=%REPORT_CSV% --reference-jar C:\bin\HEC-DSSVue-4.0.9\jar\hec-monolith-7.0.4.jar --filter hec-monolith --classpath C:\bin\HEC-DSSVue-4.0.9\jar\*;C:\bin\HEC-DSSVue-4.0.9\jar\ext\* C:\bin\HEC-DSSVue-4.0.9\jar\dssgui-4.0.9.jar C:\bin\HEC-DSSVue-4.0.9\jar\ext\*.jar"
 
+:: MetVue
+
+set MV_MODULES=C:\bin\HEC-MetVue-3.4.1\metvue\modules
+set MV_JAR=%MV_MODULES%\ext\mil.army.usace.hec.metvue.MetVueJars
+set MV_GUI=%MV_MODULES%\mil-army-usace-hec-metvue-MetVueGui.jar
+
+set CP="%MV_JAR%\mil-army-usace-hec\*;%MV_JAR%\mil-army-usace-hec-map\hec-osmmap.jar;%MV_JAR%\mil-army-usace-hec-nf-framework\nf-framework-core.jar;%MV_JAR%\com-rma-paint\*;%MV_GUI%;%MV_MODULES%\*"
+
+echo MetVue Classpath: %CP%
+call gradlew.bat run --args="--column metvue --output-file=%REPORT_CSV% --reference-jar %MV_JAR%\mil-army-usace-hec\hec-monolith.jar --filter hec-monolith --classpath %CP%  %MV_GUI% %MV_MODULES%\*"
 
 :: RTS
 
@@ -33,9 +43,6 @@ set CP=!HEC!;!DSS!;!CWMS!;!RSS!
 
 
 call gradlew.bat run --args="--column ressim --output-file=%REPORT_CSV% --reference-jar %RESSIM_JAR%\hec-monolith-6.2.0.jar --filter hec-monolith --classpath %CP%  %RESSIM_JAR%\ResSimApp-4.0.1.jar"
-
-
-
 
 
 :: OpenDCS
