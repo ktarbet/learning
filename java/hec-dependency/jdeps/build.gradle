@@ -24,6 +24,26 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }   
+}
+
+tasks.register("VerifyLineCount", CountLines){
+    group 'verification'
+    description = 'counts lines of the csv output'
+    maxLines = 50000L
+    fileToCount = layout.projectDirectory.file("c:/tmp/monolith-study.csv")
+
+}
+
+run {
+    doFirst {
+        println "Running with args: ${args}"
+    }
+}
+
 test {
     useJUnitPlatform()
 }

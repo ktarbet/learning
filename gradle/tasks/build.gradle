@@ -1,0 +1,41 @@
+defaultTasks 'goodbye' 
+
+task hello {
+
+    description = 'Prints Hello, World!'
+    group = 'Custom Tasks'
+
+    doLast {
+        logger.info "logging: doLast1"
+        print "doLast1\n"
+    }
+    doLast {
+        logger.info "logging: doLast2"
+        print "doLast2\n"
+    }
+}
+
+hello.doLast{
+    logger.info "logging: doLast3"
+    print "doLast3\n"
+}
+logger.info "logging: build script evaluated"
+
+
+task coreWork (dependsOn: [hello]) {
+    description = 'Core work task'
+    group = 'Custom Tasks'
+    doLast {
+        print 'Core work done.\n'
+    }
+}   
+
+
+task goodbye (dependsOn: [coreWork,hello]) {
+    description = 'Prints Goodbye, World!'
+    group = 'Custom Tasks'
+
+    doLast {
+        print 'Goodbye, World!\n'
+    }
+}

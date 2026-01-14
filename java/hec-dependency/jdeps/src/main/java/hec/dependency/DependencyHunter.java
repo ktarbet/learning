@@ -50,14 +50,16 @@ public class DependencyHunter {
     }
 
     public void saveAsCsv() {
-        List<String> columnNames = dataTable.columnNames();
-        int jarsIndex = columnNames.indexOf(JARS);
-        if (jarsIndex >= 0 && jarsIndex < columnNames.size() - 1) {
-            List<String> sortColumns = columnNames.subList(jarsIndex + 1, columnNames.size());
-            dataTable.sortOn(descendingWithMissingLast(sortColumns)).write().csv(resultsFileName);
-        } else {
-            dataTable.write().csv(resultsFileName);
-        }
+        dataTable.write().csv(resultsFileName);
+
+        // List<String> columnNames = dataTable.columnNames();
+        // int jarsIndex = columnNames.indexOf(JARS);
+        // if (jarsIndex >= 0 && jarsIndex < columnNames.size() - 1) {
+        //     List<String> sortColumns = columnNames.subList(jarsIndex + 1, columnNames.size());
+        //     dataTable.sortOn(descendingWithMissingLast(sortColumns)).write().csv(resultsFileName);
+        // } else {
+        //     dataTable.write().csv(resultsFileName);
+        // }
     }
 
     /**
@@ -107,7 +109,7 @@ public class DependencyHunter {
                 Selection selection = dataTable.stringColumn(CLASSNAME).isEqualTo(dep.dependencyItem());
 
                 if (selection.isEmpty()) {
-                    System.err.printf("Error: can't find %s",dep.dependencyItem());
+                    System.err.printf("Error: can't find %s, adding to list%n",dep.dependencyItem());
                     Row r =dataTable.appendRow();
                     r.setString(CLASSNAME,dep.dependencyItem());
                     r.setString(JARS, dep.location());
