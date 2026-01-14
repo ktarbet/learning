@@ -1,8 +1,26 @@
+@echo off
 setlocal enabledelayedexpansion
 del c:\tmp\monolith-study.csv
 
 :: DssVue
 call gradlew.bat run --args="--column dssvue --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\HEC-DSSVue-4.0.9\jar\hec-monolith-7.0.4.jar --filter hec-monolith --classpath C:\bin\HEC-DSSVue-4.0.9\jar\*;C:\bin\HEC-DSSVue-4.0.9\jar\ext\* C:\bin\HEC-DSSVue-4.0.9\jar\dssgui-4.0.9.jar C:\bin\HEC-DSSVue-4.0.9\jar\ext\*.jar"
+
+
+
+:: ResSim
+set RESSIM_JAR="C:\bin\HEC-ResSim-4.0\jar"
+call :create_classpath %RESSIM_JAR% "hec-*.jar" HEC
+call :create_classpath %RESSIM_JAR% "dss*.jar" DSS
+call :create_classpath %RESSIM_JAR% "cwms*.jar" CWMS
+call :create_classpath %RESSIM_JAR% "ResSim*.jar" RSS
+set CP=!HEC!;!DSS!;!CWMS!;!RSS!
+
+echo !CP!
+call gradlew.bat run --args="--column ressim --output-file=c:\tmp\monolith-study.csv --reference-jar %RESSIM_JAR%\hec-monolith-6.2.0.jar --filter hec-monolith --classpath %CP%  %RESSIM_JAR%\ResSimApp-4.0.1.jar"
+
+
+
+
 
 :: OpenDCS
 call gradlew.bat run --args="--column opendcs --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\opendcs-7.0.16-RC15\dep\hec-monolith-2.0.2.jar --filter hec-monolith --classpath C:\bin\opendcs-7.0.16-RC15\bin\opendcs.jar;C:\bin\opendcs-7.0.16-RC15\dep\* C:\bin\opendcs-7.0.16-RC15\bin\*.jar" 
@@ -14,19 +32,10 @@ call gradlew.bat run --args="--column hms --output-file=c:\tmp\monolith-study.cs
 :: SSP
 call :create_classpath "c:\bin\HEC-SSP-2.3.1-beta.1\lib" "hec-*.jar" CP
 set CP=C:\bin\HEC-SSP-2.3.1-beta.1\lib\ssp.jar;!CP!
-echo !CP!
 
 call gradlew.bat run --args="--column ssp --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\HEC-SSP-2.3.1-beta.1\lib\hec-monolith-3.3.23.jar --filter hec-monolith --classpath %CP% C:\bin\HEC-SSP-2.3.1-beta.1\lib\ssp.jar"
 
 
-:: ResSim
-call :create_classpath "C:\bin\HEC-ResSim-4.0\jar" "hec-*.jar" CP
-
-:: "C:\bin\HEC-ResSim-4.0\jar\ResSimApp-4.0.1.jar"
-::call gradlew.bat run --args="--column ressim --output-file=c:\tmp\monolith-study.csv --reference-jar C:\bin\HEC-ResSim-4.0\jar\hec-monolith-4.0.1.jar --filter hec-monolith --classpath C:\bin\HEC-ResSim-4.0\jar\* C:\bin\HEC-ResSim-4.0\jar\ResSimApp-4.0.1.jar"
-
-
-:: RTS
 
 
 goto :eof
