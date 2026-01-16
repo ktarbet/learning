@@ -31,7 +31,7 @@ java {
 }
 
 tasks.register("VerifyLineCount", CountLines){
-    group 'verification'
+    group ='verification'
     description = 'counts lines of the csv output'
     maxLines = 50000L
     fileToCount = layout.projectDirectory.file("c:/tmp/monolith-study.csv")
