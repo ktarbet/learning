@@ -1,4 +1,0 @@
-rootProject.name = 'hec-dependency'
-
-include 'jdeps', 'lib'
-
