@@ -1,0 +1,128 @@
+x,y,id,country_code,state_fips_code,state_name,state_postal_code
+,,AF-00,AF,0,Unspecified,
+,,AM-00,AM,0,Unspecified,
+,,AR-00,AR,0,Unspecified,
+,,AY-00,AY,0,Unspecified,
+,,BG-00,BG,0,Unspecified,
+,,BO-00,BO,0,Unspecified,
+,,BR-00,BR,0,Unspecified,
+,,BZ-00,BZ,0,Unspecified,
+,,CA-00,CA,0,Unspecified,
+,,CA-90,CA,90,New Brunswick,
+,,CA-91,CA,91,Quebec,
+,,CA-92,CA,92,Ontario,
+,,CA-93,CA,93,Manitoba,
+,,CA-94,CA,94,Saskatchewan,
+,,CA-95,CA,95,Alberta,
+,,CA-96,CA,96,British Columbia,
+,,CA-97,CA,97,Yukon Territories,
+,,CA-98,CA,98,Nova Scotia,
+,,CI-00,CI,0,Unspecified,
+,,CN-00,CN,0,Unspecified,
+,,CO-00,CO,0,Unspecified,
+,,CR-00,CR,0,Unspecified,
+,,CV-00,CV,0,Unspecified,
+,,DM-00,DM,0,Unspecified,
+,,DR-00,DR,0,Unspecified,
+,,EC-00,EC,0,Unspecified,
+,,ES-00,ES,0,Unspecified,
+,,ET-00,ET,0,Unspecified,
+,,FM-00,FM,0,Unspecified,
+,,FM-64,FM,64,Federated States Of Micronesia,
+,,GF-00,GF,0,Unspecified,
+,,GT-00,GT,0,Unspecified,
+,,GY-00,GY,0,Unspecified,
+,,HA-00,HA,0,Unspecified,
+,,HO-00,HO,0,Unspecified,
+,,IZ-00,IZ,0,Unspecified,
+,,JA-00,JA,0,Unspecified,
+,,LC-00,LC,0,Unspecified,
+,,MN-00,MN,0,Unspecified,
+,,MX-00,MX,0,Unspecified,
+,,MX-81,MX,81,Tamulipas,
+,,MX-82,MX,82,Nuevo Leon,
+,,MX-83,MX,83,Coahuila,
+,,MX-84,MX,84,Chihuahua,
+,,MX-85,MX,85,Sonora,
+,,MX-86,MX,86,Baja California Norte,
+,,MX-87,MX,87,Baja California Sur,
+,,NU-00,NU,0,Unspecified,
+,,PE-00,PE,0,Unspecified,
+,,PM-00,PM,0,Unspecified,
+,,PM-61,PM,61,Panama,
+,,PS-00,PS,0,Unspecified,
+,,PS-70,PS,70,Palau,
+,,PY-00,PY,0,Unspecified,
+,,RM-00,RM,0,Unspecified,
+,,RM-68,RM,68,Marshall Islands,
+,,RP-00,RP,0,Unspecified,
+,,SR-00,SR,0,Unspecified,
+,,UP-00,UP,0,Unspecified,
+,,US-00,US,0,Unspecified,
+,,US-01,US,1,Alabama,AL
+,,US-02,US,2,Alaska,AK
+,,US-04,US,4,Arizona,AZ
+,,US-05,US,5,Arkansas,AR
+,,US-06,US,6,California,CA
+,,US-08,US,8,Colorado,CO
+,,US-09,US,9,Connecticut,CT
+,,US-10,US,10,Delaware,DE
+,,US-11,US,11,District of Columbia,DC
+,,US-12,US,12,Florida,FL
+,,US-13,US,13,Georgia,GA
+,,US-15,US,15,Hawaii,HI
+,,US-16,US,16,Idaho,ID
+,,US-17,US,17,Illinois,IL
+,,US-18,US,18,Indiana,IN
+,,US-19,US,19,Iowa,IA
+,,US-20,US,20,Kansas,KS
+,,US-21,US,21,Kentucky,KY
+,,US-22,US,22,Louisiana,LA
+,,US-23,US,23,Maine,ME
+,,US-24,US,24,Maryland,MD
+,,US-25,US,25,Massachusetts,MA
+,,US-26,US,26,Michigan,MI
+,,US-27,US,27,Minnesota,MN
+,,US-28,US,28,Mississippi,MS
+,,US-29,US,29,Missouri,MO
+,,US-30,US,30,Montana,MT
+,,US-31,US,31,Nebraska,NE
+,,US-32,US,32,Nevada,NV
+,,US-33,US,33,New Hampshire,NH
+,,US-34,US,34,New Jersey,NJ
+,,US-35,US,35,New Mexico,NM
+,,US-36,US,36,New York,NY
+,,US-37,US,37,North Carolina,NC
+,,US-38,US,38,North Dakota,ND
+,,US-39,US,39,Ohio,OH
+,,US-40,US,40,Oklahoma,OK
+,,US-41,US,41,Oregon,OR
+,,US-42,US,42,Pennsylvania,PA
+,,US-44,US,44,Rhode Island,RI
+,,US-45,US,45,South Carolina,SC
+,,US-46,US,46,South Dakota,SD
+,,US-47,US,47,Tennessee,TN
+,,US-48,US,48,Texas,TX
+,,US-49,US,49,Utah,UT
+,,US-50,US,50,Vermont,VT
+,,US-51,US,51,Virginia,VA
+,,US-53,US,53,Washington,WA
+,,US-54,US,54,West Virginia,WV
+,,US-55,US,55,Wisconsin,WI
+,,US-56,US,56,Wyoming,WY
+,,US-60,US,60,American Samoa,AS
+,,US-65,US,65,Palmyra Atoll,UM
+,,US-66,US,66,Guam,GU
+,,US-67,US,67,Johnston Atoll,JQ
+,,US-69,US,69,Northern Mariana Islands,MP
+,,US-71,US,71,Midway Islands,MQ
+,,US-72,US,72,Puerto Rico,PR
+,,US-73,US,73,"Ryukyu Islands, Southern",YQ
+,,US-74,US,74,Swan Islands,SQ
+,,US-76,US,76,Navassa Island,NI
+,,US-77,US,77,U.S. Misc Pacific Islands,IQ
+,,US-78,US,78,Virgin Islands,VI
+,,US-79,US,79,Wake Island,WQ
+,,UY-00,UY,0,Unspecified,
+,,VC-00,VC,0,Unspecified,
+,,VE-00,VE,0,Unspecified,
