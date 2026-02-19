@@ -13,12 +13,7 @@ class CsvFileTest {
 
     @BeforeAll
     static void loadCsv() throws Exception {
-        // find the project root by walking up from the test class location
-        Path root = Path.of(System.getProperty("user.dir"));
-        Path csvPath = root.resolve("../monitoring-locations.csv").normalize();
-        if (!csvPath.toFile().exists()) {
-            csvPath = root.resolve("monitoring-locations.csv");
-        }
+        Path csvPath = Path.of(CsvFileTest.class.getResource("/monitoring-locations.csv").toURI());
         csv = new CsvFile(csvPath);
     }
 
