@@ -1,4 +1,15 @@
 
+### claude 
+```
+https://code.claude.com/docs/en/keybindings#keystroke-syntax
+
+Ctrl-O # see details
+claude --dangerously-skip-permissions     #... careful
+
+```
+
+
+
 
 https://artificialanalysis.ai/
 
