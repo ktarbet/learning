@@ -6,7 +6,7 @@ https://code.claude.com/docs/en/keybindings#keystroke-syntax
 Ctrl-O # see details
 
 /plugin install ralph-loop@claude-plugins-official
-
+/ralph-loop:ralph-loop  "Improve the project, add these features:....,  have unit and integration tests...  "  --max-iterations 10
 
 claude --dangerously-skip-permissions     #... careful
 
