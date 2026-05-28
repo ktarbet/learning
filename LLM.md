@@ -4,6 +4,10 @@
 https://code.claude.com/docs/en/keybindings#keystroke-syntax
 
 Ctrl-O # see details
+
+/plugin install ralph-loop@claude-plugins-official
+
+
 claude --dangerously-skip-permissions     #... careful
 
 ```
