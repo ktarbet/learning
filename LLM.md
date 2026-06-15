@@ -1,9 +1,12 @@
 
 
-### Skils
+### Skils / Plugins
 
 https://github.com/anthropics/skills
+
 https://www.skills.sh/
+
+https://github.com/anthropics/claude-plugins-official
 
 
 
