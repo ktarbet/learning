@@ -9,6 +9,7 @@ https://www.skills.sh/
 https://github.com/anthropics/claude-plugins-official
 
 
+-- feature-dev  plugin from claude
 
 ### claude 
 ```
