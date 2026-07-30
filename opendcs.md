@@ -1,3 +1,16 @@
+
+## Tools
+
+
+```bash
+./gradlew dependencyUpdates      #  get dependency report
+
+./gradlew clean :testing:opendcs-tests:runApi -Popendcs.runApi.seedData=../opendcs.support/seed -Pno.docs=true
+
+```
+
+
+
 #  OpenDCS  with CWMS-Oracle
 
 
