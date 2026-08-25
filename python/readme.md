@@ -1,4 +1,7 @@
 
+https://thinkinginpython.com/
+
+
 setup
 conda create --name karl python=3.11.4
 
