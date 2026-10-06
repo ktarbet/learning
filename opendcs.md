@@ -7,6 +7,7 @@
 
 ./gradlew clean :testing:opendcs-tests:runApi -Popendcs.runApi.seedData=../opendcs.support/seed -Pno.docs=true
 
+./gradlew :testing:opendcs-tests:runApi   -Popendcs.runApi.seedData="/home/karl/opendcs.support/seed"   -Pno.docs=true   --info --stacktrace --console=plain 2>&1 | tee /tmp/runApi-seed.log
 ```
 
 
